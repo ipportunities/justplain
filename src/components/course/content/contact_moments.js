@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { ChangeFormatDateTime, ChangeFormatDate, getTimeStamp, isToday } from "../../helpers/changeFormatDate.js";
 import t from "../../translate";
+import { setActivePart } from "../../../actions/";
+import { useDispatch } from "react-redux";
 
 const ContactMoments = (props) => {
+
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const [contactMoments, setContactMoments] = useState([])
 
@@ -52,14 +58,22 @@ const ContactMoments = (props) => {
     */
   }
 
+  const goToLiveChat = () =>{
+    dispatch(setActivePart("live-chat"));
+    //dispatch(setShowLeftMenu(false));
+    history.push("/course/"+intervention.id+"/live-chat");
+  }
+
   return(
     <>
       {contactMoments.length > 0 ?
         <div className="contact_moments">
-          <h2>{t("Contact momenten")}</h2>
+          <div className="intro">
+            <h2>{t("Contact momenten")}</h2>
+          </div>
           <div className="items">
             {contactMoments.map((contact_moment, index) =>
-              <div className={"item" + (getTimeStamp(contact_moment.date_time) < Date.now() / 1000 ? " in_the_past":'') + (isToday(contact_moment.date_time) ? ' active':'')} key={index}>
+              <div className={"item " + contact_moment.type + (getTimeStamp(contact_moment.date_time) < Date.now() / 1000 ? " in_the_past":'') + (isToday(contact_moment.date_time) ? ' active':'')} key={index} onClick={(contact_moment.type == "chat" && isToday(contact_moment.date_time) ? ()=>goToLiveChat():false)}>
                 <table>
                 <tbody>
                   <tr>

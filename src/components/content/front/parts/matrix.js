@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import t from "../../../translate";
 import parse from 'html-react-parser';
-import {getQuestion} from "./helpers/functions.js";
 
 const Matrix = props => {
 
@@ -11,7 +10,6 @@ const Matrix = props => {
   const [columns, setColumns] = useState(3);
   const [tableContent, setTableContent] = useState([]);
   const [chosenAnswers, setChosenAnswers] = useState([]); /// deze zijn gekozen radio checkbox
-  const [showFirstColumn, setShowFirstColumn] = useState(true); /// deze zijn gekozen radio checkbox
 
   useEffect(() => {
     if (typeof props.part.columns != "undefined" && props.part.columns != "") {
@@ -24,7 +22,6 @@ const Matrix = props => {
     if (typeof props.part.tableContent != "undefined" && props.part.tableContent != "") {
       setTableContent(props.part.tableContent);
     }
-
     let chosenAnswersUpdated = [];
 
     for (let row_i = 1; row_i < props.part.rows; row_i++) {
@@ -51,11 +48,7 @@ const Matrix = props => {
           answers[i] = chosenAnswersRowAnswers[i]
           //answers[i] = 0
         } else {
-          if(props.part.subtype == "text"){
-            answers[i] = "";
-          } else {
-            answers[i] = 0;
-          }
+          answers[i] = 0;
         }
       }
 
@@ -63,17 +56,6 @@ const Matrix = props => {
         id:props.part.tableContent[(row_i)][0].id,
         answers:answers
       }
-    }
-
-    if(props.part.subtype == "text"){
-      let tempShowFirstColumn = false;
-      for(let i = 1 ; i < props.part.tableContent.length ; i++ ){
-        if(props.part.tableContent[i][0].cell_content != ""){
-          tempShowFirstColumn = true;
-          break;
-        }
-      }
-      setShowFirstColumn(tempShowFirstColumn)
     }
 
     setChosenAnswers(chosenAnswersUpdated);
@@ -84,8 +66,7 @@ const Matrix = props => {
   ///Get TH
   function getTH() {
     const th = [];
-    let i_corrected = showFirstColumn ? 0:1
-    for (let i = i_corrected; i < columns; i++) {
+    for (let i = 0; i < columns; i++) {
       th.push(<th key={'th_'+i}><span>{getTHContent(i)}</span></th>);
     }
     return th;
@@ -108,8 +89,7 @@ const Matrix = props => {
   ///Get TD
   function getTD(row_i) {
     const td = [];
-    let i_corrected = showFirstColumn ? 0:1
-    for (let i = i_corrected; i < columns; i++) {
+    for (let i = 0; i < columns; i++) {
       td.push(<td key={'td_'+i}>{getTDContent(row_i, i)}</td>);
     }
     return td;
@@ -121,7 +101,6 @@ const Matrix = props => {
     let tdContent = typeof trContent[td_i] !== "undefined" ? trContent[td_i].cell_content : "";
 
     let checked = false;
-    let text = false;
 
     if(chosenAnswers.length > 0){
       let chosenAnswersRow = chosenAnswers.filter(function (answer) {
@@ -130,10 +109,6 @@ const Matrix = props => {
 
       let chosenAnswersRowAnswers = chosenAnswersRow[0].answers
       checked = chosenAnswersRowAnswers[td_i - 1] == 1 ? true:false;
-
-      if(props.part.subtype == "text"){
-        text = chosenAnswersRowAnswers[td_i - 1]
-      }
     }
     if(td_i == 0)
     {
@@ -149,19 +124,7 @@ const Matrix = props => {
           <tbody>
             <tr>
             <td>
-              {props.part.subtype == "text" ?
-                <>
-                  <input type={props.part.subtype} onChange={e=>updateText(td_i, trContent[0].id, e.target.value)} value={text}/>
-                </>
-                /*
-                <label><span className="phone">{getTHContent(td_i)}</span></label>
-                */
-              :
-                <>
-                  <input type={props.part.subtype} checked={checked ? 'checked':''} /><label onClick={e=>toggleAnswer(td_i, trContent[0].id)}><span className="phone">{getTHContent(td_i)}</span></label>
-                </>
-              }
-
+              <input type={props.part.subtype} checked={checked ? 'checked':''} /><label onClick={e=>toggleAnswer(td_i, trContent[0].id)}><span className="phone">{getTHContent(td_i)}</span></label>
             </td>
           </tr>
         </tbody>
@@ -204,6 +167,7 @@ const Matrix = props => {
     }
     chosenAnswersRowAnswers[td_i] = chosenAnswersRowAnswers[td_i] == 0 ? 1:0;
     chosenAnswersUpdated[chosenAnswersRowIndex].answers = chosenAnswersRowAnswers
+
     setChosenAnswers(chosenAnswersUpdated)
     saveAnswers(chosenAnswersUpdated)
   }
@@ -212,34 +176,17 @@ const Matrix = props => {
     props.updateAnswer(props.part.id, chosenAnswers)
   }
 
-  function updateText(td_i, id, value){
-    let tempChosenAnswers = [...chosenAnswers]
-    td_i = td_i - 1
-
-    let chosenAnswersRow = tempChosenAnswers.filter(function (answer) {
-      if(typeof answer !== "undefined")
-      return answer.id === id
-    });
-
-    let chosenAnswersRowIndex = tempChosenAnswers.indexOf(chosenAnswersRow[0])
-    let chosenAnswersRowAnswers = chosenAnswersRow[0].answers
-    chosenAnswersRowAnswers[td_i] = value;
-    tempChosenAnswers[chosenAnswersRowIndex].answers = chosenAnswersRowAnswers
-
-    saveAnswers(chosenAnswers)
-  }
-
   return (
-    <div className={"special_table matrix " + props.part.subtype + " " + (props.part.must ? ' must':'') + (props.disabled ? ' disabled':'')}>
+    <div className={"special_table matrix" + (props.part.must ? ' must':'') + (props.disabled ? ' disabled':'')}>
       <div className="center">
         {
         props.part.question != "" ?
           <div className="question">
-            {getQuestion(props.part)}
+            {parse(props.part.question)} {props.part.must?"*":""}
           </div>
         : <></>
         }
-        <table className={"columns_" + (showFirstColumn ? columns :columns - 1) + (props.part.question == "" ? ' no_question':'')}>
+        <table className={"columns_" + columns + (props.part.question == "" ? ' no_question':'')}>
           <thead>
             <tr>
               {getTH()}

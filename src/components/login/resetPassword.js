@@ -107,11 +107,11 @@ const ResetPassword = (props) => {
     {
     showForm ?
       <>
+        <div className="loginScreen reset_pw">
         <NavBar />
-
-        <div className="loginScreen">
           <div
             id="loginContainer"
+            className="mb-5 bg-white"
           >
             <form
               className={"reset"}
@@ -152,6 +152,7 @@ const ResetPassword = (props) => {
               </div>
               <br />
               <div className="alignRight">
+                <a className="forgotPassword btn" href="/">{t('Inloggen')}</a>
                 <button type="submit" className="btn btn-primary">
                   {t("Reset wachtwoord")}
                 </button>
@@ -165,28 +166,35 @@ const ResetPassword = (props) => {
       {
       resetFinished ?
       <div>
+        <div className="loginScreen is_reset">
         <NavBar />
-
-        <div className="loginScreen">
           <div
             id="loginContainer"
+            className="mb-5 bg-white"
           >
             <h3>{t("Reset wachtwoord")}</h3>
             <br />
             <p>
               {t("Je wachtwoord is opnieuw ingesteld. Klik ")}
               <a href="/">{t("hier")}</a> {t("om in te loggen.")}
+              <br/>
+              <br/>
+              <a href="/" className="btn btn-primary">
+                {t("Inloggen")}
+              </a>
             </p>
           </div>
         </div>
       </div>
       :
       <div>
-        <NavBar />
+
 
         <div className="loginScreen reset">
+        <NavBar />
           <div
             id="loginContainer"
+            className="mb-5 bg-white"
             >
             <h3>{t("Reset wachtwoord")}</h3>
             <br />

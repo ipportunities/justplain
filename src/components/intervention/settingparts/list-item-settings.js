@@ -17,6 +17,7 @@ const ListItemSettings = props => {
   const [chosenLogOff, setChosenLogOff] = useState('')
   const [skipFirstPage, setSkipFirstPage] = useState('')
   const [chosenPDF, setChosenPDF] = useState('')
+  const [directAccessSubLessons, setDirectAccessSubLessons] = useState('')
   const [feedbackQuestionnaireInLesson, setFeedbackQuestionnaireInLesson] = useState('')
   const [progressionQuestionnaireInLesson, setProgressionQuestionnaireInLesson] = useState('')
   const [checkAnswerQuestionnaireInLesson, setCheckAnswerQuestionnaireInLesson] = useState('')
@@ -60,6 +61,9 @@ const ListItemSettings = props => {
               }
               if(intervention.settings.selfhelp.optionalLessons[props.index].settings.printablePDF){
                 setChosenPDF(intervention.settings.selfhelp.optionalLessons[props.index].settings.printablePDF)
+              }
+              if(intervention.settings.selfhelp.optionalLessons[props.index].settings.directAccessSubLessons){
+                setDirectAccessSubLessons(intervention.settings.selfhelp.optionalLessons[props.index].settings.directAccessSubLessons)
               }
             }
           }
@@ -177,6 +181,15 @@ const ListItemSettings = props => {
     setChosenPDF(toSave)
     let interventionC = getClone(intervention);
     interventionC.settings.selfhelp.optionalLessons[props.index].settings.printablePDF = toSave
+    saveInterventionSettings(interventionC.settings.selfhelp.optionalLessons[props.index].settings, interventionC.settings)
+  }
+
+  function selectDirectAccessSubLessons(){
+    dispatch(setSavingStatus("not_saved"));
+    let toSave = directAccessSubLessons == true ? '':true
+    setDirectAccessSubLessons(toSave)
+    let interventionC = getClone(intervention);
+    interventionC.settings.selfhelp.optionalLessons[props.index].settings.directAccessSubLessons = toSave
     saveInterventionSettings(interventionC.settings.selfhelp.optionalLessons[props.index].settings, interventionC.settings)
   }
 
@@ -318,6 +331,7 @@ const ListItemSettings = props => {
         </div>
       :''}
       {props.type == "optional_lesson" ?
+        <>
         <div>
           <table>
             <tbody>
@@ -336,7 +350,26 @@ const ListItemSettings = props => {
               </tr>
             </tbody>
           </table>
+        </div><div>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <h5>
+                    {t("Sublessen zijn direct benaderbaar")}
+                  </h5>
+                </td>
+                <td>
+                  <label className="switch">
+                    <input type="checkbox" checked={directAccessSubLessons == true ? true:false} onClick={(e) => selectDirectAccessSubLessons()}/>
+                    <span className="slider_switch round" ></span>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        </>
       :''}
       {props.type == "questionnaire" ?
         <div>

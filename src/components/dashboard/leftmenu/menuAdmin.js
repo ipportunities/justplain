@@ -71,7 +71,7 @@ const MenuAdmin = props => {
                 }
               >
                 <i className="fas fa-users color_logo_blue"></i>
-                <div className="menu-left-link">{t("Coaches")}</div>
+                <div className="menu-left-link">{t(appSettings.begeleiderNameMeervoud)}</div>
               </div>
             :<></>}
             <div className='pointer' onClick={event =>handleClick(event, "/intervention/students/" + intervention.id)}>

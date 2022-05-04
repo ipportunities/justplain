@@ -60,7 +60,7 @@ const GoalFillOut = (props) => {
         if(goal_result_id > 0){
 
           if (Object.keys(resp.answers).length != 0) {
-            setAnswers({the_id:goal_id, answers:resp.answers});
+            setAnswers(resp.answers);
             let allAnswersToSet = []
             allAnswersToSet.push(resp.answers)
             setAllAnswers(allAnswersToSet);

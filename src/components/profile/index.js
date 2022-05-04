@@ -60,7 +60,7 @@ const Profile = (props) =>{
         setProfileImage(url+"/uploads/user/"+ auth.user_id + "/" + auth.profile_pic + "?"+new Date().getTime())
       }
     }
-  }, []);
+  }, [auth]);
 
   useEffect(() => {
 
@@ -300,7 +300,18 @@ const Profile = (props) =>{
     })
   }
 
-  function changePreference(preference){
+  function getPreference(preference){
+    let this_pref_obj = localPreferences.filter(function (pref) {
+      return pref.option === preference
+    });
+    if(this_pref_obj.length != 0)
+    {
+      let this_pref_obj_index = localPreferences.indexOf(this_pref_obj[0]);
+      //let newValue = newPreferences[this_pref_obj_index].value == 'false' ? 'true':'false';
+      return localPreferences[this_pref_obj_index].value
+    }
+  }
+  function changePreference(preference, newValue){
     let newPreferences = [...localPreferences]
     let this_pref_obj = newPreferences.filter(function (pref) {
       return pref.option === preference
@@ -309,10 +320,10 @@ const Profile = (props) =>{
     if(this_pref_obj.length != 0)
     {
       let this_pref_obj_index = newPreferences.indexOf(this_pref_obj[0]);
-      let newValue = newPreferences[this_pref_obj_index].value == 'false' ? 'true':'false';
+      //let newValue = newPreferences[this_pref_obj_index].value == 'false' ? 'true':'false';
       newPreferences[this_pref_obj_index].value = newValue
     } else {
-      newPreferences.push({option:preference, value:'true'})
+      newPreferences.push({option:preference, value:newValue})
     }
     setLocalPreferences(newPreferences)
     updateSetting({preferences: newPreferences})
@@ -400,6 +411,7 @@ const Profile = (props) =>{
             <br/>
           </div>
         </div>
+
         {
           /*
         <div className='field'>
@@ -421,6 +433,7 @@ const Profile = (props) =>{
           <div className='field'>
             {t('E-mail')} : <input type="text" onChange={(e) => updateSetting({email: e.target.value})} value={localAuth.email} placeholder={t("E-mail")} style={{backgroundColor: emailValid ? '' : 'red'}} />  <em style={{fontSize: '0.7em'}}> { emailValid ? '' : 'Vul een geldig email adres in' }</em>
           </div>
+
           {appSettings.profilePhone ?
             <div className='field'>
               {t('Telefoonnummer')} : <input type="text" onChange={(e) => updateSetting({phone: e.target.value})} value={localAuth.phone} placeholder={t("Telefoonnummer")} style={{backgroundColor: phoneValid ? '' : 'red'}} />  <em style={{fontSize: '0.7em'}}> { phoneValid ? '' : 'Vul een geldig telefoonnummer in' }</em>
@@ -435,6 +448,31 @@ const Profile = (props) =>{
               </select>
           </div>
           :<></>}
+
+          {appSettings.profileReminder ?
+            <>
+            <div className='field radio'>
+              <span>{t('Reminder')} :</span>
+              <input
+                type="radio"
+                checked={getPreference("remindersType") === 'email'}
+              /> <label htmlFor="remindersType_email" onClick={(e) => changePreference("remindersType", "email")}>Per E-mail</label>
+              <input
+                type="radio"
+                checked={getPreference("remindersType") === 'sms'}
+                /> <label htmlFor="remindersType_sms" onClick={(e) => changePreference("remindersType", "sms")}>Per SMS</label>
+            </div>
+            {
+                getPreference("remindersType") === 'sms' ?
+                <div className='field'>
+                  {t('Telefoonnummer')} : <input type="text" onChange={(e) => updateSetting({phone: e.target.value})} value={localAuth.phone} placeholder={t("Telefoonnummer")} style={{backgroundColor: phoneValid ? '' : 'red'}} />  <em style={{fontSize: '0.7em'}}> { phoneValid ? '' : 'Vul een geldig telefoonnummer in' }</em>
+                </div>
+                  :
+                  <></>
+              }
+            </>
+            :<></>}
+
         {appSettings.profileEducation ?
           <div className='field'>
             {t('Opleiding')} : <input type="text" onChange={(e) => updateSetting({education: e.target.value})} value={localAuth.education} placeholder={t("Opleiding")}/>

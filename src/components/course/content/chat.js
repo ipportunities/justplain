@@ -8,6 +8,7 @@ import apiCall from "../../api";
 import { transformDate } from "../../utils";
 import $ from "jquery";
 import standardAvatar from "../../../images/course/standard/avatar.png";
+import LoadScreen from '../../loadScreen/index.js';
 
 let scrollDown = false;
 
@@ -22,7 +23,7 @@ const Chat = () => {
   const intervention = useSelector(state => state.intervention);
   const url = useSelector(state => state.url);
 
-  const [coachName, setcoachName] = useState(t("Coach"));
+  const [coachName, setcoachName] = useState(false);
   const [coachBio, setcoachBio] = useState('');
   const [coachPic, setcoachPic] = useState('');
   const [bgCoach, setBgCoach] = useState('');
@@ -121,74 +122,83 @@ const Chat = () => {
 
   function goBack(e){
     e.stopPropagation()
-    history.goBack()
+    //history.goBack() ///werkt niet meer op mobiel?? 2022-3-28
+    history.go(-1) // dit misschien wel????
   }
 
    return (
-     <div className={"chat" + (showInfoCoach ? ' extraInfo':'')}>
-       <div className="illustration" style={{width: widthChatContent, backgroundImage:"url("+bgCoach+")"}}>
-       </div>
-       <div className="chatContent" id="chatContent">
-         <header
-           style={{width: widthChatContent}}
-           onClick={()=>setShowInfoCoach(true)}
-           >
-           <table className="pointer">
-             <tbody>
-               <tr>
-                 <td className="phone">
-                   <span onClick={(e) => goBack(e)}><i className="fas fa-chevron-left"></i></span>
-                 </td>
-                 <td>
-                   <div className='image' style={{backgroundImage:"url("+coachPic+")"}}></div>
-                 </td>
-                 <td>
-                   <div className="aboutCoach" >
-                     <i className="fas fa-times" onClick={(e)=>closeExtraInfo(e)}></i>
-                     <h2>{coachName}</h2>
-                     {coachBio}
-                   </div>
-                   <div className='coach'>
-                     {coachName}
-                   </div>
-                 </td>
-               </tr>
-             </tbody>
-           </table>
-         </header>
-
-         {(showInfoCoach ? <div className="overlay"></div>:'')}
-
-         <div className="messages" id="chatFrame">
-           {messages.map((message, index) => (
-             <div key={index} className={"message " + message.type}>
-               <div className="name">{(message.type === 'received') ? message.name : ''}</div>
-               <div className="content">{parse(message.content)}</div>
-               <div className="sendingTime">
-                {transformDate(message.sendingTime)}
-              </div>
-             </div>
-           ))}
+     <>
+      {coachName ?
+       <>
+       <div className={"chat" + (showInfoCoach ? ' extraInfo':'')}>
+         <div className="illustration" style={{width: widthChatContent, backgroundImage:"url("+bgCoach+")"}}>
          </div>
-         <div className="newMessageHolder">
-           <div className="newMessage">
-             <ContentEditable
-               //innerRef={props.focus !== false && typed == false ? focus:false}
-               html={newMessage}
-               placeholder={t("Je bericht")}
-               disabled={false}
-               onChange={e => updateNewMessage(e.target.value)}
-               className="input_no_bg"
-             />
+         <div className="chatContent" id="chatContent">
+           <header
+             style={{width: widthChatContent}}
+             onClick={()=>setShowInfoCoach(true)}
+             >
+             <table className="pointer">
+               <tbody>
+                 <tr>
+                   <td className="phone">
+                     <span onClick={(e) => goBack(e)}><i className="fas fa-chevron-left"></i></span>
+                   </td>
+                   <td>
+                     <div className='image' style={{backgroundImage:"url("+coachPic+")"}}></div>
+                   </td>
+                   <td>
+                     <div className="aboutCoach" >
+                       <i className="fas fa-times" onClick={(e)=>closeExtraInfo(e)}></i>
+                       <h2>{coachName}</h2>
+                       {coachBio}
+                     </div>
+                     <div className='coach'>
+                       {coachName}
+                     </div>
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+           </header>
 
+           {(showInfoCoach ? <div className="overlay"></div>:'')}
+
+           <div className="messages" id="chatFrame">
+             {messages.map((message, index) => (
+               <div key={index} className={"message " + message.type}>
+                 <div className="name">{(message.type === 'received') ? message.name : ''}</div>
+                 <div className="content">{parse(message.content)}</div>
+                 <div className="sendingTime">
+                  {transformDate(message.sendingTime)}
+                </div>
+               </div>
+             ))}
            </div>
-           <span className="btn btn-primary" onClick={e => sendNewMessage()}>
-             <i className="far fa-paper-plane"></i>
-           </span>
-         </div>
+           <div className="newMessageHolder">
+             <div className="newMessage">
+               <ContentEditable
+                 //innerRef={props.focus !== false && typed == false ? focus:false}
+                 html={newMessage}
+                 placeholder={t("Je bericht")}
+                 disabled={false}
+                 onChange={e => updateNewMessage(e.target.value)}
+                 className="input_no_bg"
+               />
 
+             </div>
+             <span className="btn btn-primary" onClick={e => sendNewMessage()}>
+               <i className="far fa-paper-plane"></i>
+             </span>
+           </div>
+
+         </div>
        </div>
-     </div>
+       </>
+       :
+       <LoadScreen/>
+     }
+    </>
   );
 };
 

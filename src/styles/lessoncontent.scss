@@ -304,15 +304,6 @@
     }
   }
   .matrix{
-    
-    &.text{
-      th:nth-child(1), td:nth-child(1){
-        width: auto !important;
-      }
-      input{
-        width: 100%;
-      }
-    }
     &.disabled{
       label{
         cursor: auto !important;
@@ -666,7 +657,7 @@
       font-weight: bold;
       font-size: 28px;
       background: none;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       display: inline-block;
       line-height: 1.2;
     }
@@ -747,9 +738,26 @@
             .btn{
               height: auto;
             }
-
+            .back.front{
+              
+            }
             .flip-card{
-
+              &.front{
+                .back{
+                  display: none;
+                }
+              }
+              &.back{
+                .front{
+                  display: none;
+                }
+                .back{
+                  display: block;
+                }
+              }
+            }
+            /*
+            .flip-card{
               border-radius: 10px;
               border:none;
               .btn{
@@ -834,7 +842,7 @@
               }
 
             }
-
+            */
             td{
               display: block;
               &:nth-child(1){

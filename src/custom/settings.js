@@ -1,23 +1,25 @@
 const appSettings =
   {
-    //domain_url:"https://zaz.ipdemo.nl", /// domain url
-    domain_url:"https://dev.zaz.ipdemo.nl", /// domain url
     default_language:"nl",
-    logo:require("./logo.svg"), /// andere home url dan die van de app
+
+    domain_url:"https://acc.cursus.kopopouders.nl", /// domain url
+    default_language:"nl",
+    logo:require("./images/logo.svg"),
+    logo_white:require("./images/logo_wit.svg"),
     logo_intervention:false, /// eigen logo voor een interventie
 
     ///////////////////
     ////speciale functionaliteiten
     gamification:false, //gamification badges aan of uit
     exam:false, ///examen module
-    registration_by_student:false,/// registreren gebruiker mogelijk
-    exportData:false,/// export data option
+    registration_by_student:true,/// registreren gebruiker mogelijk
+    exportData:true,/// export data option
     exportDataRegistrations:false,/// export registraties : afhankelijk van aanmeldingsprotocol
     translations:false, /// vertalingen mogelijk
-    introCourseField:true,
-    access_date_intervention_is_option:true, /// zet datum vanaf wanneer een interventie toegangekelijk is
-    liveChatAvailable:false, /// chat functionaliteit met als basis coach
-    planContactOption:false, /// Coach kan contact momenten inplannen <= nog in core omdat er een tabel geplaatst dient te worden in de database
+    chatCourseAvailable:true, /// chatcursus beschikbaar
+    liveChatAvailable:true, /// chat functionaliteit komt met nieuwe class en tabel in database
+    planContactOption:true, /// Coach kan contact momenten inplannen <= nog in core omdat er een tabel geplaatst dient te worden in de database
+    access_date_intervention_is_option:false, /// zet datum vanaf wanneer een interventie toegangekelijk is
 
     ///////////////////
     ///Dashboard opties
@@ -26,18 +28,25 @@ const appSettings =
     ///////////////////
     ///Custom modules
     customModules:[
-      {id:1,title:"Stress meter"},
+      {id:"c_7",title:"Koppel terug: gekozen meeste moeite met"}, /// wat als opdracht meerdere keren is gedaan ; nu niet mogelijk om antwoorden op te halen
+      {id:"c_1",title:"Opdracht: gezin in huis plaatsen"},
+      {id:"c_2",title:"Opdracht: jouw netwerk"},
+      {id:"c_6",title:"Opdracht: netwerk van jouw kind"},
+      {id:"c_4",title:"Opdracht: meeste minste moeite"},
+      {id:"c_5",title:"Opdracht: kies meeste moeite"},
+      {id:"c_3",title:"Opdracht: positieve eigenschappen van kind"},
+      //{id:1,title:"Stress meter"},
     ],
 
     ///////////////////
     ///Weergave
-    baseThemeID:1, ///basis thema
-    allowedThemes:[1], //// uit welke themas kan men kiezen
+    baseThemeID:4, ///basis thema
+    allowedThemes:[4], //// uit welke themas kan men kiezen
     alternative_menu:false,/// Alternatief menu (met afbeeldingen) true / false
-    inLessonMenuType:3, /// alternatieve menu weergave voor in de les
+    inLessonMenuType:false, /// alternatieve menu weergave voor in de les
     myProfileInMenu:true,
     showProfileOnDashboard:false, /// salvage <= wat was dit ook al weer
-    chart_color:["#141a30", "#d93d3f", "#fef1df", "#eb704a", "#f8f8f8"],
+    chart_color:["#00a1e4", "#0073ae", "#002e47", "#e1f4fd", "#8dd0f3"],
 
     ///////////////////
     ////Opmaak opties
@@ -51,6 +60,8 @@ const appSettings =
     profileSexe:false, /// geslacht zetbaar
     profileAge:false, /// leeftijd zetbaar
     profileEducation:false, /// opleiding zetbaar
+    profilePhone:false, /// telefoonnummer zetbaar
+    profileReminder:true, /// reminder zetbaar
 
     ///////////////////
     ////Stressmeter
@@ -65,17 +76,21 @@ const appSettings =
     ////textuele variabelen
     interventieName:"Cursus",
     interventieNameMeervoud:"Cursussen",
-    begeleiderName:"Coach",
+    begeleiderName:"Begeleider",
+    begeleiderNameMeervoud:"Begeleiders",
     zelhulpName:"Onbegeleide zelfhulp",
     begeleideZelhulpName:"Begeleide zelfhulp",
-    dagboekName:"Notities",
-    dagboekTitle:"Je notities",
-    dagboekItem:"notitie",
-    dagboekItems:"Je notities",
-    titleStress:"Jouw tevredenheid",
-    questionStress:"Hoe tevreden ben je?",
-    filledInStress:"Mijn tevredenheid was net",
-    graphStress:"Je tevredenheid over de afgelopen 30 dagen",
+    dagboekName:"Dagboek",
+    dagboekTitle:"Je dagboek",
+    dagboekItem:"dagboek",
+    dagboekItems:"Je dagboek items",
+    titleStress:"",
+    questionStress:"",
+    filledInStress:"",
+    graphStress:"",
+    goalsName:"Jouw opdrachten",
+    extraModules:"Extra",
+    notFilledInRequired:"Je vulde nog niets in. Probeer, ook als je dat moeilijk vindt, toch een antwoord te geven.",
 
     ///////////////////
     ///Worpress include app opties

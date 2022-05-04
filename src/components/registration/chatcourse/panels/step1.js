@@ -52,17 +52,6 @@ const Step1 = ({token, setToken, setStep, intervention_id, language_id}) => {
     })
   }, [])
 
-  /* useEffect(() => {
-    console.log('cookies', cookies)
-    //cookie met token zetten tbv reload...
-    let now = new Date();
-    let time = now.getTime();
-    let expireTime = time + 1000*3600*24;
-    now.setTime(expireTime);
-    console.log('setCookie???', now)
-    setCookie('token', 'tester', { path: '/registration', expires: now });
-  }, []) */
-
   const onChange = (e) => {
     let regData = {...registrationData}
     regData[e.target.name] = e.target.value
@@ -85,7 +74,6 @@ const Step1 = ({token, setToken, setStep, intervention_id, language_id}) => {
         let expireTime = time + 1000*3600*24;
         now.setTime(expireTime);
         setCookie('token', resp.token, { path: '/registration', expires: now });
-
         setToken(resp.token)
         setStep(2)
       } else {
@@ -95,7 +83,7 @@ const Step1 = ({token, setToken, setStep, intervention_id, language_id}) => {
   }
 
   return(
-
+    
     <div className="step6"><div className="container">
       <div className="step">
           <b>{t("stap 1")}</b> {t("Aanmelding")}
@@ -106,7 +94,7 @@ const Step1 = ({token, setToken, setStep, intervention_id, language_id}) => {
         :
         <>
         {
-          openGroups.length < 1 ?
+          openGroups.length < 1 ? 
             <div>{t("Er staan op dit moment geen groepen gepland, je kunt je daardoor nu helaas niet registreren.")}</div>
             :
             <>
@@ -127,7 +115,7 @@ const Step1 = ({token, setToken, setStep, intervention_id, language_id}) => {
                     />
                     <label htmlFor="firstname">{t("Voornaam*")}</label>
                   </div>
-                </div>
+                </div>  
 
                 <div className="form-row align-items-center">
                   <div className="col">
@@ -211,7 +199,7 @@ const Step1 = ({token, setToken, setStep, intervention_id, language_id}) => {
                         })
                       }
                     </select>
-                </div>
+                </div> 
                       <br />
                 <div className="form-row align-items-center">
                   <div className="col-auto col-100 form-label-group">
@@ -227,7 +215,7 @@ const Step1 = ({token, setToken, setStep, intervention_id, language_id}) => {
                     />
                     <label htmlFor="region">{t("Telefoonnummer* (tbv sms reminders).")}</label>
                   </div>
-                </div>
+                </div>  
 
                 <div className="form-row align-items-center">
                   <div className="col-auto col-100 form-label-group">
@@ -243,7 +231,7 @@ const Step1 = ({token, setToken, setStep, intervention_id, language_id}) => {
                     />
                     <label htmlFor="region">{t("E-mailadres*")}</label>
                   </div>
-                </div>
+                </div>  
 
                 <div className="form-row align-items-center">
                   <div className="col-auto col-100 form-label-group">
@@ -259,7 +247,7 @@ const Step1 = ({token, setToken, setStep, intervention_id, language_id}) => {
                     />
                     <label htmlFor="region">{t("Gebruikersnaam* (nickname voor in de chat).")}</label>
                   </div>
-                </div>
+                </div>  
 
                 <div className="form-group select-group">
                   <label htmlFor="group_id">{t("Voorkeur startdatum")}</label>

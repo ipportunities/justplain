@@ -9,8 +9,6 @@ const ForgotPassword = (props) => {
 
   const [showForm, setShowForm] = useState(true);
 
-
-
   const onSubmit = e => {
     e.preventDefault();
     setError(false)
@@ -28,6 +26,7 @@ const ForgotPassword = (props) => {
       }
     });
   };
+
 
   return (
     <>
@@ -78,9 +77,12 @@ const ForgotPassword = (props) => {
       :
       <div>
         <h3 className="marge_bottom">{t("Wachtwoord vergeten")}</h3>
+        <br/>
         <p>
           {t("Je ontvangt binnen enkele minuten een e-mail van ons waarmee je je wachtwoord opnieuw in kunt stellen.")}
+
         </p>
+        <br/>
       </div>
       }
       </>

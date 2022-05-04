@@ -3,7 +3,6 @@ import parse from 'html-react-parser';
 import { useSelector } from "react-redux";
 import t from "../../../translate";
 import { stripTags } from "../../../utils";
-import {getQuestion} from "./helpers/functions.js";
 
 const Select = (props) => {
 
@@ -89,7 +88,7 @@ const Select = (props) => {
     <div className={"list " + (props.part.type == "list" ? props.part.subtype:"") +(props.part.must ? ' must':'')}>
       <div className="content center">
         <div className="question">
-          {getQuestion(props.part)}
+          {parse(props.part.question)} {props.part.must?"*":""}
         </div>
         <select onChange={(e) => updateSelected(e.target.value)} value={typeof props.answer.chosenAnswers != "undefined"? props.answer.chosenAnswers[0]:''} disabled={(props.hasOwnProperty("disabled") && props.disabled === "true") || disabled ? true : false} className={(typeof props.answer.chosenAnswers != "undefined" ?  (showCorrectAnswers.includes(props.answer.chosenAnswers[0]) ? 'correct':''):false)}>
           <option value=''>{t("selecteer een optie")}</option>

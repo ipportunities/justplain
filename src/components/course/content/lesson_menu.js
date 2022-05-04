@@ -75,7 +75,12 @@ const LessonMenu = () => {
           }
           else
           {
-            lesson.status = 'closed';
+            /*2022-3-25 check of directe acces lessen mogelijk is zo ja zet ze op active anders closed*/
+            if(newLessonList.length > 0 && newLessonList[0].settings.directAccessSubLessons == 1){
+              lesson.status = 'active'
+            } else {
+              lesson.status = 'closed'
+            }
           }
 
           newLessonList.push(lesson);
@@ -144,13 +149,23 @@ const LessonMenu = () => {
                           {lesson.title}
                         </td>
                         <td>
-                          {(lessonFinished(lesson.id) && activeLesson !== lesson.id ?
-                            <img src={require('../../../custom/themes/'+appSettings.baseThemeID+'/images/done_no_background.svg')}/>
-                          :
-                            <div>
-                              {activeLesson == lesson.id || lesson.status == 'active'  ? '' : <img src={require('../../../images/course/standard/lock.png')}/>}
-                            </div>
-                        )}
+                          {/*2022-3-25 check of directe acces lessen mogelijk is*/}
+                          {lessonList[0].settings.directAccessSubLessons == 1 ?
+                            (lessonFinished(lesson.id) && activeLesson !== lesson.id ?
+                              <img src={require('../../../custom/themes/'+appSettings.baseThemeID+'/images/done_no_background.svg')}/>
+                            :
+                              false
+                            )
+                            :
+                            (lessonFinished(lesson.id) && activeLesson !== lesson.id ?
+                              <img src={require('../../../custom/themes/'+appSettings.baseThemeID+'/images/done_no_background.svg')}/>
+                            :
+                              <div>
+                                {activeLesson == lesson.id || lesson.status == 'active'  ? '' : <img src={require('../../../images/course/standard/lock.png')}/>}
+                              </div>
+                            )
+                          }
+
                         </td>
                       </tr>
                     </tbody>

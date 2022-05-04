@@ -22,12 +22,6 @@ const appSettings =
     lesson_subtitle_in_overview:true,/// show description lesson in overview student
 
     ///////////////////
-    ///Custom modules
-    customModules:[
-      {id:1,title:"Stress meter"},
-    ],
-
-    ///////////////////
     ///Weergave
     baseThemeID:4, ///basis thema
     allowedThemes:[4], //// uit welke themas kan men kiezen

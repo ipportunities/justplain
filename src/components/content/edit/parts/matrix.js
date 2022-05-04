@@ -98,10 +98,7 @@ const Matrix = props => {
           <tbody>
             <tr>
             <td>
-              <input type={props.part.subtype}/>
-              {props.part.subtype != "text" ?
-                <label></label>
-              :false}
+              <input type={props.part.subtype}/><label></label>
             </td>
             {valuesOn == true ?
               <td>
@@ -150,24 +147,14 @@ const Matrix = props => {
     }
     if (type == "rows") {
       setRows(value);
-
-      let newTableContent = tableContent;
       /// and also update table content anders blijven waardes wellicht staan dat is verwarrend
       if(rows > value)
       {
+        let newTableContent = tableContent;
         newTableContent.splice(value, newTableContent.length)
 
         setTableContent(newTableContent);
         props.updatePart(props.index, "tableContent", newTableContent);
-      } else {
-        ///voeg iig id toe als die niet bestaat leeg item zorgt anders voor error
-        if(typeof newTableContent[value - 1] === "undefined"){
-          newTableContent[value - 1] = []
-          newTableContent[value - 1].push({id:uuid.v4(), cell_content:""});
-
-          setTableContent(newTableContent);
-          props.updatePart(props.index, "tableContent", newTableContent);
-        }
       }
     }
 
@@ -191,11 +178,10 @@ const Matrix = props => {
       newTableContent[row_id][td_id] = cell_content;
     }
 
+
     setTableContent(newTableContent);
     props.updatePart(props.index, "tableContent", newTableContent);
   }
-
-  console.log(tableContent);
 
   //////////////////////
   ///Toggle wrong right answer
@@ -205,7 +191,7 @@ const Matrix = props => {
   }
 
   return (
-    <div className={"special_table matrix" + props.part.subtype}>
+    <div className="special_table matrix">
       <select className="subtypeChanger" onChange={(e) => props.updatePart(props.index, 'subtype', e.target.value)} value={props.part.subtype}>
         {available_subtypes.map((subtype, index) =>
           <option key={index} value={subtype.ref}>{t(subtype.niceName)}</option>
@@ -230,7 +216,7 @@ const Matrix = props => {
             value={columns}
             onChange={e => updateSettings(e.target.value, "columns")}
             placeholder="Kolommen"
-            min={(props.part.subtype == "text" ? 2:3)}
+            min={3}
           />
           x
           <input

@@ -51,7 +51,6 @@ const InterventionSettingsList = props => {
     let lesson_id = chosen_image_parts[1];
     let interventionC = getClone(intervention);
     let test = interventionC.settings.selfhelp.lessons.find(lesson => parseInt(lesson.id) === parseInt(lesson_id));
-
     if (test !== undefined)
     {
       interventionC.settings.selfhelp.lessons.find(lesson => parseInt(lesson.id) === parseInt(lesson_id))["alternative_menu_image"] = url + "/uploads/intervention/" + medialibrary.chosen_image;
@@ -508,6 +507,7 @@ const InterventionSettingsList = props => {
     }
 
     setNestedShow(idsToShow);
+
   }
   function checkIfVisible(parent_id){
     if(parent_id == 0){
@@ -527,6 +527,7 @@ const InterventionSettingsList = props => {
           return false
         }
       }
+
     }
   }
 
@@ -668,7 +669,8 @@ const InterventionSettingsList = props => {
                             <AddImageAltMenu index={'lessonAlternativeMenuImage_'+item.id} showMediaLibrary={showMediaLibrary} image={typeof item.alternative_menu_image != "undefined" ? item.alternative_menu_image : ''} />
                         : <></>
                         } */}
-                        {props.type == "optional_lesson" || props.type == "goal" || props.type == "questionnaire" ?
+                        {/*2022-3-25 enkel opties op hoofdniveau*/}
+                        {(props.type == "optional_lesson" || props.type == "goal" || props.type == "questionnaire") && (typeof item.nest == "undefined" || item.nest == 0) ?
                           <span
                             data-tip={t("Settings")}
                             className="btn edit disabled settings"
@@ -762,7 +764,8 @@ const InterventionSettingsList = props => {
                   <tr className="settings hide">
                     <td colSpan="2">
                       <div className="content">
-                        {props.type == "goal" || props.type == "optional_lesson" || props.type == "questionnaire" ?
+                        {/*2022-3-25 enkel opties op hoofdniveau*/}
+                        {(props.type == "goal" || props.type == "optional_lesson" || props.type == "questionnaire") && (typeof item.nest == "undefined" || item.nest == 0) ?
                           <ListItemSettings type={props.type} saveSettings={props.saveSettings} id={item.id} index={key}/>
                         :''}
                       </div>

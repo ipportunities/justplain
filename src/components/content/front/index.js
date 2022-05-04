@@ -8,7 +8,7 @@ import { getClone } from "../../utils";
 import apiCall from "../../api";
 import LeftBottom from "../../course/content/leftBottom.js";
 import { useHistory } from "react-router-dom";
-import { setActivePart, setActiveGoal, setAnswersLessons, setPageHistory, setAnswersHomework } from "../../../actions";
+import { setActivePart, setActiveGoal } from "../../../actions";
 import NotificationBox from "../../alert/notification";
 import t from "../../translate";
 import { useLocation } from "react-router-dom";
@@ -131,9 +131,6 @@ const ContentFront = props => {
 
 
   }, [props]);
-
-  const activeIntervention = useSelector(state => state.activeIntervention);
-
   function end()
   {
     if(props.type == "goal"){
@@ -142,7 +139,7 @@ const ContentFront = props => {
         token: auth.token,
         data: {
           goal_id: the_id,
-          answers: props.answers.answers,
+          answers: props.answers,
           id:location.pathname.split("/")[5]
           //history:pagesHistory,
           //parentId:props.partsToCombine[0]
@@ -150,51 +147,6 @@ const ContentFront = props => {
       }).then(resp => {
         if (resp.error == 0 ) {
             toGoal()
-
-            ///reload course answers indien een included goal is gewijzigd
-            if(props.answers.answers[0].include_id != ""){
-              if(intervention.settings.intervention_type == "chatcourse"){
-                //antwoorden huiswerk ophalen en in redux store plaatsen
-                //antwoorden lessen ophalen en in redux store plaatsen
-                apiCall({
-                  action: "get_all_homework_answers",
-                  token: auth.token,
-                  data: {
-                    id: activeIntervention
-                  }
-                }).then(resp => {
-                  dispatch(
-                    setAnswersHomework(
-                      activeIntervention,
-                      resp.answers
-                      )
-                  )
-                });
-              } else {
-                //antwoorden lessen ophalen en in redux store plaatsen
-                apiCall({
-                  action: "get_course_answers",
-                  token: auth.token,
-                  data: {
-                    id: activeIntervention
-                  }
-                }).then(resp => {
-                  dispatch(
-                    setAnswersLessons(
-                      activeIntervention,
-                      resp.answers
-                      )
-                  )
-                  dispatch(
-                    setPageHistory(
-                      activeIntervention,
-                      resp.pageHistory
-                      )
-                  )
-                });
-              }
-            }
-
         }
       });
 

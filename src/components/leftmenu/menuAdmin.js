@@ -48,7 +48,7 @@ const MenuAdmin = props => {
         {typeof intervention.settings.intervention_type != "undefined" && intervention.settings.intervention_type != "selfhelp" ?
           <div className="pointer" onClick={ event => handleClick(event, '/intervention/coaches/' + intervention.id) }>
             <i className="fas fa-users color_logo_blue"/>
-            <div className="menu-left-link">{ t('Coaches') }</div>
+            <div className="menu-left-link">{t(appSettings.begeleiderNameMeervoud)}</div>
           </div>
         :<></>}
 

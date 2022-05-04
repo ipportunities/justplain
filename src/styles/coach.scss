@@ -3,10 +3,10 @@
     margin-top: 40px;
   }
   .listVisible td.details .student_details{
-    margin-top: 40px;
+    margin-top: 108px;
   }
   .listVisible td.left{
-    padding-top: 43px;
+    padding-top: 111px;
   }
 }
 .coachInterface{
@@ -462,6 +462,13 @@
       & > div:nth-child(1) > div:nth-child(1){
         overflow-x: hidden !important;
       }
+      .not_registerd_yet{
+        td:nth-child(1){
+          background: #e76c70;
+          color:#fff;
+              border-bottom: 1px solid #f9f9f9;
+        }
+      }
       table{
         width:100%;
         margin-bottom: 20px;
@@ -548,12 +555,13 @@
         right: auto;
         transition: all 0.1s;
         opacity: 0;
+        display: none;
       }
     }
     td.left{
       width:22%;
       transition: all 0.5s;
-      padding-top: 123px;
+      padding-top: 190px;
 
       .userActions{
         display: none;
@@ -585,7 +593,7 @@
       transition: all 0.5s;
       .student_details{
         background: #fff;
-        margin-top: 120px;
+        margin-top: 182px;
         opacity: 1;
         width:100%;
         min-height: calc(100vh - 230px);
@@ -615,7 +623,7 @@
         }
         .navbarHolder{
           margin-bottom: 20px;
-          top: 48px;
+          top: 115px;
           width:100%;
           left: 0;
           padding: 0 40px;

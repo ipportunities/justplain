@@ -43,9 +43,6 @@ const MovableText = (props) => {
     let textItem = document.getElementById("text_item_" + uniqueId + '_' + dragged);
     let parent = textItem.parentElement.parentElement;
 
-    console.log(e.clientX);
-    console.log(e.clientY);
-
     textItem.style.left=e.clientX-(parent.getBoundingClientRect().left) - 20 +'px';
   	textItem.style.top=e.clientY-(parent.getBoundingClientRect().top) - 20 +'px';
 
@@ -58,9 +55,6 @@ const MovableText = (props) => {
     let clonedPart = getClone(props.part);
     clonedPart.images[props.indexImage].items[dragged].position = {top:textItem.style.top, left:textItem.style.left};
     props.updatePart(props.index, 'images', clonedPart.images)
-
-    console.log(clonedPart);
-
 
     setDragged(false)
   }
@@ -101,7 +95,6 @@ const MovableText = (props) => {
   function deleteTextItem(index){
     let clonedPart = getClone(props.part);
     clonedPart.images[props.indexImage].items.splice(index, 1);
-    console.log(clonedPart.items);
     props.updatePart(props.index, 'images', clonedPart.images)
   }
 

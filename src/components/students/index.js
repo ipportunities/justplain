@@ -17,6 +17,7 @@ import { useHistory } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import { useLocation } from "react-router-dom";
 import {appSettings} from "../../custom/settings";
+import NotificationBox from "../alert/notification";
 
 window.jQuery = $;
 window.$ = $;
@@ -38,6 +39,7 @@ const Students = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [user, setUser] = useState({})
   const [userName, setUserName] = useState("")
+  const [notificationOptions, setNotificationOptions] = useState('');
 
   //deze functie wordt als property doorgegeven aan modal en vandaar naar editUser
   //en aangeroepen na een geslaagde saveUser
@@ -102,7 +104,8 @@ const Students = (props) => {
         return coach.id === coach_id
       });
       if(this_coach_obj.length != 0){
-        return "#" + this_coach_obj[0].id + " " + this_coach_obj[0].login;
+        //return "#" + this_coach_obj[0].id + " " + this_coach_obj[0].login;
+        return this_coach_obj[0].login;
       }
     }
   }
@@ -155,6 +158,25 @@ const Students = (props) => {
       }
     }
   }
+  const reSendRegistrationMail = (user) => {
+    let apiCallObj = {
+      action: "resend_registration_mail",
+      token: auth.token,
+      data: {
+        intervention_id: intervention.id,
+        user_id: user.id,
+      }
+    };
+
+    apiCall(apiCallObj).then(resp => {
+      setNotificationOptions({
+        show: "true",
+        text: "<h4>"+t(resp.msg)+"</h4>",
+        confirmText: t("Ok")
+      });
+    });
+  }
+
   const getGroupID = (user) => {
     let thisIntervention = user.rights.interventions.filter(function (int) {
       return int.id === intervention.id
@@ -214,7 +236,7 @@ const Students = (props) => {
                 {(auth.userType == "admin" || supervisorFor.indexOf(intervention.id) > -1) && !activeGroupID ?
                   <>
                     <th>
-                      {t("Coach")}
+                      {t(appSettings.begeleiderName)}
                     </th>
                     </>
                 :<></>}
@@ -234,7 +256,8 @@ const Students = (props) => {
                     <tr
                       key={user.id}
                       id={"user_" + user.id}
-                      className={"pointer rowHover" + (user.id == studentId ? ' active':'') + (user.hide == 'true' ? ' hide':'')}
+                      className={"pointer rowHover" + (user.id == studentId ? ' active':'') + (user.hide == 'true' ? ' hide':'') + (user.login === '' ? " not_registerd_yet" : "")}
+
                     >
                       <td onClick={() => props.showStudentDetails(user)}>{user.id}</td>
                       <td onClick={() => props.showStudentDetails(user)}>
@@ -244,6 +267,10 @@ const Students = (props) => {
                               :
                               <>
                                 {user.firstname} {user.insertion} {user.lastname}
+                                {
+                                  typeof user.sinai_id !== "undefined" && user.sinai_id.length > 0 ?
+                                    <span> &nbsp; (sinai-ID: {user.sinai_id})</span> : <></>
+                                }
                               </>
                           }
                           &nbsp; <span className={(user.unread_message) ? 'badge badge-success' : 'hidden'}><i className="far fa-comments"></i></span>
@@ -262,13 +289,20 @@ const Students = (props) => {
                         {auth.userType == "admin" || supervisorFor.indexOf(intervention.id) > -1 ?
                           <>
                           <td className="coachName" onClick={() => props.showStudentDetails(user)}>
-                            {getCoachId(user.rights.interventions) == auth.user_id ? <></>:getCoach(user.rights.interventions)}
+                            {getCoach(user.rights.interventions)}
                           </td>
                             </>
-                        :<></>}
+                        : <></>}
                         </>
                       }
                       <td className='userActions'>
+                        {intervention.id == 8 && user.login === '' ?
+                          <i
+                            className="fas fa-file-contract"
+                            onClick={() => reSendRegistrationMail(user)}
+                            data-tip={t("Verzend registratie mail")}
+                            ></i>
+                          :false}
                         <i
                           className="far fa-user-circle"
                           onClick={() => props.showStudentDetails(user, 'info')}
@@ -299,16 +333,16 @@ const Students = (props) => {
                         }
                         {(intervention.hasOwnProperty("settings") && intervention.settings.selfhelp.guided_selfhelp_chat_contact === 1) && intervention.settings.intervention_type != "chatcourse"  ?
                           <i
-                            className="far fa-comments"
-                            onClick={() => props.showStudentDetails(user, 'Berichten')}
-                            data-tip={t("Chat")}
+                            className="far fa-paper-plane"
+                            onClick={() => props.showStudentDetails(user, 'chat')}
+                            data-tip={t("Berichten")}
                           ></i>
                         : ''}
                         {(intervention.hasOwnProperty("settings") && intervention.settings.selfhelp.guided_selfhelp_live_chat === 1) && intervention.settings.intervention_type != "chatcourse"  ?
                           <i
                             className="far fa-comments"
                             onClick={() => props.showStudentDetails(user, 'live-chat')}
-                            data-tip={t("Chat")}
+                            data-tip={t("Live chat")}
                           ></i>
                         : ''}
 
@@ -367,6 +401,7 @@ const Students = (props) => {
                             data-tip={ t('Exams') }
                           />
                           : '' }
+
                       {/*<i className="far fa-trash-alt"></i>*/}
                         <ReactTooltip place="top" effect="solid" delayShow={200} />
                       </td>
@@ -394,6 +429,7 @@ const Students = (props) => {
       componentData: {
         user: {
           id: 0,
+          sinai_id: "",
           firstname: "",
           insertion: "",
           lastname: "",
@@ -558,6 +594,7 @@ const Students = (props) => {
     setStateCallback(
       {
         id: 0,
+        sinai_id: "",
         firstname: "",
         insertion: "",
         lastname: "",
@@ -822,6 +859,7 @@ const Students = (props) => {
 
         <Modal {...state.modalState} />
     </div>
+    <NotificationBox options={notificationOptions} setNotificationOptions={setNotificationOptions} />
     </div>
   );
 };

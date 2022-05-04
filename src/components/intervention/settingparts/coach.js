@@ -6,6 +6,7 @@ import AddImage from "../../content/edit/parts/helpers/addImage";
 import MediaLibrary from "../../medialibrary";
 import { setChosenImage } from "../../../actions";
 import { getClone } from "../../utils";
+import {appSettings} from "../../../custom/settings";
 
 let saveSettingsTimeout = null;
 
@@ -83,7 +84,7 @@ const InterventionSettingsCoach = props => {
         setMediaLibraryVisible={setMediaLibraryVisible}
       />
       <div className="question logo">
-        <h5>{t("Coach achtergrond afbeelding")}</h5>
+        <h5>{t(appSettings.begeleiderName)} {t("achtergrond afbeelding")}</h5>
         <AddImage index="coachPhoto" showMediaLibrary={showMediaLibrary} image={typeof intervention.settings.coachPhoto != "undefined"?intervention.settings.coachPhoto:''} deleteImage={deleteImage}/>
       </div>
     </div>

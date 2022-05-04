@@ -6,6 +6,7 @@ import { getClone } from "../../utils";
 import { setActivePart, setActiveLesson, setActiveSubLesson, setAnswersLessons, setFinishedCourse, setPreviousLessons, setPreviousSubLesson } from "../../../actions";
 import NotificationBox from "../../alert/notification";
 import apiCall from "../../api";
+import {appSettings} from "../../../custom/settings";
 
 const Buttons = (props) => {
 
@@ -172,8 +173,7 @@ const Buttons = (props) => {
       {
         lessonRequiredQuestions.push({
           id: part.id,
-          type: part.type,
-          checkable: part.checkable ///2022 4-4 must leeg gecheckt dan geen alert
+          type: part.type
         });
       }
     }
@@ -204,7 +204,7 @@ const Buttons = (props) => {
               }
               else if (part.type === 'select' || part.type === 'question_checkboxes' || part.type === 'question_radio') //matrix??
               {
-                if (answer.hasOwnProperty('answer') && answer.answer.hasOwnProperty('chosenAnswers') && typeof answer.answer.chosenAnswers != "undefined" && answer.answer.chosenAnswers.length > 0)
+                if (answer.hasOwnProperty('answer') && answer.answer.hasOwnProperty('chosenAnswers') && answer.answer.chosenAnswers.length > 0)
                 {
                   answer.answer.chosenAnswers.forEach(chosenAnswer => {
                     if (chosenAnswer.length > 0)
@@ -212,11 +212,6 @@ const Buttons = (props) => {
                       answered = true;
                     }
                   })
-                }
-
-                ///2022-4-4 verplichte vraag is niet ingevuld maar wel gecheckt... dan niet meer verplicht
-                if(answer.answer.checked && part.checkable){
-                  answered = true;
                 }
               }
               else if (part.type === 'matrix')
@@ -261,8 +256,6 @@ const Buttons = (props) => {
               }
             }
           }
-
-
           //verplichte vraag is niet beantwoord, class required aan component holder toevoegen
           if (!answered)
           {
@@ -432,7 +425,7 @@ const Buttons = (props) => {
       //melden dat verplichte velden niet zijn gevuld...
       setNotificationOptions({
         show: "true",
-        text: t("Je hebt niet alle verplichte velden ingevuld"),
+        text: t(appSettings.notFilledInRequired),
         confirmText: t("Ok")
       });
 

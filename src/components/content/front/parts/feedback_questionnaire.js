@@ -26,23 +26,19 @@ const FeedbackQuestionnaire = (props) => {
 
   useEffect(() => {
     ///endQuestionnaire....
-    if(thisQuestionnaire && thisQuestionnaire.settings.lockAnswersAfterFinishQuestionnaireInLesson == 1 && auth.usertype == "student"){
+    if(thisQuestionnaire && thisQuestionnaire.settings.lockAnswersAfterFinishQuestionnaireInLesson == 1){
       /// hij slaat hem nog elke keer op... dat is misschien wat overdreven....
       ////antwoorden nog voorzien van finished
 
       //antwoorden lessen ophalen en in redux store plaatsen
 
-      let type = props.type;
 
-      if(props.type == "optional"){
-        type = "lesson";
-      }
 
       apiCall({
         action: "end_included_questionnaire",
         token: auth.token,
         data: {
-          type: type,
+          type: props.type,
           included_id: activeLesson,
           form_id: thisQuestionnaire.id,
           //history:pagesHistory,

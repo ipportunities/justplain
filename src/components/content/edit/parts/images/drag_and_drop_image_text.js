@@ -66,7 +66,6 @@ const DragAndDropImageText = (props) => {
   	// IE uses srcElement, others use target
   	var targ = e.target ? e.target : e.srcElement;
     targ = targ.parentElement
-    //console.log(targ);
     if (!(targ.classList.contains('dragme'))) {
       return
     };
@@ -162,20 +161,6 @@ const DragAndDropImageText = (props) => {
     props.updatePart(props.index, 'items', clonedPart.items)
 
     setDragged(false)
-  }
-  function dragEnd(e){
-    /*
-    console.log(e);
-    var targ = e.target ? e.target : e.srcElement;
-
-    console.log(e);
-
-    let clonedPart = getClone(props.part);
-    clonedPart.items[parseInt(targ.id.replace("text_item_", ""))].position = {top:e.pageX+'px', left:e.pageY+'px'};
-    props.updatePart(props.index, 'items', clonedPart.items)
-
-    setDragged(false);
-    */
   }
 
   //////////////////////

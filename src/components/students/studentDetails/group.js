@@ -18,7 +18,6 @@ const  Group = props => {
   const [errorMessage, setErrorMessage] = useState("")
 
   useEffect(() => {
-    console.log(props);
     if(props.user.id > 0) {
       let thisIntervention = props.user.rights.interventions.filter(function (int) {
         return int.id === intervention.id
@@ -83,7 +82,6 @@ const  Group = props => {
       if(thisUserIndex >= 0){
         const newState = getClone(props.state);
         newState.users[thisUserIndex].rights = props.user.rights;
-        console.log(props.state.users[thisUserIndex]);
         props.setState(newState)
       }
 
@@ -103,8 +101,6 @@ const  Group = props => {
       }, 250)
     } */
   }
-
-  console.log(groups);
 
   const groupStatus = (status) => {
     if(status == "closed"){

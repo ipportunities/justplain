@@ -10,6 +10,7 @@ import SortObjectArray from "../helpers/sortObjectArray.js";
 import { useHistory } from "react-router-dom";
 import {GetDate, GetTime} from "../helpers/convertTimestamp.js";
 import {appSettings} from "../../custom/settings";
+import CustomDataUsers from "../../custom/data/users.js";
 
 const Data = (props) => {
 
@@ -233,15 +234,9 @@ const Data = (props) => {
 
   const downloadResultsCSV = (id, type) => {
     let action = false;
-    if(type == "questionnaire"){
-      action = "get_questionnaire_csv_rows";
-    }
-    if(type == "lesson"){
-      action = "get_lesson_csv_rows";
-    }
-    if(type == "goal"){
-      action = "get_goal_csv_rows";
-    }
+    if(type == "questionnaire"){action = "get_questionnaire_csv_rows";}
+    if(type == "lesson"){action = "get_lesson_csv_rows";}
+    if(type == "goal"){action = "get_goal_csv_rows";}
 
     if(action){
       apiCall({
@@ -458,7 +453,7 @@ const Data = (props) => {
       }
 
         <div className="download_group">
-          <h5 onClick={e=>toggleVisibility(e.target)}><i class="fas fa-chevron-up"></i>{t("Deelnemers")} </h5>
+          <h5 onClick={e=>toggleVisibility(e.target)}><i className="fas fa-chevron-up"></i>{t("Deelnemers")} </h5>
           {appSettings.exportDataRegistrations == true ?
             <div className="download_options">
               <div className="download_option">
@@ -469,14 +464,15 @@ const Data = (props) => {
               </div>
             </div>
             :<></>}
-            <div className="download_options">
+            {/* <div className="download_options">
               <div className="download_option">
-                {t("Deelnemers")}
+                {t("Naam + Email Deelnemers")}
                 <span className='btn btn-primary download' onClick={()=>downloadUsersCSV()}>
                   {t("csv")} <i className="fas fa-download"></i>
                 </span>
               </div>
-            </div>
+            </div> */}
+            <CustomDataUsers />
         </div>
       {
         /*
@@ -489,7 +485,7 @@ const Data = (props) => {
       {intervention.settings.selfhelp.lessons.length > 0 ?
         <div className="download_group">
           <h5 onClick={e=>toggleVisibility(e.target)}>
-            <i class="fas fa-chevron-up"></i>{t("Lessen")}
+            <i className="fas fa-chevron-up"></i>{t("Lessen")}
           </h5>
           <div className="download_options">
             {
@@ -513,7 +509,7 @@ const Data = (props) => {
       {intervention.settings.selfhelp.optionalLessons.length > 0 ?
         <div className="download_group">
           <h5 onClick={e=>toggleVisibility(e.target)}>
-            <i class="fas fa-chevron-up"></i>{t("Optionele lessen")}
+            <i className="fas fa-chevron-up"></i>{t("Optionele lessen")}
           </h5>
           <div className="download_options">
             {
@@ -537,7 +533,7 @@ const Data = (props) => {
         {intervention.settings.goals.length > 0 ?
           <div className="download_group">
             <h5 onClick={e=>toggleVisibility(e.target)}>
-              <i class="fas fa-chevron-up"></i>{t("Doelen")}
+              <i className="fas fa-chevron-up"></i>{t("Doelen")}
             </h5>
             <div className="download_options">
               {
@@ -561,7 +557,7 @@ const Data = (props) => {
       {intervention.settings.questionnaires.length > 0 ?
         <div className="download_group">
           <h5 onClick={e=>toggleVisibility(e.target)}>
-            <i class="fas fa-chevron-up"></i>{t("Vragenlijsten")}
+            <i className="fas fa-chevron-up"></i>{t("Vragenlijsten")}
           </h5>
           <div className="download_options">
             {

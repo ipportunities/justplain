@@ -1,0 +1,70 @@
+.theme_1 .leftBottom{
+  padding: 0 60px 20px 40px;
+  max-width: 300px;
+  position: fixed;
+  z-index: 1;
+  font: 300 18px/27px $font_family_2;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  .logo{
+    float: right;
+    width: 140px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    /*display: block;*/
+    display: none;
+  }
+  .linkbox{
+    color:$left_bar_color;
+    .btn{
+      color:$left_bar_color !important;
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+  div{
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .submenu{
+    margin-top: 20px;
+    a{
+      display: block;
+      color: $title_color;
+    }
+  }
+  .profile{
+    margin-bottom: 40px;
+    margin-top: 40px;
+    height: 80px;
+    border-radius: 40px;
+    box-shadow: -22px 0 33px 0 rgba(161, 189, 202, 0.36);
+    background-color: #ffffff;
+    padding: 5px 10px;
+
+    img{
+      width:75px;
+      border-radius: 40px;
+    }
+    .name{
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+@media (max-width:850px) {
+  .theme_1 .lessoncontent.front .leftBottom{
+    max-width: 200px !important;
+    padding-left: 30px !important;
+    img{
+      max-width: 100%;
+    }
+  }
+}
+@media (max-width:$breakpoint) {
+  .theme_1 .leftBottom{
+    display: none;
+  }
+}

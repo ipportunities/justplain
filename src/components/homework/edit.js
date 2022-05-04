@@ -43,8 +43,6 @@ const HomeworkEdit = props => {
     "matrix",
     "slider",
     "datepicker",
-    "form",
-    "goal",
     "custom",
 
   ];

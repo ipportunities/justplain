@@ -57,9 +57,9 @@ const Routing = props => {
          return part.question.replace(/<[^>]*>?/gm, '')
       }
    }
-
+   
    return(
-     <td className={"setRouting" + (routingAvailable && props.routingOn ? '':' hide')}>
+     <div className={"setRouting" + (routingAvailable && props.routingOn ? '':' hide')}>
       {routingAvailable ?
          <select onChange={(e)=>props.updateRouting(e.target.value, props.item_id)} value={props.routing}>
             <option value="">Geen routing</option>
@@ -70,7 +70,7 @@ const Routing = props => {
             )}
          </select>
          :''}
-     </td>
+     </div>
    )
 }
 

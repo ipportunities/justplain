@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import parse from 'html-react-parser';
 import ContentEditable from 'react-contenteditable';
-import {getQuestion} from "./helpers/functions.js";
 
 const QuestionOpen = (props) => {
 
@@ -21,7 +21,7 @@ const QuestionOpen = (props) => {
     <div className={"question_open" + (props.part.must ? ' must':'')}>
       <div className="center">
         <div className="question">
-          {getQuestion(props.part)}
+          {parse(props.part.question)} {props.part.must?"*":""}
         </div>
         {props.part.subtype == "tekstvlak" ?
           <ContentEditable

@@ -11,7 +11,7 @@ const  StudentDetailsLessons = props => {
   const [items, setItems] = useState([]);
   const [answers, setAnswers] = useState([]);
 
-  const typesWeNeed = ["matrix", "question_open", "question_checkboxes", "question_radio", "select", "slider", "custom", "feedback_questionnaire"];
+  const typesWeNeed = ["matrix", "question_open", "question_checkboxes", "question_radio", "select", "slider", "custom"];
 
   useEffect(() => {
         

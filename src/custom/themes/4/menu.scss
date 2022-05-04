@@ -1,0 +1,105 @@
+.theme_4 {
+  #nav-icon-wrapper{
+
+    #nav-icon{
+      right: -200px !important;
+      transition: none;
+    }
+    &.open #nav-icon span{
+      background:#fff !important;
+    }
+  }
+  #menu_left{
+    color:$text_color;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 93px);
+    z-index: 15;
+    width: 85% !important;
+    .menu_left_inner{
+      padding-bottom: 70px;
+      padding-left: 0 !important;
+      width:100% !important;
+      .linkbox{
+        position: absolute;
+        bottom: 40px;
+        width: 80%;
+        margin-left: 20px;
+        font-weight: normal;
+        font-size: 20px;
+      }
+      .logo{
+        max-width: 175px;
+        margin-bottom: 40px;
+        margin-left: 20px;
+      }
+      .item{
+        font-size: 20px;
+        line-height: 1.5;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-bottom: 1px solid #ebdecc;
+        &:last-child{
+          border-bottom:0;
+        }
+        .menu-left-link{
+          margin-bottom: 0;
+          margin-left: 0;
+        }
+      }
+    }
+    .menu-left-link,
+    span{
+      display: inline-block;
+      color:$text_color;
+      padding: 5px 0;
+    }
+    i{
+      display: none;
+    }
+
+  }
+}
+
+@media (max-width:$breakpoint) {
+  .menuIsVisible {
+    .theme_4 {
+      #menu_left .menu_left_inner .item{
+        font-size: 18px;
+      }
+      #nav-icon-wrapper{
+
+        #nav-icon{
+          right: 20px !important;
+          transition: all 0.5s;
+        }
+      }
+
+    }
+    .menu-left-link{
+        font-weight: normal;
+    }
+  }
+}
+@media (max-width:$breakpoint) {
+  .theme_4 #menu_left{
+    width: 90% !important;
+    background: $orange !important;
+    height: 100vh;
+    color:#fff !important;
+    .menu-left-link{
+      color:#fff !important;
+    }
+    .menu_left_inner {
+      .item{
+        border-bottom:1px solid #fff;
+      }
+      .logo{
+        max-width: 125px;
+      }
+    }
+  }
+  .open #nav-icon span{
+    background: $red;
+  }
+}

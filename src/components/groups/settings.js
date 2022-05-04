@@ -28,42 +28,6 @@ const Settings = props => {
     props.updateGroupTitle(title, props.activeGroup.id, setErrorMessage)
   }
 
-  /* const onChangeType = e => {
-    let status = e.target.value
-    setGroupStatus(status)
-    console.log(e.target.value);
-    clearTimeout(saveSettingsTimeout);
-    dispatch(setSavingStatus("not_saved"));
-
-    saveSettingsTimeout = setTimeout(() => {
-      let apiCallObj = {
-        action: "change_status_group",
-        token: auth.token,
-        data: {
-          group_id: props.activeGroup.id,
-          status: status,
-        }
-      };
-
-      apiCall(apiCallObj).then(resp => {
-        dispatch(setSavingStatus("saved"));
-        //setGroups(resp.groups)
-      });
-    }, time);
-
-
-    //set settings in store:
-    //let interventionC = getClone(intervention);
-    //interventionC.settings.intervention_type = type;
-    //saveThemSettings(interventionC.settings);
-  } */
-
-  /*
-  checked={
-    props.intervention.settings.intervention_type === "guided_selfhelp"
-  }
-  */
-
   return(
     <div className="settings">
       <h4>{t("Settings")}</h4>

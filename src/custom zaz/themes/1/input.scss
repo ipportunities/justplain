@@ -1,0 +1,110 @@
+.theme_1{
+	.textarea{
+		/*min-height: 60px;*/
+		padding: 10px;
+		&:focus,:active{
+			outline:0;
+		}
+		&:before{
+			display: none;
+		}
+	}
+	 input[type="text"].flatpickr-input{
+	  background: none !important;
+		border:1px solid !important;
+	}
+	div[contenteditable]{
+		color:$text_color !important;
+		font-weight: normal;
+	}
+	.textarea,
+	input[type="text"],textarea{
+		background: #fff !important;
+		border: none !important;
+		padding: 10px !important;
+		border-radius: 4px;
+		font-weight: normal;
+		color:$text_color !important;
+	}
+	.textarea::-moz-focus-outer,input[type='range']::-moz-focus-outer { border: 0; }
+	select{
+		cursor: pointer;
+		border: 1px solid $text_color !important;
+	}
+	input[type="checkbox"] + label:after,
+	input[type="checkbox"] + label:before{
+		border-radius: 4px;
+	}
+	input[type="radio"] + label::after,
+	input[type="checkbox"] + label::after {
+		top: 2px;
+	}
+	input[type="checkbox"] + label:before,
+	input[type="radio"] + label:before
+	{
+			top:2px;
+	}
+  input[type="radio"],input[type="checkbox"]{
+		color:$title_color;
+		border: 1px solid $text_color !important;
+	}
+	input[type="checkbox"]:checked + label,
+	input[type="radio"]:checked + label{
+		font-weight: bold;
+	}
+	input[type="checkbox"]:checked + label:before,
+	input[type="radio"]:checked + label:before
+	{
+		content: '';
+		font-size:20px;
+		line-height:0.85;
+		background: $text_color;
+		border-color: $text_color;
+	}
+	input[type="radio"] + label::after{
+		border:none;
+	}
+	input[type="checkbox"] + label::after {
+		border-bottom: 20px solid $bleu;
+	}
+	input[type="radio"] + label::after {
+		background: $bleu;
+	}
+
+
+	input[type="range"]:focus::-webkit-slider-runnable-track,
+	input[type="range"]::-webkit-slider-runnable-track{
+		background: #fff !important;
+	}
+	input[type="range"]::-moz-range-track{
+		background: #fff !important;
+	}
+
+
+	input[type="range"]::-webkit-slider-thumb{
+		background: $in_lesson_steun_kleur;
+		border-radius: 100px;
+		height: 30px;
+		width: 30px;
+	}
+	input[type="range"]::-moz-range-thumb{
+		background: $in_lesson_steun_kleur;
+		border-radius: 100px;
+		height: 30px;
+		width: 30px;
+	}
+
+	input[type="range"]::-ms-thumb{
+		background: $in_lesson_steun_kleur;
+		border-radius: 100px;
+		height: 30px;
+		width: 30px;
+	}
+
+	input[type="range"]::-ms-fill-lower,
+	input[type="range"]::-ms-fill-upper,
+	input[type="range"]:focus::-ms-fill-lower,
+	input[type="range"]:focus::-ms-fill-upper {
+	  background: $grey2 !important;
+	}
+}

@@ -10,9 +10,10 @@ const App = () => {
   const userType = useSelector(state => state.auth.userType);
 
   const Registration = React.lazy(() => import('./components/registration/chatcourse'));
+  const RegistrationKooZh = React.lazy(() => import('./components/registration/koozh'));
   const Confirmation = React.lazy(() => import('./components/registration/confirmation'));
   const ResetPassword = React.lazy(() => import('./components/login/resetPassword'));
-  const Questionnaire = React.lazy(() => import('./components/questionnaires'));
+  const Questionnaire = React.lazy(() => import('./components/questionnaires/questionnaire.js'));
   const Login = React.lazy(() => import('./components/login'));
   const RouterSuperUser = React.lazy(() => import('./components/superuser/router'));
   const RouterAdmin = React.lazy(() => import('./components/router/admin'));
@@ -66,6 +67,11 @@ const App = () => {
     <div id="wrapper" className={userType}>
       <BrowserRouter>
         <Switch>
+          <Route path="/registration/koozh/:ac?/:dtc?">
+            <Suspense fallback={<LoadScreen/>}>
+              <RegistrationKooZh />
+            </Suspense>
+          </Route>
           <Route path="/Registration">
             <Suspense fallback={<LoadScreen/>}>
               <Registration />
@@ -76,15 +82,11 @@ const App = () => {
               <Confirmation />
             </Suspense>
           </Route>
-          {/*
-            ///dit interfereert met /questionnaire/edit/{id}
-            //uitgezet op 2022-2-21 niet relevant in installaties.
-            <Route path="/Questionnaire">
-              <Suspense fallback={<LoadScreen/>}>
-                <Questionnaire />
-              </Suspense>
-            </Route>
-          */}
+          <Route path="/Questionnaire">
+            <Suspense fallback={<LoadScreen/>}>
+              <Questionnaire />
+            </Suspense>
+          </Route>
 
           <Route path="/ResetPassword">
             <Suspense fallback={<LoadScreen/>}>

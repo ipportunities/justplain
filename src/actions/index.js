@@ -21,7 +21,7 @@ export const setAuthenticatedNull = () => {
   };
 };
 
-export const login = (user_id, name, token, userType, rights, preferences, profile_pic, email,  gender,  education, date_time_birth,firstname, insertion, lastname) => {
+export const login = (user_id, name, token, userType, rights, preferences, profile_pic, email, phone,  gender,  education, date_time_birth,firstname, insertion, lastname, coachSupport) => {
   return {
     type: "LOGIN",
     payload: {
@@ -33,12 +33,14 @@ export const login = (user_id, name, token, userType, rights, preferences, profi
       preferences,
       profile_pic,
       email,
+      phone,
       gender,
       education,
       date_time_birth,
       firstname,
       insertion,
-      lastname
+      lastname,
+      coachSupport
     }
   };
 };

@@ -5,7 +5,6 @@ import Flatpickr from "react-flatpickr";
 import parse from 'html-react-parser';
 import { Dutch } from "flatpickr/dist/l10n/nl.js";
 import {ChangeFormatDateTime, ChangeFormatDate} from "../../../helpers/changeFormatDate";
-import {getQuestion} from "./helpers/functions.js";
 
 const DatePicker = props => {
 
@@ -61,7 +60,7 @@ const DatePicker = props => {
       <div className="center">
         {props.part.question != "" ?
         <div className="question">
-          {getQuestion(props.part)}
+          {parse(props.part.question)}
         </div>
         :''}
         {props.hasOwnProperty("disabled") && props.disabled === "true" ?

@@ -116,7 +116,6 @@ const Admin = props => {
     });
   }
 
-
   return (
     <div className="container dashboard admin">
       <LeftMenu />

@@ -8,6 +8,8 @@ import apiCall from "../../api";
 import { transformDate } from "../../utils";
 import $ from "jquery";
 import standardAvatar from "../../../images/course/standard/avatar.png";
+import { ChangeFormatDateTime, ChangeFormatDate, isToday } from "../../helpers/changeFormatDate.js";
+import LoadScreen from '../../loadScreen/index.js';
 
 let scrollDown = false;
 let getDataInterval = null;
@@ -23,10 +25,12 @@ const LiveChat = () => {
   const intervention = useSelector(state => state.intervention);
   const url = useSelector(state => state.url);
 
-  const [coachName, setcoachName] = useState(t("Coach"));
+  const [coachName, setcoachName] = useState(false);
   const [coachBio, setcoachBio] = useState('');
   const [coachPic, setcoachPic] = useState('');
   const [bgCoach, setBgCoach] = useState('');
+  const [liveChatAvailable, setLiveChatAvailable] = useState(false);
+  const [liveChatTime, setLiveChatTime] = useState(false);
 
   //// de header van de chat heeft position:fixed deze functie maakt de header even breed als zijn parent
   function resizeHeaderChat(){
@@ -40,10 +44,28 @@ const LiveChat = () => {
   const auth = useSelector(state => state.auth);
 
   useEffect(() => {
-    if(intervention.settings.coachPhoto && intervention.settings.coachPhoto != ""){
-      setBgCoach(intervention.settings.coachPhoto)
+    if(intervention.id > 0){
+      if(intervention.settings.coachPhoto && intervention.settings.coachPhoto != ""){
+        setBgCoach(intervention.settings.coachPhoto)
+      }
+
+      ///check of live chat is beschikbaar vandaag
+      if(typeof intervention.settings !== "undefined" && typeof intervention.settings.selfhelp.guided_selfhelp_live_chat !== "undefined" &&  intervention.settings.selfhelp.guided_selfhelp_live_chat === 1){
+        ///gepland of gewoon open
+        if(intervention.settings.selfhelp.guided_selfhelp_plan_contact === 1){
+          for(let i = 0 ; i < intervention.settings.contactMoments.length ; i++){
+            if(intervention.settings.contactMoments[i].date_time != "" && isToday(intervention.settings.contactMoments[i].date_time) && intervention.settings.contactMoments[i].type == "chat"){
+              setLiveChatAvailable(true)
+              setLiveChatTime(intervention.settings.contactMoments[i].date_time)
+              break;
+            }
+          }
+        } else {
+          setLiveChatAvailable(true)
+        }
+      }
     }
-  },[intervention.settings.coachPhoto])
+  },[intervention])
 
   useEffect(() => {
     /// get chosen values from server and set in chosenvalues en dates
@@ -61,7 +83,7 @@ const LiveChat = () => {
 
   const getData = (scrollToBottom = false, setCoach = false) => {
     apiCall({
-      action: "get_chat",
+      action: "get_live_chat",
       token: auth.token,
       data: {
         intervention_id: parseInt(activeIntervention)
@@ -117,7 +139,7 @@ const LiveChat = () => {
   const sendNewMessage = () => {
     clearInterval(getDataInterval);
      apiCall({
-      action: "save_chat",
+      action: "save_live_chat",
       token: auth.token,
       data: {
         intervention_id: parseInt(activeIntervention),
@@ -149,70 +171,89 @@ const LiveChat = () => {
   }
 
    return (
-     <div className={"chat" + (showInfoCoach ? ' extraInfo':'')}>
-       <div className="illustration" style={{width: widthChatContent, backgroundImage:"url("+bgCoach+")"}}>
-       </div>
-       <div className="chatContent" id="chatContent">
-         <header
-           style={{width: widthChatContent}}
-           onClick={()=>setShowInfoCoach(true)}
-           >
-           <table className="pointer">
-             <tbody>
-               <tr>
-                 <td className="phone">
-                   <span onClick={(e) => goBack(e)}><i className="fas fa-chevron-left"></i></span>
-                 </td>
-                 <td>
-                   <div className='image' style={{backgroundImage:"url("+coachPic+")"}}></div>
-                 </td>
-                 <td>
-                   <div className="aboutCoach" >
-                     <i className="fas fa-times" onClick={(e)=>closeExtraInfo(e)}></i>
-                     <h2>{coachName}</h2>
-                     {coachBio}
-                   </div>
-                   <div className='coach'>
-                     {coachName}
-                   </div>
-                 </td>
-               </tr>
-             </tbody>
-           </table>
-         </header>
+     <>
+      {coachName ?
+        <div className={"chat" + (showInfoCoach ? ' extraInfo':'')}>
+          <div className="illustration" style={{width: widthChatContent, backgroundImage:"url("+bgCoach+")"}}>
+          </div>
+          <div className="chatContent" id="chatContent">
+            <header
+              style={{width: widthChatContent}}
+              onClick={()=>setShowInfoCoach(true)}
+              >
 
-         {(showInfoCoach ? <div className="overlay"></div>:'')}
+              <table className="pointer">
+                <tbody>
+                  <tr>
+                    <td className="phone">
+                      <span onClick={(e) => goBack(e)}><i className="fas fa-chevron-left"></i></span>
+                    </td>
+                    <td>
+                      <div className='image' style={{backgroundImage:"url("+coachPic+")"}}></div>
+                    </td>
+                    <td>
+                      <div className="aboutCoach" >
+                        <i className="fas fa-times" onClick={(e)=>closeExtraInfo(e)}></i>
+                        <h2>{coachName}</h2>
+                        {coachBio}
+                      </div>
+                      <div className='coach'>
+                        {coachName}
+                        {liveChatTime ?
+                          <div className="chat_time">
+                              {t("Start chat")}: {ChangeFormatDate(liveChatTime)} {ChangeFormatDateTime(liveChatTime)}
+                          </div>
+                          :false}
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </header>
 
-         <div className="messages" id="chatFrame">
-           {messages.map((message, index) => (
-             <div key={index} className={"message " + message.type}>
-               <div className="name">{(message.type === 'received') ? message.name : ''}</div>
-               <div className="content">{parse(message.content)}</div>
-               <div className="sendingTime">
-                {transformDate(message.sendingTime)}
+            {(showInfoCoach ? <div className="overlay"></div>:'')}
+
+            {liveChatAvailable ?
+              <>
+              <div className="messages" id="chatFrame">
+                {messages.map((message, index) => (
+                  <div key={index} className={"message " + message.type}>
+                    <div className="name">{(message.type === 'received') ? message.name : ''}</div>
+                    <div className="content">{parse(message.content)}</div>
+                    <div className="sendingTime">
+                     {transformDate(message.sendingTime)}
+                   </div>
+                  </div>
+                ))}
               </div>
-             </div>
-           ))}
-         </div>
-         <div className="newMessageHolder">
-           <div className="newMessage">
-             <ContentEditable
-               //innerRef={props.focus !== false && typed == false ? focus:false}
-               html={newMessage}
-               placeholder={t("Je bericht")}
-               disabled={false}
-               onChange={e => updateNewMessage(e.target.value)}
-               className="input_no_bg"
-             />
+              <div className="newMessageHolder">
+                <div className="newMessage">
+                  <ContentEditable
+                    //innerRef={props.focus !== false && typed == false ? focus:false}
+                    html={newMessage}
+                    placeholder={t("Je bericht")}
+                    disabled={false}
+                    onChange={e => updateNewMessage(e.target.value)}
+                    className="input_no_bg"
+                  />
 
-           </div>
-           <span className="btn btn-primary" onClick={e => sendNewMessage()}>
-             <i className="far fa-paper-plane"></i>
-           </span>
-         </div>
-
-       </div>
-     </div>
+                </div>
+                <span className="btn btn-primary" onClick={e => sendNewMessage()}>
+                  <i className="far fa-paper-plane"></i>
+                </span>
+              </div>
+              </>
+              :
+              <div className="no_chat_today">
+                 {t("De chat is momenteel gesloten")}
+              </div>
+             }
+            </div>
+        </div>
+        :
+        <LoadScreen />
+      }
+     </>
   );
 };
 

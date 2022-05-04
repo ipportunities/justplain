@@ -52,7 +52,6 @@ const Groupchat = (props) => {
     }
   }, [intervention]);
 
-
   ///START RESUME GROUPCHAT
   const startChat = (e) => {
     let apiCallObj = {

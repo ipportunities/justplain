@@ -42,7 +42,17 @@ const Lesson = () => {
     {
       setLesson(newLesson);
     }
-  }, [intervention, activeLesson, activeSubLesson]);
+    //staat deze in allAnswers al op started = true? Zo niet dan doen zodat er een save volgt tbv de stats
+    let newAllAnswers = {...allAnswers} 
+    let key = newAllAnswers.answers.findIndex(answer => {
+      return parseInt(answer.the_id) === parseInt(lesson.id)
+    })
+    if (key > -1 && !allAnswers.answers[key].started) {
+      newAllAnswers.answers[key].started = true;
+      dispatch(setAnswersLessons(newAllAnswers.intervention_id, newAllAnswers.answers));
+    }
+
+  }, [intervention, activeLesson, activeSubLesson, allAnswers]);
 
   //auto update -> const updateAnswer dispatched allAnswers en daarop wordt onderstaande getriggerd
   useEffect(() => {

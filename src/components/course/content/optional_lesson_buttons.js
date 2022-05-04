@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import t from "../../translate";
 import { getClone } from "../../utils";
 import { setActivePart, setActiveLesson, setActiveSubLesson, setAnswersLessons, setFinishedCourse, setPreviousLessons, setPreviousSubLesson } from "../../../actions";
-import NotificationBox from "../../alert/notification";
 import apiCall from "../../api";
 
 const Buttons = (props) => {
@@ -169,8 +168,7 @@ const Buttons = (props) => {
       {
         lessonRequiredQuestions.push({
           id: part.id,
-          type: part.type,
-          checkable: part.checkable ///2022 4-4 must leeg gecheckt dan geen alert
+          type: part.type
         });
       }
     }
@@ -201,13 +199,8 @@ const Buttons = (props) => {
               }
               else if (part.type === 'select' || part.type === 'question_checkboxes' || part.type === 'question_radio') //matrix??
               {
-                if (answer.hasOwnProperty('answer') && answer.answer.hasOwnProperty('chosenAnswers') && typeof answer.answer.chosenAnswers != "undefined" && answer.answer.chosenAnswers.length > 0)
+                if (answer.hasOwnProperty('answer') && answer.answer.hasOwnProperty('chosenAnswers') && answer.answer.chosenAnswers.length > 0)
                 {
-                  answered = true;
-                }
-
-                ///2022-4-4 verplichte vraag is niet ingevuld maar wel gecheckt... dan niet meer verplicht
-                if(answer.answer.checked && part.checkable){
                   answered = true;
                 }
               }
@@ -253,8 +246,6 @@ const Buttons = (props) => {
               }
             }
           }
-
-
           //verplichte vraag is niet beantwoord, class required aan component holder toevoegen
           if (!answered)
           {
@@ -345,8 +336,6 @@ const Buttons = (props) => {
     return route_id;
   }
 
-  const [notificationOptions, setNotificationOptions] = useState('');
-
   const changeLesson = (lesson_id, lesson_sub_id, direction, check_required) => {
 
     if (!check_required || requiredFieldsChecked())
@@ -420,13 +409,7 @@ const Buttons = (props) => {
     else
     {
       //melden dat verplichte velden niet zijn gevuld...
-      setNotificationOptions({
-        show: "true",
-        text: t("Je hebt niet alle verplichte velden ingevuld"),
-        confirmText: t("Ok")
-      });
-
-      //alert(t("Je hebt niet alle verplichte velden ingevuld"));
+      alert(t("Je hebt niet alle verplichte velden ingevuld"));
     }
   }
 
@@ -441,7 +424,6 @@ const Buttons = (props) => {
       {
         closeLesson ? <span className="btn btn-primary next" onClick={() => changeLesson(0, 0, '', true)}>{t("Sluit les")}</span> : ''
       }
-      <NotificationBox options={notificationOptions} setNotificationOptions={setNotificationOptions} />
     </div>
   )
 

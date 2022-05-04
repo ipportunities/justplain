@@ -348,7 +348,7 @@ const InterventionCoaches = (props) => {
           <tbody>
             <tr>
               <td>
-                <h2>{t("Coaches")} {intervention.title}</h2>
+                <h2>{t(appSettings.begeleiderNameMeervoud)} {intervention.title}</h2>
               </td>
               <td className="options">
                 {!appSettings.included ?

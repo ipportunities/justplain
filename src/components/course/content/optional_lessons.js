@@ -6,6 +6,7 @@ import { setActivePart, setActiveLesson } from "../../../actions";
 import DownloadPDFButton from "../download_button_pdf_php.js";
 import {appSettings} from "../../../custom/settings";
 import parse from 'html-react-parser';
+import t from "../../translate";
 
 const OptionalLessons = (props) => {
 
@@ -63,13 +64,31 @@ const OptionalLessons = (props) => {
   }
 
   //// en wat als een les geen vragen heeft?
+  //// 2022-3-25 check ook de sublessen
   function checkIfOptionalLessonIsFinished(the_id){
-    let answer_obj = answersLessons.filter(function (answersLesson) {
-      return answersLesson.the_id === the_id
-    });
-    if(answer_obj.length > 0){
-      return answer_obj[0].finished
+    let optionalLessonIdsWithChilds = [];
+
+    for(let i = 0 ; i < intervention.settings.selfhelp.optionalLessons.length ; i++){
+      if(intervention.settings.selfhelp.optionalLessons[i].id == the_id || intervention.settings.selfhelp.optionalLessons[i].parent_id == the_id){
+        optionalLessonIdsWithChilds.push(intervention.settings.selfhelp.optionalLessons[i].id)
+      }
     }
+
+    let allFinished = true;
+
+    for(let i=0 ; i < optionalLessonIdsWithChilds.length ; i++){
+      let answer_obj = answersLessons.filter(function (answersLesson) {
+        return answersLesson.the_id === optionalLessonIdsWithChilds[i]
+      });
+      if(answer_obj.length > 0){
+        if(!answer_obj[0].finished){
+          allFinished = false;
+          break;
+        }
+      }
+    }
+
+    return allFinished;
   }
 
   return(
@@ -77,7 +96,7 @@ const OptionalLessons = (props) => {
       {optionalLessonList.length > 0 && showList ?
         <div className='optional-lessons'>
           <div className="intro">
-            <h2>Extra modules</h2>
+            <h2>{t(appSettings.extraModules)}</h2>
             {typeof intervention.settings.optionalLessonsIntro != 'undefined' &&  intervention.settings.optionalLessonsIntro != '' ?
               <div className="description">
                 {parse(intervention.settings.optionalLessonsIntro)}

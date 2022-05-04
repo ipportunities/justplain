@@ -9,12 +9,14 @@ const authenticatedReducer = (
     preferences: {},
     profile_pic:'',
     email:'',
+    phone:'',
     gender:'',
     education:'',
     date_time_birth:'',
     firstname:'',
     insertion:'',
     lastname:'',
+    coachSupport: true,
   },
   action
 ) => {
@@ -30,12 +32,14 @@ const authenticatedReducer = (
         preferences: action.payload.preferences,
         profile_pic: action.payload.profile_pic,
         email:action.payload.email,
+        phone:action.payload.phone,
         gender:action.payload.gender,
         education:action.payload.education,
         date_time_birth:action.payload.date_time_birth,
         firstname:action.payload.firstname,
         insertion:action.payload.insertion,
         lastname:action.payload.lastname,
+        coachSupport:action.payload.coachSupport,
       };
     case "SET_AUTHENTICATED_FALSE":
       return {
@@ -46,14 +50,16 @@ const authenticatedReducer = (
         userType: "",
         rights: {},
         preferences: {},
-        profile_pic:'',
-        email:'',
-        gender:'',
-        education:'',
-        date_time_birth:'',
-        firstname:'',
-        insertion:'',
-        lastname:'',
+        profile_pic: '',
+        email: '',
+        phone: '',
+        gender: '',
+        education: '',
+        date_time_birth: '',
+        firstname: '',
+        insertion: '',
+        lastname: '',
+        coachSupport: true
       };
     case "LOGOUT":
     case "SET_AUTHENTICATED_NULL":
@@ -65,15 +71,17 @@ const authenticatedReducer = (
         userType: "",
         rights: {},
         preferences: {},
-        profile_pic:'',
-        email:'',
-        gender:'',
-        education:'',
-        date_time_birth:'',
-        firstname:'',
-        insertion:'',
-        lastname:'',
-      };
+        profile_pic: '',
+        email: '',
+        phone: '',
+        gender: '',
+        education: '',
+        date_time_birth: '',
+        firstname: '',
+        insertion: '',
+        lastname: '',
+        coachSupport: true
+      }
     default:
       return state;
   }

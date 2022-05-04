@@ -15,9 +15,6 @@ const Ranges = (props) => {
   const [activeRange, setActiveRange] = useState(false)
   const [ranges, setRanges] = useState([])
 
-  //console.log('activeRange');
-  //console.log(activeRange);
-
   useEffect(() => {
     if (typeof props.ranges != "undefined" && props.ranges != "") {
       setRanges(props.ranges);
@@ -27,9 +24,6 @@ const Ranges = (props) => {
   const url = useSelector(state => state.url);
   const medialibrary = useSelector(state => state.mediaLibrary);
   const dispatch = useDispatch();
-
-  //console.log('medialibrary');
-  //console.log(medialibrary);
 
   //////////////////////
   ///Save if chosen image uit bieb is not empty alleen bij overeenkomstige id

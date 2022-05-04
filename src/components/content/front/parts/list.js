@@ -177,7 +177,7 @@ const List = (props) => {
     }
 
     ///remove
-    if(chosenAnswers.includes(item_id))
+    if(chosenAnswers.includes(item_id) && type != "other")
     {
       if(props.part.type == "question_radio"){
         chosenAnswersUpdated = []
@@ -291,7 +291,7 @@ const List = (props) => {
       <div className="options">
         <ul>
           {mergedItems.map((item, index) =>
-            <li key={index} id={"item_" + index} index={index} className={(showCorrectAnswers.includes(item.id) ? 'correct':'')}>
+            <li key={index} id={"item_" + index} index={index} className={(showCorrectAnswers.includes(item.id) ? 'correct':'') + (props.part.subtype == 'cards' ? (showCards.includes(index) ? 'back':'front'):'')}>
               <table>
                 <tbody>
                   <tr>
@@ -333,7 +333,7 @@ const List = (props) => {
                         <div>
                         {buildInput(item.id)}
 
-                        <label onClick={(e) => toggleAnswer(item.id, item.type)} className={item.type == "other" ? "other":''}>
+                        <label htmlFor={item.id} onClick={(e) => toggleAnswer(item.id, item.type)} className={item.type == "other" ? "other":''}>
                           {typeof item.type != "undefined" && item.type == "custom" ?
                           <div>
                             <ContentEditable
@@ -345,7 +345,7 @@ const List = (props) => {
                                 />
                           </div>
                           :
-                          <div>
+                          <div className={(parse(item.content) != "" ? "has_text":"")}>
                             {(parse(item.content) == "" ? parse('&nbsp;'):parse(item.content))}
 
                             {item.type == "other" ?

@@ -26,7 +26,6 @@ const Monitor = (props) => {
         data: {
         }
       }).then(resp => {
-        console.log(resp.data);
         setData(resp.data);
       });
   }, []);
@@ -54,10 +53,8 @@ const Monitor = (props) => {
           <tbody>
           {
             data.users.map((d, index) => {
-              console.log(d);
               let language_id = 1;//def dutch
               
-              console.log(typeof d.user.preferences);
               if (typeof d.user.preferences !== undefined)
               {
                 for (var pref of d.user.preferences) {
@@ -71,7 +68,6 @@ const Monitor = (props) => {
 
               let programm = '';
               let intervention_id = 0;
-              console.log(typeof d.user.rights);
               if (typeof d.user.rights !== undefined && typeof d.user.rights.interventions !== undefined && typeof d.user.rights.interventions[0] !== undefined && typeof d.user.rights.interventions[0].id !== undefined)
               {
                 intervention_id = d.user.rights.interventions[0].id;

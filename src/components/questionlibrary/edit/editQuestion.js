@@ -40,7 +40,6 @@ const EditQuestion = ({ question, saveQuestion, removeQuestion, removeLoading = 
     saveTimeout();
   }
   const saveQuestionAnswer = (e, answerOrder) => {
-    console.log(e);
     dispatch(setSavingStatus("not_saved"));
     question.answers.find(a => a.order === answerOrder)[e.target.name] = e.target.value
     saveQuestion(question)

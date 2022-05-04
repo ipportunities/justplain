@@ -340,7 +340,7 @@ const Lessons = (props) => {
       {appSettings.showProfileOnDashboard ?
         <ProfileCoachName extraClass="hide_profile_coach_name_on_phone"/>
         :''}
-      {intervention.settings.intervention_type === 'guided_selfhelp' && intervention.settings.selfhelp.guided_selfhelp_plan_contact === 1 && appSettings.planContactOption ?
+      {intervention.settings.intervention_type === 'guided_selfhelp' && intervention.settings.selfhelp.guided_selfhelp_plan_contact === 1 ?
         <ContactMoments/>
         :''}
     </div>

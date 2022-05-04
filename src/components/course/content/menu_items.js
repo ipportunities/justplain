@@ -5,8 +5,11 @@ import { getClone } from "../../utils";
 import {appSettings} from "../../../custom/settings";
 import { setActivePart, setActiveIntervention, setShowLeftMenu, setIntervention } from "../../../actions/";
 import t from "../../translate";
+import { isToday } from "../../helpers/changeFormatDate.js";
 
 const MenuItems = () => {
+
+  const auth = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -14,6 +17,7 @@ const MenuItems = () => {
   const activePart = useSelector(state => state.activePart);
   const intervention = useSelector(state => state.intervention);
   const showLeftMenu = useSelector(state => state.showLeftMenu);
+  const [liveChatAvailable, setLiveChatAvailable] = useState(false);
 
   const changeActivePart = (activePart) => {
     dispatch(setActivePart(activePart));
@@ -84,6 +88,23 @@ const MenuItems = () => {
         setChatarchiveTitle(intervention.settings.menu.chatarchive)
       }
 
+    }
+
+    ///check of live chat is beschikbaar vandaag
+    if(intervention.id > 0){
+      if(typeof intervention.settings !== "undefined" && typeof intervention.settings.selfhelp.guided_selfhelp_live_chat !== "undefined" && typeof intervention.settings.contactMoments !== "undefined" && intervention.settings.selfhelp.guided_selfhelp_live_chat === 1){
+        ///gepland of gewoon open
+        if(intervention.settings.selfhelp.guided_selfhelp_plan_contact === 1) {
+          for(let i = 0 ; i < intervention.settings.contactMoments.length; i++){
+            if(intervention.settings.contactMoments[i].date_time != "" && isToday(intervention.settings.contactMoments[i].date_time) && intervention.settings.contactMoments[i].type == "chat"){
+              setLiveChatAvailable(true)
+              break;
+            }
+          }
+        } else {
+          setLiveChatAvailable(true)
+        }
+      }
     }
 
   }, [intervention]);
@@ -182,7 +203,7 @@ const MenuItems = () => {
           </> : <></>
       }
       {
-          (typeof intervention.settings !== "undefined" && typeof intervention.settings.selfhelp.guided_selfhelp_chat_contact !== "undefined" &&  intervention.settings.selfhelp.guided_selfhelp_chat_contact === 1) ?
+          (typeof intervention.settings !== "undefined" && typeof intervention.settings.selfhelp.guided_selfhelp_chat_contact !== "undefined" &&  intervention.settings.selfhelp.guided_selfhelp_chat_contact === 1 && auth.coachSupport) ?
           <>
             <tr
               onClick={() => changeActivePart("chat")}
@@ -207,7 +228,7 @@ const MenuItems = () => {
           :false
       }
       {
-          (typeof intervention.settings !== "undefined" && typeof intervention.settings.selfhelp.guided_selfhelp_live_chat !== "undefined" &&  intervention.settings.selfhelp.guided_selfhelp_live_chat === 1) ?
+          liveChatAvailable && auth.coachSupport ?
           <>
             <tr
               onClick={() => changeActivePart("live-chat")}
@@ -220,11 +241,11 @@ const MenuItems = () => {
                 <img src={require('../../../custom/themes/'+appSettings.baseThemeID+'/images/chat'+(activePart == "live-chat" ? '_active':'')+'.svg')} className='phone'/>
                 <span>{liveChatTitle}</span>
 
-                {intervention.settings.numberOfNewMessages > 0 ?
+                {/*intervention.settings.numberOfNewMessages > 0 ?
                   <div className='newMessage'>
                     {intervention.settings.numberOfNewMessages}
                   </div>
-                  : <></>}
+                  : <></>*/}
               </td>
             </tr>
             <tr className='spacer'><td></td><td></td></tr>

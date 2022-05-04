@@ -2,7 +2,6 @@ import React from 'react';
 import parse from 'html-react-parser';
 
 const Video = (props) => {
-
   return (
     <div className={'center ' + (props.part.subtype)}>
       {props.part.subtype == "video rechts tekst links" ?

@@ -96,7 +96,7 @@ const Feedback = (props) => {
 
           ///2022-2-17 toon niet als checkable included vragenlijst die nog niet gecheckt is
           ///checkable en correcte antwoorden
-          if(this_answer_obj.length != 0)
+          if(this_answer_obj.length != 0 && question_local.checkable && props.part.parentType && props.part.parentType == "form")
           {
             let one_correct = false;
             for(let i = 0 ; i < question_local.items.length ; i++){
@@ -106,7 +106,6 @@ const Feedback = (props) => {
               }
             }
 
-          
             if(one_correct && !this_answer_obj[0].answer.checked && question_local.checkable && props.part.parentType && props.part.parentType == "form"){
               this_answer_obj = [];
             }
@@ -182,14 +181,22 @@ const Feedback = (props) => {
 
   return(
     <>
-    {answers != false && (props.part.subtype == "feedback" && feedback.length != 0 ) ?
-    <div className='feedback'>
+    {answers != false && ((props.part.subtype == "feedback" && feedback.length != 0 ) || props.part.subtype == "herhaal antwoord") ?
+    <div className={props.part.subtype}>
       <div className="center">
         <div>
           {question != false ?
-            <h3 className="question">
-              {parse(question)}
-            </h3>
+            <>
+            {props.part.subtype == "herhaal antwoord" ?
+              <div className="question">
+                {parse(question)}
+              </div>
+              :
+              <h3 className="question">
+                {parse(question)}
+              </h3>
+            }
+            </>
             :false
           }
           {answers == false ?

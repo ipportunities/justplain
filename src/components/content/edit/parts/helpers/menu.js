@@ -67,8 +67,6 @@ const Menu = props => {
 
   }
 
-  //console.log(props.options);
-
   return(
     <div>
     <div className={"menu " + (showMenu == true ? 'show' : '')}>

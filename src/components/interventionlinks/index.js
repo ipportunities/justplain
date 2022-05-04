@@ -139,7 +139,6 @@ const InterventionLinks = props => {
   return (
     <div className="intervention_links clearfix card_holder">
       {interventions.map((intervention, index) => {
-        console.log("intervention", intervention)
         return (
           <div
             id={"intervention_" + intervention.id}

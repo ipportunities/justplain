@@ -5,8 +5,6 @@ import {appSettings} from "../../../../custom/settings";
 
 const EditorPart = (props) => {
 
-  //console.log(props.part_content);
-
   return (
     <div className="editor_holder">
     <Editor
@@ -16,7 +14,7 @@ const EditorPart = (props) => {
       value={props.part_content != '' ? props.part_content : ''}
       init={{
         menubar:false,
-        plugins: 'link image code lists advlist table',
+        plugins: 'link image code lists advlist',
         style_formats_merge: true,
         relative_urls : false,
         remove_script_host : true,

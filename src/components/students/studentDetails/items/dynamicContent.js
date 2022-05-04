@@ -5,7 +5,6 @@ import QuestionWithOptions from '../../../content/front/parts/question_with_opti
 import Select from "../../../content/front/parts/select.js";
 import Slider from "../../../content/front/parts/slider.js";
 import DatePicker from "../../../content/front/parts/datepicker.js";
-import FeedbackQuestionnaire from "../../../content/front/parts/feedback_questionnaire.js";
 
 const DynamicContent = (props) => {
 
@@ -40,7 +39,7 @@ const DynamicContent = (props) => {
     const fakeUpdate = () => {}
 
     let dynamicContent = "";
-    const typesWeNeed = ["matrix", "question_open", "question_checkboxes", "question_radio", "select", "slider", "custom", "datepicker", "feedback_questionnaire"];
+    const typesWeNeed = ["matrix", "question_open", "question_checkboxes", "question_radio", "select", "slider", "custom", "datepicker"];
 
     if (typesWeNeed.indexOf(props.part.type) > -1)
     {
@@ -63,9 +62,6 @@ const DynamicContent = (props) => {
                 break;
             case "matrix":
                dynamicContent = <Matrix index={props.part.id} part={props.part} updateAnswer={fakeUpdate} answer={getAnswer(props.part.id)} disabled="true" nextAllowed={false}/>
-                break;
-            case "feedback_questionnaire":
-               dynamicContent = <FeedbackQuestionnaire index={props.part.id} part={props.part} updateAnswer={fakeUpdate} answers={props.answers} disabled="true" nextAllowed={false}/>
                 break;
 
         }

@@ -49,10 +49,8 @@ const Registration = ({registration_id}) => {
       }).then(resp => {
         setRegistration(resp.registration)
         setGroup_id(resp.registration.group_id_1)
-        console.log(resp.registration)
         setGroups(resp.groups)
         setAnswers(resp.allAnswers)
-        console.log("allAnswers", resp.allAnswers)
 
         let questionnaires_filtered = []
         let questionnaires = intervention.settings.questionnaires;
@@ -76,7 +74,6 @@ const Registration = ({registration_id}) => {
           })
         })
         setItems(questionnaires_filtered)
-        console.log("items", questionnaires_filtered)
       })
     }
   }, [])

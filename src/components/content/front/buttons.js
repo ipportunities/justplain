@@ -27,7 +27,6 @@ const FrontButtons = (props) => {
         });
 
         if(this_answer_obj.length != 0){
-
           if(this_answer_obj[0].answer == '' && (currentPage[i].type == "question_open" || currentPage[i].type == "select" || currentPage[i].type == "slider"))
           {
             nextAllowedNew = false;

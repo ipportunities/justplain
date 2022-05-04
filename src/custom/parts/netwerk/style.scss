@@ -1,0 +1,167 @@
+.netwerk{
+	.circle_name{
+		position: absolute;
+		padding:55px 0px 0px 0px;
+		width:210px;
+		height:100px;
+		cursor:pointer;
+		background-image:url('./images/family_man_big.png');
+		background-position:center 17%;
+		background-repeat:no-repeat;
+
+		opacity:0.8;
+		input[type="text"]{
+      width: 170px;
+      text-align: center;
+    }
+	}
+	.family_to_add,.others{
+		background: #ececec;
+		padding: 0 20px 20px;
+	}
+	.intro{
+		margin-top: 40px;
+		font-size: 18px !important;
+		font-weight: bold !important;
+		background: #ececec;
+		padding: 20px;
+		.help{
+			margin-bottom: 10px;
+			font-weight: normal !important;
+			font-size: 16px !important;
+			font-style: italic !important;
+		}
+	}
+	.others{
+		display: flex;
+	}
+	.member{
+		position: relative;
+		height: 44px;
+		padding:55px 0px 0px 0px;
+		width:210px;
+		height:100px;
+		cursor:pointer;
+		background-image:url('./images/family_man_big.png');
+		background-position:center 17%;
+		background-repeat:no-repeat;
+
+		opacity:1;
+		/*filter:alpha(opacity=75);*/
+		margin-right: 20px;
+		input[type="text"]{
+      width: 170px;
+      text-align: center;
+    }
+	}
+	.name{
+    background: #ececec !important;
+    position: absolute;
+    bottom: 0;
+		padding: 10px 0;
+		width:100%;
+		text-align: center;
+		height: 40px;
+    td:nth-child(2){
+      background: #000;
+      color:#ececec;
+      padding-right: 10px;
+      padding-left: 10px;
+			width:20px;
+    }
+    .fa-times{
+      cursor: pointer;
+    }
+  }
+	.person_circle
+	{
+		width:650px;
+		height:650px;
+		border:0px solid #c6c7c8;
+		padding:0px;
+		margin:0px;
+		background-color:#ffffff;
+
+		-moz-border-radius:10px;
+		-webkit-border-radius:10px;
+		border-radius:10px;
+
+		position:relative;
+
+		background-image:url("./images/family_circle.png");
+		background-position:center center;
+		background-repeat:no-repeat;
+	}
+	.family_to_add{
+		display: flex;
+	}
+
+	.dcn_cursor
+	{
+		cursor:move;
+	}
+	.input_circle_name
+	{
+		background-color:#ffffff;
+		border:0px;
+		width:100px;
+		height:15px;
+		padding:2px 2px 2px 2px;
+		border:1px solid #e2007a;
+		text-align:center;
+
+		-moz-border-radius:4px;
+		-webkit-border-radius:4px;
+		border-radius:4px;
+
+		opacity:1.0;
+		filter:alpha(opacity=100);
+	}
+	.woman_big
+	{
+		background-image:url("./images/family_woman_big.png");
+	}
+	.man_small
+	{
+		background-image:url("./images/family_man_small.png");
+		padding:40px 0px 0px 0px;
+	}
+	.woman_small
+	{
+		background-image:url("./images/family_woman_small.png");
+		padding:40px 0px 0px 0px;
+	}
+
+
+	.td_person_circle_names_list
+	{
+		padding:0px 5px 0px 5px;
+		text-align:center;
+	}
+
+	.add_name, .delete_name
+	{
+		border:0px solid #e2007a;
+		padding:2px 5px 2px 5px;
+		font-weight:bold;
+		background-color:#ffffff;
+		color:#777777;
+		text-align:center;
+		cursor:pointer;
+	}
+	.add_name
+	{
+		float:left;
+		margin-right:25px;
+	}
+	.add_name:hover, .delete_name:hover
+	{
+		background-color:#ff90fa;
+	}
+	@media (max-width:690px) {
+	  .person_circle{
+			width: calc(100vw - 40px);
+			/*height: calc(100vw - 40px);*/
+		}
+	}
+}

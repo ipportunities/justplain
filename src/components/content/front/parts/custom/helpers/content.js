@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import StressMeter from '../stressMeter.js';
 import CustomParts from '../../../../../../custom/parts/';
 
 const CustomContent = (props) => {
-  var dynamicContent = "";
+  
+  const [dynamicContent, setDynamicContent] = useState(<></>)
 
-  if(props.part.custom_id.split("_")[0] != "c"){
-    switch(props.part.custom_id) {
-      case "1":
-        dynamicContent = <StressMeter part={props.part} updateAnswer={props.updateAnswer} answer={props.answer} />;
-        break;
+  useEffect(() => {
+    if (typeof props.part !== "undefined") {
+      switch(props.part.custom_id) {
+        case "1":
+          setDynamicContent(<StressMeter part={props.part} updateAnswer={props.updateAnswer} answer={props.answer} />)
+          break;
+      }
     }
-  }
+  }, [props.part])
 
   return (
     <>

@@ -5,24 +5,6 @@
     margin-bottom: 0;
     color:$title_color;
     overflow: hidden;
-    .component .date .question,
-    .component .list .question,
-    .component .question_radio .question,
-    .component .question_checkboxes .question{
-      margin-bottom: 20px;
-    }
-    .omkaderd.tekstblok{
-      background:#F3F6C7;
-      border:none;
-      strong,b{
-        color:$text_color;
-      }
-    }
-    .text{
-      ul:last-child{
-        margin-bottom: 0 !important;
-      }
-    }
     /*Scrollbar in menu links verbergen is mooier ; dan moet er eignelijk nog wel een visuele cue komen die duidelijk maakt dat je kan scrollen */
     .holder .left .content .menu::-webkit-scrollbar {
       display: none;
@@ -87,12 +69,6 @@
       }
     }
     .matrix{
-      &.special_table table table tr{
-        td:nth-child(1),
-        td{
-          padding: 0 !important;
-        }
-      }
       input[type="checkbox"] + label, input[type="radio"] + label{
         left: 9px;
         margin: 0 auto !important;
@@ -550,7 +526,9 @@
           .item{
             background: $tab_accordion_background;
             color:$tab_accordion_color;
-            border-bottom:1px solid #fff;
+            border:none;
+            border-bottom:1px solid;
+            border-color:$tab_accordion_background !important;
             .toggle_content{
               background: #fff;
               padding: 11px 12px;
@@ -563,9 +541,6 @@
             .title{
               /*font-weight: 600;*/
               font-size: 20px;
-              td:nth-child(1){
-                padding-right: 30px;
-              }
             }
             .content{
               padding-left: 0 !important;
@@ -576,9 +551,6 @@
             &.content_visible{
               ul{
                 margin-bottom: 1.5em;
-                &:last-child{
-                  margin-bottom: 0;
-                }
               }
               .content,
               .title{
@@ -600,7 +572,7 @@
         padding-left: 0 !important;
         max-width: $max-width;
       }
-      .center:not(.audio):not(.carousel):not(.omkaderd){
+      .center:not(.audio):not(.carousel){
         max-width: $max-width;
         padding-left: 0 !important;
         padding-right: 0 !important;

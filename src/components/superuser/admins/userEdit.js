@@ -45,11 +45,8 @@ const UserEdit = () => {
 
   useEffect(() => {
 
-    console.log(user_id)
-
     if (typeof user_id !== 'undefined' && Number.isInteger(parseInt(user_id)) && user_id > 0)
     {
-      console.log("jo")
       apiCall({
         action: "get_admin",
         token: auth.token,

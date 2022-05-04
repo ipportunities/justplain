@@ -41,7 +41,7 @@ const List = (props) => {
   const dispatch = useDispatch();
   const [activeItem, setActiveItem] = useState(false);
 
-  //////////////////////
+   //////////////////////
   ///Get content
   useEffect(() => {
     if(props.part.items != ""){
@@ -57,8 +57,18 @@ const List = (props) => {
           }
         }
       }
+      
+      //cleanen v evt lege items
+      /* console.log(props.part.items)
+      let cleanItems = []
+      for (let i=0;i<props.part.items.length;i++) {
+        if (props.part.items[i] !== null) {
+          cleanItems.push(props.part.items[i])
+        }
+      }  */
 
       setITems(props.part.items)
+
       checkIfRoutedItems()
     }
     if(props.part.type == "select")
@@ -298,7 +308,7 @@ const List = (props) => {
     let used = false;
     for(let i = 0 ; i < props.part.items.length ; i++)
     {
-      if(typeof props.part.items[i].routing != "undefined" && props.part.items[i].routing != "")
+      if(props.part.items[i] !== null && typeof props.part.items[i].routing !== "undefined" && props.part.items[i].routing !== "")
       {
         used = true;
       }
@@ -389,20 +399,18 @@ const List = (props) => {
 
                                   {item.type == "other" && (props.part.subtype == "checkboxes" || props.part.subtype == "radio") ? <input type="text" className='other' placeholder={t("anders namelijk")}/>:''}
                                 </td>
-
-                                <Routing routingOn={routingOn} updateRouting={updateRouting} parts={props.parts} index={props.index} setRoutingAvailable={setRoutingAvailable} item_id={item.id} routing={typeof item.routing == "undefined"?"":item.routing}/>
-
-                                {(valuesOn == true ?
-                                  <td>
-                                    <div className={"values" + (valuesOn == true ? '':' hide')}>
-                                      <input type='text'
-                                         value={typeof item.value == "undefined" ? '':item.value}
-                                         placeholder="Waarde"
-                                         onChange={(e) => updateValue(item.id, e.target.value)}
-                                         />
-                                    </div>
-                                  </td>
-                                  :false)}
+                                <td>
+                                  <Routing routingOn={routingOn} updateRouting={updateRouting} parts={props.parts} index={props.index} setRoutingAvailable={setRoutingAvailable} item_id={item.id} routing={typeof item.routing == "undefined"?"":item.routing}/>
+                                </td>
+                                <td>
+                                  <div className={"values" + (valuesOn == true ? '':' hide')}>
+                                    <input type='text'
+                                       value={typeof item.value == "undefined" ? '':item.value}
+                                       placeholder="Waarde"
+                                       onChange={(e) => updateValue(item.id, e.target.value)}
+                                       />
+                                  </div>
+                                </td>
                               </tr>
                             </tbody>
                           </table>

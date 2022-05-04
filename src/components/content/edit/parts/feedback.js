@@ -169,21 +169,12 @@ const Feedback = (props) => {
     } else {
       items[indexItemToUpdate].content = content
     }
-    //console.log(items);
-    //console.log(indexItemToUpdate);
-    //console.log('items[indexItemToUpdate]');
-    //console.log(items[indexItemToUpdate]);
-    //console.log(content);
     props.updatePart(props.index, 'items', items)
   }
-
-  //console.log(props.part.items);
 
   //////////////////////
   ///Get feedback based on id
   function getFeedbackItem(id){
-    //console.log('getFeedbackItem');
-    //console.log(id);
     let item = props.part.items.filter(function(item) {
       return item.refererId == id;
     });

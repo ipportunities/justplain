@@ -278,8 +278,7 @@ const Edituser = forwardRef((props, ref) => {
   }
 
   function doDeleteCoach(){
-    //console.log("doDeleteCoach");
-    //console.log(state.user.rights.interventions);
+
     if (state.user.removeUser && state.user.rights.interventions.length > 1) {
       let intervention_index = 0;
       //zo ja, dan alleen coach loskoppelen van deze interventie
@@ -749,13 +748,13 @@ const Edituser = forwardRef((props, ref) => {
           checked={state.user.isSupervisor}
         />
         <label className="form-check-label" htmlFor="isSupervisor">
-          {t("Coach is tevens supervisor voor deze cursus")}
+          {t(appSettings.begeleiderName)} {t("is tevens supervisor voor deze cursus")}
         </label>
         <br />
         <br />
       </div>
       <div className={state.user.isSupervisor ? "hidden" : ""}>
-        <label htmlFor="type">{t("Coach valt onder supervisor")}</label>
+        <label htmlFor="type">{t(appSettings.begeleiderName)} {t("valt onder supervisor")}</label>
         <select
           id="hasSupervisor"
           name="hasSupervisor"

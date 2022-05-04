@@ -65,7 +65,7 @@ const ConfettiFullScreen = (props) =>{
               {t('Waarom niet even genieten van de confetti, voordat je')}
             </div>
             <span className='btn btn-primary' onClick={()=>turnOff()}>
-              {t('de confetti uitzetten')}
+              {t('de confetti uitzet')}
             </span>
           </div>
         </div>

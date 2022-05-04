@@ -193,7 +193,7 @@ const InterventionTheme = props => {
           saveTheme={saveTheme}
           intervention={getClone(intervention)}/>
         <InputField
-          label={t("Coach")}
+          label={t(appSettings.begeleiderName)}
           html={typeof intervention.settings.menu != "undefined"&& typeof intervention.settings.menu.coach != "undefined" ? intervention.settings.menu.coach :''}
           updateField={'coach'}
           saveTheme={saveTheme}

@@ -5,6 +5,7 @@ import "flatpickr/dist/themes/material_green.css";
 import Flatpickr from "react-flatpickr";
 import { Dutch } from "flatpickr/dist/l10n/nl.js";
 import t from "../../translate";
+import NotificationBox from "../../../components/alert/notification";
 
 const  StudentDetailsPlanContact = props => {
 
@@ -12,7 +13,7 @@ const  StudentDetailsPlanContact = props => {
   const intervention = useSelector(state => state.intervention);
 
   const [contactMoments, setContactMoments] = useState([])
-
+  const [notificationOptions, setNotificationOptions] = useState('');
 
   useEffect(() => {
     let apiCallObj = {
@@ -46,6 +47,27 @@ const  StudentDetailsPlanContact = props => {
     });
   }
 
+  const sendNotification = (index) => {
+    let apiCallObj = {
+      action: "send_contact_moment_notification",
+      token: auth.token,
+      data: {
+        intervention_id: intervention.id,
+        student_id: props.studentId,
+        meeting: contactMoments[index].type,
+        date: contactMoments[index].date_time,
+      }
+    };
+
+    apiCall(apiCallObj).then(resp => {
+      console.log(123);
+      setNotificationOptions({
+        show: "true",
+        text: "<h4>" + resp.msg + "</h4>",
+        confirmText: t("Ok")
+      });
+    });
+  }
   const addContactMoment = () => {
     updateContactMoments({id:0, intervention_id:intervention.id, type:'chat', date_time:''})
   }
@@ -72,8 +94,6 @@ const  StudentDetailsPlanContact = props => {
     });
   }
 
-  console.log(contactMoments);
-
   return(
     <div className='contact_moments'>
       <h2>{t("Afspraak inplannen")}</h2>
@@ -89,6 +109,9 @@ const  StudentDetailsPlanContact = props => {
               </th>
               <th>
                 {t("Type")}
+              </th>
+              <th>
+
               </th>
               <th>
 
@@ -123,6 +146,13 @@ const  StudentDetailsPlanContact = props => {
                   </select>
                 </td>
                 <td>
+                  {auth.userType == "coach" ?
+                    <>
+                      <span className="btn btn-secondary" onClick={()=>sendNotification(index)}>{t("Verstuur notificatie")}</span>
+                    </>
+                  :""}
+                </td>
+                <td>
                   <span className="delete btn showOnHover" onClick={(e) => deleteContactMoment(index, contactMoment.id)} data-tip={t("Verwijder item")}><i className="fa fa-minus"></i></span>
                 </td>
               </tr>
@@ -136,6 +166,8 @@ const  StudentDetailsPlanContact = props => {
       <span className="btn btn-primary" onClick={()=>addContactMoment()}>
         {t("Contact moment toevoegen")}
       </span>
+
+      <NotificationBox options={notificationOptions} setNotificationOptions={setNotificationOptions} />
     </div>
   )
 }

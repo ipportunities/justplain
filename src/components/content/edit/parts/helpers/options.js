@@ -334,10 +334,6 @@ const componentOptions = [
       {
         ref:"checkbox", /// niet aanpassen
         niceName:"checkbox"
-      },
-      {
-        ref:"text", /// niet aanpassen
-        niceName:"tekst"
       }],
     content:{
       subtype:"radio",

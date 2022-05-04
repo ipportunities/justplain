@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory } from 'react-router-dom';
-import Header from '../registration/panels/header';
-import Footer from '../registration/panels/footer';
+import Header from '../registration/koozh/panels/header';
+import Footer from '../registration/koozh/panels/footer';
 import QuestionnaireContent from './questionnaire_content';
 import apiCall from '../api';
 import { setQuestionnaire, setAnswersLessons, setUiTranslation } from "../../actions";
@@ -30,7 +30,7 @@ const Confirmation = () => {
 
 
   useEffect(() => {
-    
+
     if (location.search.substr(0,1) === '?')
     {
       let par = location.search.substr(1).split("&");
@@ -82,7 +82,7 @@ const Confirmation = () => {
                 resp.questionnaires,
               )
             )
-      
+
             dispatch(
               setAnswersLessons(
                 resp.intervention_id,
@@ -106,53 +106,52 @@ const Confirmation = () => {
       setShowLoading(false);
       setShowWrongParams(true);
     }
-    
+
   }, [location])
 
   const setFinished = () => {
     setShowQuestionnaire(false);
     setShowFinished(true);
   }
- 
+
   return (
 
-    <div className="questionnaireContainer">
+    <div className="questionnaireContainer theme_4">
+      <link rel="stylesheet" type="text/css" href={require('../../custom/themes/4/index.scss')} />
 
       <Header loginbutton={false} />
+      <div className="holder_container">
+      <div className="container lessoncontent front registrationError">
 
-      <div className="container lessoncontent front">
 
-        <h1>{t("Vragenlijst")}</h1>
+          <h1>{t("Vragenlijst")}</h1>
 
-        <div className={showLoading ? '' : 'hidden'}>
-          {t("De gegevens m.b.t. de vragenlijst worden opgehaald...")}
-          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        </div>
+          <div className={showLoading ? '' : 'hidden'}>
+            {t("De gegevens m.b.t. de vragenlijst worden opgehaald...")}
+          </div>
 
-        <div className={showWrongParams ? '' : 'hidden'}>
-          {t("De vragenlijst kon helaas niet worden opgehaald.")}
-          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        </div>
+          <div className={showWrongParams ? '' : 'hidden'}>
+            {t("De vragenlijst kon helaas niet worden opgehaald.")}
+          </div>
 
-        <div className={allreadyFinished ? '' : 'hidden'}>
-          {t("Je hebt deze vragenlijst al eerder ingevuld en afgerond.")}
-          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        </div>
+          <div className={allreadyFinished ? '' : 'hidden'}>
+            {t("Je hebt deze vragenlijst al eerder ingevuld en afgerond.")}
+          </div>
 
-        <div className={showQuestionnaire ? '' : 'hidden'}>
-          {
-            showQuestionnaire ? 
-              <QuestionnaireContent  intervention_id={intervention_id} language_id={language_id} questionnaire_id={questionnaire_id} weeknr={weeknr} ic={ic} dtc={dtc} setFinished={setFinished} />
-              :
-              <></>
-          }
-        </div>
+          <div className={showQuestionnaire ? '' : 'hidden'}>
+            {
+              showQuestionnaire ?
+                <QuestionnaireContent  intervention_id={intervention_id} language_id={language_id} questionnaire_id={questionnaire_id} weeknr={weeknr} ic={ic} dtc={dtc} setFinished={setFinished} />
+                :
+                <></>
+            }
+          </div>
 
-        <div className={showFinished ? '' : 'hidden'}>
-          {t("Hartelijk dank voor het invullen van de vragenlijst!")}
-          <br /><br />
-          Team Caring Universities
-          <br /><br /><br /><br /><br /><br /><br /><br /><br />
+          <div className={showFinished ? '' : 'hidden'}>
+            {t("Hartelijk dank voor het invullen van de vragenlijst!")}
+            <br /><br />
+            Team Kopopouders
+          </div>
         </div>
 
 

@@ -38,7 +38,6 @@ const AgendaChatcourse = props => {
       apiCall(apiCallObj).then(resp => {
         let tempMyEventsList = [];
         setGroups(resp.groups)
-        //console.log();
         for(let i = 0 ; i < resp.groups.length ; i++){
           if(resp.groups[i]){
             for(let ii = 0 ; ii < resp.groups[i].agenda.length ; ii++){

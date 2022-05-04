@@ -16,13 +16,13 @@ import standardAvatar from "../../images/course/standard/avatar.png";
 import {appSettings} from "../../custom/settings";
 import { Dutch } from "flatpickr/dist/l10n/nl.js";
 
-
 let teller = 0;
 const Edituser = forwardRef((props, ref) => {
   teller++;
   const [state, setState] = useState({
     user: {
       id: 0,
+      sinai_id: '',
       firstname: "",
       insertion: "",
       lastname: "",
@@ -52,6 +52,7 @@ const Edituser = forwardRef((props, ref) => {
   const [groupsPerIntervention, setGroupsPerIntervention] = useState([])
   const url = useSelector(state => state.url);
   const [profileImage, setProfileImage] = useState('');
+  const [showSinaiId, setShowSinaiId] = useState(false);
 
   const [activeTab, setActiveTab] = useState(1)
   const [isSupervisorIntervention, setIsSupervisorIntervention] = useState(false)
@@ -315,6 +316,10 @@ const Edituser = forwardRef((props, ref) => {
       }
 
       ///4-10-2021 validating js
+      if (parseInt(state.user.id) === 0) { 
+        //voor nieuwe deelnemer wordt geen telefoonnummer, gebruikersnaam en wachtwoord opgegeven.
+        formValidationSettings = formValidationSettings.slice(0,3)
+      }
       let validation = validateFields(formValidationSettings, state.user);
       setErrorFields(validation.errorFields)
       if(validation.errorFields.includes("password") && validation.errorFields.includes("password_check") && validation.errorFields.length == 2){
@@ -325,16 +330,20 @@ const Edituser = forwardRef((props, ref) => {
       if(!validation.status){
         setErrorMessage(validation.msg);
       } else {
-        if(checkIfCoachesANdGroupsAreSet()) {
-          apiCall({
-            action: "save_user",
-            token: auth.token,
-            data: {
-              user: state.user
-            }
-          }).then(resp => {
-            props.closeModal(resp.msg, intervention.id);
-          });
+        if (showSinaiId && state.user.sinai_id.trim().length < 1) {
+          setErrorMessage('Geef het Sinai-ID op van deze deelnemer!');
+        } else {
+          if(checkIfCoachesANdGroupsAreSet()) {
+            apiCall({
+              action: "save_user",
+              token: auth.token,
+              data: {
+                user: state.user
+              }
+            }).then(resp => {
+              props.closeModal(resp.msg, intervention.id);
+            });
+          }
         }
       }
 
@@ -343,7 +352,7 @@ const Edituser = forwardRef((props, ref) => {
 
   ////tbv validating en nette error afhandeling
   const [errorFields, setErrorFields] = useState([]);
-  const formValidationSettings = [
+  let formValidationSettings = [
     {
       "name":"firstname",
       "text":"Voornaam",
@@ -545,14 +554,12 @@ const Edituser = forwardRef((props, ref) => {
   }
 
   function getAccesDate(intervention_id){
-    console.log(intervention_id);
     let intervention_object = state.user.rights.interventions.filter(function (rights) {
       return rights.id === intervention_id
     });
     let thisInterventionIndex = state.user.rights.interventions.indexOf(intervention_object[0])
     if (thisInterventionIndex >= 0) {
       if(state.user.rights.interventions[thisInterventionIndex].accessible_from != ""){
-        console.log(state.user.rights.interventions[thisInterventionIndex].accessible_from);
         return state.user.rights.interventions[thisInterventionIndex].accessible_from;
       }
     }
@@ -573,15 +580,18 @@ const Edituser = forwardRef((props, ref) => {
         <div className={"tab" + (activeTab == 1 ? ' active':'')} onClick={()=>setActiveTab(1)}>
           <h6>{t("Personalia")}</h6>
         </div>
-        {isSupervisorIntervention || auth.userType == "admin" ?
+        {/*adminner mag dit altijd*/}
+        {(parseInt(state.user.id) !== 0 && isSupervisorIntervention) || (auth.userType == "admin") ?
           <div className={"tab" + (activeTab == 2 ? ' active':'')} onClick={()=>setActiveTab(2)}>
             <h6>{t(appSettings.interventieNameMeervoud)}</h6>
           </div>
           :<></>}
-
-        <div className={"tab" + (activeTab == 3 ? ' active':'')} onClick={()=>setActiveTab(3)}>
-          <h6>{t("Wachtwoord")}</h6>
-        </div>
+        {
+        parseInt(state.user.id) !== 0 ?
+          <div className={"tab" + (activeTab == 3 ? ' active':'')} onClick={()=>setActiveTab(3)}>
+            <h6>{t("Wachtwoord")}</h6>
+          </div> : <></>
+        }
         {auth.user_id === props.user.id || props.user.id === 0 ? <></>:<div className={"tab" + (activeTab == 4 ? ' active':'')} onClick={()=>setActiveTab(4)}>
           <h6>{t("Verwijderen")}</h6>
         </div>}
@@ -727,39 +737,81 @@ const Edituser = forwardRef((props, ref) => {
                 onChange={onChange}
               />
             </div>
-            <div className="col">
-              <label htmlFor="phone">{t("Telefoonnummer")}</label>
-              <input
-                type="text"
-                className={"form-control" + (errorFields.includes('phone') ? ' error':'')}
-                id="phone"
-                name="phone"
-                aria-describedby="phone"
-                placeholder=""
-                value={state.user.phone || ""}
-                onChange={onChange}
-              />
-            </div>
+            {
+            parseInt(state.user.id) !== 0 ?
+              <div className="col">
+                <label htmlFor="phone">{t("Telefoonnummer")}</label>
+                <input
+                  type="text"
+                  className={"form-control" + (errorFields.includes('phone') ? ' error':'')}
+                  id="phone"
+                  name="phone"
+                  aria-describedby="phone"
+                  placeholder=""
+                  value={state.user.phone || ""}
+                  onChange={onChange}
+                />
+              </div> : <></>
+            }
           </div>
-
-          <div className="form-row align-items-center">
-            <div className="col">
-              <label htmlFor="login">{t("Gebruikersnaam")}</label>
-              <input
-                type="text"
-                className={"form-control" + (errorFields.includes('login') ? ' error':'')}
-                id="login"
-                name="login"
-                aria-describedby="login"
-                placeholder=""
-                value={state.user.login || ""}
-                onChange={onChange}
-              />
-            </div>
-          </div>
+          {
+            parseInt(state.user.id) === 0 ?
+              <>
+                <br />
+                <div className="form-row align-items-center">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="showSinaiID"
+                    onChange={()=>setShowSinaiId(!showSinaiId)}
+                    checked={showSinaiId}
+                  />
+                  <label className="form-check-label" htmlFor="showSinaiID">
+                    {t("Deelnemer Sinai onderzoek")}
+                  </label>
+                </div>
+                {
+                  showSinaiId ?
+                    <div className="form-row align-items-center">
+                      <div style={{display: 'block', marginLeft: '30px'}}>
+                        <label htmlFor="sinai_id">{t("Sinai-ID")}</label>
+                        <input
+                          type="text"
+                          className={"form-control" + (errorFields.includes('firstname') ? ' error':'')}
+                          id="sinai_id"
+                          name="sinai_id"
+                          aria-describedby="sinai_id"
+                          placeholder="sleutelvariabele"
+                          value={state.user.sinai_id || ""}
+                          onChange={onChange}
+                        />
+                      </div>
+                    </div>
+                    : <></>
+                }
+              </> : <></>
+          }
+          {
+          parseInt(state.user.id) !== 0 ?
+            <div className="form-row align-items-center">
+              <div className="col">
+                <label htmlFor="login">{t("Gebruikersnaam")}</label>
+                <input
+                  type="text"
+                  className={"form-control" + (errorFields.includes('login') ? ' error':'')}
+                  id="login"
+                  name="login"
+                  aria-describedby="login"
+                  placeholder=""
+                  value={state.user.login || ""}
+                  onChange={onChange}
+                />
+              </div>
+            </div> : <></>
+          }
         </div>
         {isSupervisorIntervention || auth.userType == "admin" ?
-          <div className={"content interventions" + (activeTab == 2 ? ' active':'') + (appSettings.access_date_intervention_is_option ? ' show_header':false)}>
+          <div className={"content interventions" + (activeTab == 2 ? ' active':'') + (appSettings.access_date_intervention_is_option ? ' show_header':'')}>
           {interventions.length > 0 ?
             <div className="form-group">
               <table>
@@ -769,7 +821,7 @@ const Edituser = forwardRef((props, ref) => {
                       {t(appSettings.interventieName)}
                     </th>
                     <th>
-                      {t("Coach")}
+                      {t(appSettings.begeleiderName)}
                     </th>
                     <th>
                       {t("Toegankelijk vanaf")}
@@ -778,7 +830,7 @@ const Edituser = forwardRef((props, ref) => {
                   {interventions.map((intervention, index) => (
                     <tr key={index}>
                       <td>
-                        <input
+                      <input
                           className="form-check-input"
                           type="checkbox"
                           id={"intervention_" + intervention.id}

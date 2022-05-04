@@ -47,7 +47,7 @@ const ProfileCoachName = (props) => {
       <div className="text">
         {myCoach != "" ?
           <>
-            {t("Coach")} {myCoach.firstname} {myCoach.insertion !=  "" ? myCoach.insertion + " ":''}{myCoach.lastname}<br/>
+            {t(appSettings.begeleiderName)} {myCoach.firstname} {myCoach.insertion !=  "" ? myCoach.insertion + " ":''}{myCoach.lastname}<br/>
           </>
         :''}
         {auth.name}<br/>

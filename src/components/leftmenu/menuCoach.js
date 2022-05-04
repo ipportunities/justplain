@@ -6,6 +6,7 @@ import t from "../translate";
 import LogOut from "./logout";
 import LanguageSwitch from "./languageswitch";
 import $ from "jquery";
+import { appSettings } from '../../custom/settings'
 
 const MenuCoach = props => {
   let history = useHistory();
@@ -24,7 +25,7 @@ const MenuCoach = props => {
         localSupervisorFor.push(interv.id);
       }
     });
-    
+
     setSupervisorFor(localSupervisorFor);
   }, [])
 
@@ -58,7 +59,7 @@ const MenuCoach = props => {
             }
           >
             <i className="fas fa-users color_orange"></i>
-            <div className="menu-left-link">{t("Coaches")}</div>
+            <div className="menu-left-link">{t(appSettings.begeleiderNameMeervoud)}</div>
         </div>
         :
         false

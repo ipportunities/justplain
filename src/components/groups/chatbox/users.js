@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useSelector } from "react-redux";
 import t from "../../translate";
 import apiCall from "../../api";
+import {appSettings} from "../../../custom/settings";
 
 const Users = props => {
 
@@ -49,7 +50,7 @@ const Users = props => {
         return (
           <div className={"user " + (parseInt(user.timestamp_last_action) + timeoutChat > Math.floor(Date.now() / 1000) || (props.archiveMode && user.timestamp_last_action != 0)  ? 'active':'inactive') + (user.disabled == 1 && !props.archiveMode ? ' disabled':'')}>
             <span className={"color color-" + (key % 7)} style={{backgroundColor:user.bgColor}}></span>
-            {user.login} {user.userType == "coach" ? <>({t("Coach")})</>:<></>}
+            {user.login} {user.userType == "coach" ? <>({t(appSettings.begeleiderName)})</>:<></>}
             {auth.userType == 'coach' && user.usertype != 'coach' && !props.archiveMode ?
              <span className='timeout' onClick={()=>disable(user.id)}>
               {user.disabled == 1 ?

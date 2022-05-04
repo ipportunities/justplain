@@ -16,17 +16,14 @@ const Content = (props) => {
     const [answers, setAnswers] = useState([]);
     const [answersSet, setAnswersSet] = useState(false);
     const [noAnswersMessage, setNoAnswersMessage] = useState('');
-
-    useEffect(() => {
+   useEffect(() => {
 
         if (props.itemKey > -1 && props.items.length > 0)
         {
-
             //newContent is array met de key van de opgevraagde les +
             //alle keys van lessen die hieronder hangen
             let newContent = [];
-            newContent.push(parseInt(props.itemKey));
-            let item_id = props.items[props.itemKey].id
+            newContent.push(props.itemKey);
 
             props.items.map((item, index) => {
                //structuur optionele lessen is anders
@@ -35,14 +32,14 @@ const Content = (props) => {
                    newContent.push(index);
                  }
                } else {
-                  if (index > props.itemKey && ((item.parent_id === props.items[props.itemKey].id) || (parseInt(item.parent_id) === 0 && item.id === props.items[props.itemKey].id)))
-                  {
-
-                      newContent.push(index);
-                  }
-
+                 ///subpagina's werden niet (meer) meegenomen 2021-12-13
+                 if (index > props.itemKey && (item.parent_id === props.items[props.itemKey].id || item.parent_id == props.items[props.itemKey].parent_id))
+                 {  
+                     newContent.push(index);
+                 }
                }
-               return true; //?
+
+                return true;
             })
             setContent(newContent)
         }
@@ -57,6 +54,8 @@ const Content = (props) => {
                 filledIn()
             }
         }
+
+
     }, [props.itemKey, props.items, props.answers])
 
     const filledIn = () => {
@@ -212,8 +211,6 @@ const Content = (props) => {
         }
       }
     }
-
-    console.log(answers);
 
     return (
         <div className="the_content_holder">

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import parse from 'html-react-parser';
-import {getQuestion} from "./helpers/functions.js";
 
 const Slider = props => {
 
@@ -77,7 +76,7 @@ const Slider = props => {
     <div className={"slider" + (props.part.must ? ' must':'')}>
       <div className="center">
         <div className="question">
-          {getQuestion(props.part)}
+          {parse(props.part.question)} {props.part.must?"*":""}
         </div>
         <span className="rs-label" style={{'left':offsetLeft}}>{wasEmpty ? '':chosen}</span>
         <input id={'range_' + props.index} type="range" min={rangeMin} max={rangeMax} onChange={(e) => updateSliderAnswer(e.target.value)} value={chosen}  disabled={(props.hasOwnProperty("disabled") && props.disabled === "true") ? true : false}/>

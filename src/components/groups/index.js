@@ -232,11 +232,6 @@ const Groups = props => {
 
   const [activeTab, setActiveTab] = useState('')
 
-  /*
-  useEffect(() => {
-    console.log('props.activeGroup', props.activeGroup)
-  }, [props.activeGroup])
-*/
   const showTab = (tab, group = false) => {
     if(group) {
       props.setActiveGroup(group);

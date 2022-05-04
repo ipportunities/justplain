@@ -114,7 +114,6 @@ const InterventionSettingsGamification = props => {
     }, 1500);
   }
 
-
   return (
     <div id="settings-gamifcation" className="form-group">
       <div className="part">
