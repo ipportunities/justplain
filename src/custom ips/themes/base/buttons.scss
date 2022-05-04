@@ -1,0 +1,43 @@
+.theme_3 {
+  .btn{
+    line-height: 1.6;
+  }
+  .btn-primary.next{
+    background: $orange !important;
+    border-color:$orange !important;;
+    color:#fff !important;
+    font-weight: bold;
+    font-size: 20px;
+    height: 44px;
+    line-height: 1.5;
+  }
+  .btn-primary.prev{
+    background: #fff !important;
+    border-color:#A1BDCA !important;;
+    color:#A1BDCA !important;
+    font-weight: bold;
+    font-size: 20px;
+    height: 44px;
+    line-height: 1.5;
+  }
+  .btn.red{
+    background: $red !important;
+    border-color:$red !important;;
+    color:#fff !important;
+    font-weight: bold;
+    line-height: 1.6;
+    &:hover{
+      background: #fff !important;
+      color:$red !important;
+    }
+  }
+}
+@media (max-width:$breakpoint) {
+  .theme_3{
+    .btn-primary.prev,
+    .btn-primary.next{
+      font-size: 16px;
+      line-height: 1.7;
+    }
+  }
+}

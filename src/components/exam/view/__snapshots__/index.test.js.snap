@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exam View should render correctly with coach view 1`] = `
+<div>
+  <ExamViewStudent />
+</div>
+`;
+
+exports[`Exam View should render correctly with student view 1`] = `
+<div>
+  <ExamViewStudent />
+</div>
+`;

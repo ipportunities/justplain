@@ -1,0 +1,24 @@
+.pointsContainer{
+    top:20px;
+    z-index: 1000;
+    position: fixed;
+    right: 20px;
+    display: none;
+    .add_points{
+        margin-top: -50px;
+      .content{
+          display: inline-block;
+          background: #21bf46;
+          margin-bottom: 20px;
+          padding: 10px;
+          border-radius: 10px;
+          color:#fff;
+          font-weight: normal;
+          float: right;
+          .points{
+            font-weight: bold;
+          }
+      }
+    }
+
+}

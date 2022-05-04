@@ -1,0 +1,30 @@
+.uitranslations{
+  h2{
+    margin-bottom: 40px;
+  }
+  .translation_item {
+    .textarea{
+      width: 100%;
+    }
+    .original{
+      padding: 10px ;
+      border:1px solid #f5f5f5;
+      float: left;
+      width: 50%;
+      }
+    .translation {
+      background-color: #efefef;
+      padding: 10px;
+      float: left;
+      width: 50%;
+      position: relative;
+      min-height: 46px;
+      border-bottom: 2px solid #fff;
+      .textarea{
+        background: none;
+        padding: 0;
+        border: none;
+      }
+    }
+  }
+}

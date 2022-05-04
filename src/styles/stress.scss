@@ -1,0 +1,65 @@
+.student_details {
+    #holderGraph {
+        opacity: 1;
+        height: auto;
+        display: block;
+        box-sizing: border-box;
+    }
+    .holderGraph {
+    
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 5px 35px #A2BDCA33;
+        border-radius: 10px;
+        opacity: 1;
+        padding: 40px;
+        position: relative;
+
+        h1 {
+            font: Bold 32px/39px Montserrat;
+            color: $dark_bleu;
+        }
+
+        .imageScale {
+            position: absolute;
+            div {
+                height: 100px;
+                border-botom: 1px sol;
+
+                img {
+                    margin-top: 25px;
+                    width: 50px;
+                }
+            }
+        }
+
+        .border {
+            position: relative;
+        }
+        .border:nth-child(1) {
+            top: 100px;
+        }
+        .border:nth-child(2) {
+            top: 200px;
+        }
+        .border:nth-child(3) {
+            top: 300px;
+        }
+        .border:nth-child(4) {
+            top: 400px;
+        }
+
+        .graph {
+            padding-left: 60px;
+        }
+
+        .gradientEffect {
+            width: calc(100% - 70px);
+            margin-left: 70px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.85) 100%);
+            position: absolute;
+            bottom: 41px;
+            height: 90px;
+        }
+
+    }
+}

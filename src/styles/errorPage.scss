@@ -1,0 +1,17 @@
+.errorPage{
+  text-align: center;
+  display: table;
+  height: calc(100vh - 180px);
+  width:100%;
+  .center{
+    display: table-cell;
+    height:100%;
+    width:100%;
+    vertical-align: middle;
+    font-size: 24px;
+    h1{
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+  }
+}

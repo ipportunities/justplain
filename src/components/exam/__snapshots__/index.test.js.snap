@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exam should render correctly 1`] = `
+<div>
+  <Menu />
+  <Switch>
+    <Route
+      path="/exam/edit/:id"
+    >
+      <ExamTypeEdit />
+    </Route>
+    <Route
+      path="/exam/view/:examMomentId"
+    >
+      <ExamView />
+    </Route>
+  </Switch>
+</div>
+`;

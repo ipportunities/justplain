@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web);
+
+body{
+  font-family: $font_family;
+}
+.menuIsVisible{
+  #nav-icon{
+    display: block;
+  }
+}
+a{
+  color: #d93d3f;
+  font-weight: bold;
+  &:hover{
+    color:#000;
+  }
+}
+.theme_4{ //// basetheme class nog graag naar body misschien maar via js
+  color:$title_color !important;
+  font: 300 16px/24px $font_family_2;
+  display: block;
+  background: $orange_2;
+  min-height: 100vh;
+  h1{
+    font-weight: bold;
+  }
+  .finished .Typewriter__cursor{
+    display: none !important;
+  }
+  h1.big{
+    font: Bold 38px/47px $font_family_2 !important;
+  }
+  b, strong {
+      /*font-weight: 500 !important;*/
+  }
+  #menu_left{
+    background: #fff !important;
+  }
+  #nav-icon{
+    right: -200px !important;
+  }
+  #menu_left,
+  .menu_left_inner{
+    width: 400px !important;
+  }
+}
+@media (max-width:$breakpoint) {
+  body.menuIsVisible{
+    .overlay{
+      background: rgba(0,0,0,0.5);
+      z-index: 12;
+    }
+  }
+  .theme_4{
+    h1.big{
+      font: Bold 28px/32px $font_family_2 !important;
+    }
+    #menu_left,
+    .menu_left_inner{
+      width: 80% !important;
+    }
+    .form-control{
+      font-size: 16px !important;
+    }
+    #loginContainer
+    {
+      box-shadow:none !important;
+    }
+  }
+}

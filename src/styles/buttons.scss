@@ -1,0 +1,144 @@
+.btn{
+  height: 41px;
+  cursor: pointer;
+  &.delete{
+    background: #dc3545;
+    color:#fff;
+    border-radius: 50px;
+    padding: 6px 10px;
+    width: 40px;
+    height: 40px;
+  line-height: 1.7;
+  text-align: center;
+    i{
+      margin-left: 0;
+    }
+  }
+  i{
+    margin-left: 10px;
+  }
+  &.lightgrey{
+    background: rgba(49, 53, 55, 0.4);
+    color: #fff;
+    border-radius: 50px;
+    padding: 6px 9px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.5;
+    text-align: center;
+    i{
+      margin-left: 0;
+    }
+  }
+  &.grey{
+    background: rgba(49, 53, 55, 0.6);
+    color: #fff;
+    border-radius: 50px;
+    padding: 6px 9px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.7;
+    text-align: center;
+    i{
+      margin-left: 0;
+    }
+  }
+  &.yellow{
+    background: #fcbe59;
+    color: #fff;
+    border-radius: 50px;
+    padding: 6px 9px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.7;
+    text-align: center;
+    i{
+      margin-left: 0;
+    }
+  }
+  &.lightgrey{
+    background: #eaeaea;
+    color: #fff;
+    border-radius: 50px;
+    padding: 6px 9px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.7;
+    text-align: center;
+    i{
+      margin-left: 0;
+    }
+  }
+
+  &.edit{
+    background: #28a745;
+    color: #fff;
+    border-radius: 50px;
+    padding: 6px 9px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.7;
+    text-align: center;
+    i{
+      margin-left: 0;
+    }
+    &.disabled{
+      background: rgba(49, 53, 55, 0.6);
+    }
+  }
+  &.roundWhite{
+    background: none;
+    border:1px solid rgba(49, 53, 55, 0.2);
+    color: rgba(49, 53, 55, 0.4);
+    border-radius: 50px;
+    padding: 6px 9px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.7;
+    text-align: center;
+    i{
+      margin-left:0;
+    }
+  }
+  &.round.bleu,
+  &.handle{
+    background: #008dc9; /*#4fbdf4*/
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 1.7;
+    padding: 6px 9px;
+    text-align: center;
+    i{
+      font-size: 20px;
+      margin-left: 0;
+
+    }
+  }
+  &.red{
+    background: #e76c70;
+    color:#fff;
+    &:hover{
+      opacity: 0.95;
+      color:#fff;
+    }
+  }
+  &.correct{
+    background: rgba(49, 53, 55, 0.6);
+    opacity: 0.65;
+    color: #fff;
+    border-radius: 50px;
+    padding: 6px 9px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.7;
+    text-align: center;
+    i{
+      margin-left: 0;
+    }
+    &.right{
+      opacity: 1;
+      background: #28a745;
+    }
+  }
+}

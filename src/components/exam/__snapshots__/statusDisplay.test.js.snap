@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exam Moment Status Display should render correctly with status checked 1`] = `
+<h5>
+  <span
+    className="badge badge-pill badge-success"
+  >
+    checked
+  </span>
+</h5>
+`;
+
+exports[`Exam Moment Status Display should render correctly with status filled 1`] = `
+<h5>
+  <span
+    className="badge badge-pill badge-warning"
+  >
+    filled
+  </span>
+</h5>
+`;
+
+exports[`Exam Moment Status Display should render correctly with status generated 1`] = `
+<h5>
+  <span
+    className="badge badge-pill badge-primary"
+  >
+    generated
+  </span>
+</h5>
+`;
+
+exports[`Exam Moment Status Display should render correctly with status overdue 1`] = `
+<h5>
+  <span
+    className="badge badge-pill badge-danger"
+  >
+    overdue
+  </span>
+</h5>
+`;
+
+exports[`Exam Moment Status Display should render correctly with status started 1`] = `
+<h5>
+  <span
+    className="badge badge-pill badge-info"
+  >
+    started
+  </span>
+</h5>
+`;
+
+exports[`Exam Moment Status Display should return div when no status is given 1`] = `<div />`;

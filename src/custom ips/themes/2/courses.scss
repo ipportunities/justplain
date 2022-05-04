@@ -1,0 +1,28 @@
+.theme_2 .courses{
+  .items{
+    margin:40px 0;
+    .item{
+      border-radius: 10px;
+        position: relative;
+        margin: 0 20px 40px;
+        width: calc(33% - 40px);
+        overflow: hidden;
+        background: #fff;
+        .image{
+          background-size: cover!important;
+        height: 150px;
+        }
+    }
+  }
+}
+.theme_2 {
+  .bg_courses_not_allowed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width:100%;
+    background: url('./images/patroon.svg');
+    z-index: -1;
+  }
+}

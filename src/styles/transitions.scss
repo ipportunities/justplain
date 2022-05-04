@@ -1,0 +1,33 @@
+.new_element{
+  opacity: 0;
+  background: #eaeaea !important;
+  max-height:0 !important;
+  padding:0;
+}
+.to_delete{
+  opacity: 1;
+  border:1px solid #fb2d00 !important;
+  transition: none !important;
+  margin-top: 0;
+  box-sizing: border-box !important;
+  width: calc(100% - 2px);
+
+}
+.to_remove{
+  opacity: 1;
+  background: #eaeaea !important;
+  transition: all 0.5s;
+  margin-top: 0;
+}
+.slideUp{
+  transition: all 1s;
+  max-height: 0 !important;
+  border:none;
+  opacity: 0;
+  display: none;
+}
+.slideDown{
+  transition: all 1s;
+  /*max-height: 500px !important;*/
+  opacity: 1;
+}

@@ -1,0 +1,60 @@
+.base_theme.theme_2{
+  .dashboard{
+    &.stress,
+    &.chat,
+    &.lessons,
+    &.goals{
+      .holder{
+        .left{
+          background: #f8f8f8;
+        }
+      }
+    }
+    .holder{
+      display: flex !important;
+      .left{
+        background: #f8f8f8;
+        .content{
+          .menu{
+            background: none;
+            box-shadow: none !important;
+            padding-top: 0;
+            .title{
+              text-align: center;
+            }
+          }
+          .more{
+            padding-top: 0;
+          }
+        }
+        .shapes{
+          display: none;
+        }
+      }
+      .right{
+        .content{
+          .chat{
+            .illustration{
+              background: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width:$breakpoint) {
+  .base_theme.theme_2{
+    .dashboard{
+      .holder{
+        .left{
+          .content{
+            .menu{
+              background: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

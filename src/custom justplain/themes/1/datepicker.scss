@@ -1,0 +1,13 @@
+.flatpickr-weekdays,
+span.flatpickr-weekday,
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-months .flatpickr-month{
+  background: $dark_grey;
+}
+.flatpickr-weekday{
+  color:#fff !important;
+}
+.flatpickr-day.selected{
+  background: $in_lesson_steun_kleur;
+  border-color:$in_lesson_steun_kleur;
+}

@@ -1,0 +1,60 @@
+.emailsettings {
+  background: #f5f5f5;
+  min-height: calc(100vh - 85px);
+  .download {
+    cursor: pointer;
+  }
+  .navbar{
+    background: #fff;
+    position: fixed;
+    height: 85px;
+    width: 100%;
+    z-index: 11;
+    top: 0;
+    h2 {
+      font-size: 20px;
+      padding-left: 25px;
+      color: #505050;
+    }
+  }
+  .container{
+    margin: 80px auto 80px;
+    max-width: 1000px;
+    padding: 0 40px;
+    .elements{
+      .element{
+        padding: 10px 0 23px;
+        margin:10px 0;
+        border-bottom:1px solid #eaeaea;
+        select{
+          padding: 5px 10px 5px;
+          height: 40px;
+          display: inline-block;
+          border-radius: 2.3rem;
+          background: none;
+          border: 0.1rem solid rgba(49, 53, 55, 0.2);
+        }
+        .options{
+          float: right;
+          .btn{
+            i{
+              margin-left: 0;
+            }
+          }
+        }
+        .questionnaire_options{
+          margin-top: 20px;
+          padding: 0 17px;
+        }
+        .questionnaire,
+        .lesson{
+
+        }
+        .lesson{
+          font-size: 20px;
+        }
+      }
+
+    }
+  }
+}

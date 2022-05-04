@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+body{
+  font-family: 'Open Sans' !important;
+  background: #fff;
+}
+.menuIsVisible{
+  #nav-icon{
+    display: block;
+  }
+}
+.theme_1{ //// basetheme class nog graag naar body misschien maar via js
+  color:$text_color !important;
+  display: block !important;
+  font: 16px/28px $font_family_2;
+  h1{
+    font-size: 32px;
+    font-weight: 600;
+  }
+  .finished .Typewriter__cursor{
+    display: none !important;
+  }
+  h1.big{
+    font: 32px/40px $font_family_2 !important;
+  }
+  b, strong {
+      /*font-weight: 500 !important;*/
+  }
+  #menu_left{
+    background: #fff !important;
+  }
+  #nav-icon{
+    right: -200px !important;
+  }
+  #menu_left,
+  .menu_left_inner{
+    width: 400px !important;
+  }
+}
+@media (max-width:$breakpoint) {
+  body.menuIsVisible{
+    .overlay{
+      z-index: 2;
+    }
+  }
+  .theme_1{
+    h1.big{
+      font: Bold 28px/32px $font_family_2 !important;
+    }
+    #menu_left,
+    .menu_left_inner{
+      width: 80% !important;
+    }
+    .form-control{
+      font-size: 16px !important;
+    }
+    #loginContainer
+    {
+      box-shadow:none !important;
+    }
+  }
+}

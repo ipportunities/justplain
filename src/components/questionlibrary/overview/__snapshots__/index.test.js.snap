@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question Library Overview should render correctly 1`] = `
+<div
+  className="container-fluid"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-6 offset-3"
+    >
+      <div
+        className="row"
+      >
+        <h1>
+          Question Library
+        </h1>
+      </div>
+      <div
+        className="row pt-5"
+      >
+        <table
+          className="table table-striped table-bordered"
+        >
+          <thead
+            className="thead"
+          >
+            <tr>
+              <th>
+                Question category
+              </th>
+              <th>
+                Amount of questions
+              </th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                colSpan={99}
+              >
+                <input
+                  className="form-control"
+                  id="newCategory"
+                  onChange={[Function]}
+                  onKeyPress={[Function]}
+                  placeholder="Type om een nieuwe categorie toe te voegen"
+                  style={
+                    Object {
+                      "backgroundColor": "transparent",
+                    }
+                  }
+                  type="text"
+                  value=""
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;

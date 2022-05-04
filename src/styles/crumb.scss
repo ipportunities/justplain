@@ -1,0 +1,9 @@
+.crumb{
+  &.center{
+    max-width: 1000px;
+    margin-top: 40px;
+    span{
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.theme_3{
+  .leftBottom {
+    font:300 16px/24px $font;
+    .logo{
+      width:140px;
+    }
+    .btn.btn-primary{
+      min-height: 54px;
+      height: auto;
+      padding: 5px 20px;
+    }
+  }
+}

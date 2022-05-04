@@ -1,0 +1,314 @@
+html{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+body{
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  &.lessonMenuVisible,
+  &.menuIsVisible{
+    overflow: hidden;
+  }
+  &.shake{
+    animation: shake 0.75s 2 cubic-bezier(.36,.07,.19,.97) both;
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+
+}
+.theme{
+  display: none;
+}
+.navbar{
+  justify-content:initial !important;
+}
+.alert-danger{
+  background: #e76c70 !important;
+  color: #fff !important;
+  border-color:#e76c70 !important;
+}
+.loginScreen {
+  /*font: 300 16px/24px Montserrat;*/
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #fff;
+  overflow: hidden;
+  .shapes .shape {
+    position: absolute;
+    animation: cloud_1 64s infinite linear;
+    &:nth-child(1) {
+      top: 722px;
+      left: 204px;
+      width: 441px;
+      height: 440px;
+      background: url("../images/course/standard/svg/Path 3132.svg");
+      mix-blend-mode: initial;
+    }
+    &:nth-child(2) {
+      top: 560px;
+      left: -8px;
+      width: 271px;
+      height: 274px;
+      background: url("../images/course/standard/svg/Path 3134.svg");
+      mix-blend-mode: initial;
+    }
+    &:nth-child(3) {
+      top: 357px;
+      left: -2px;
+      width: 361px;
+      height: 159px;
+      background: transparent url("../images/course/standard/svg/Path 3133.svg") 0 0 no-repeat padding-box;
+      mix-blend-mode: initial;
+    }
+    &:nth-child(4) {
+      top: 40px;
+      left: 80px;
+      width: 415px;
+      height: 382px;
+      background: transparent url("../images/course/standard/svg/Path 3135.svg") 0 0 no-repeat padding-box;
+      mix-blend-mode: initial;
+    }
+    &:nth-child(5) {
+      top: 122px;
+      left: 404px;
+      width: 441px;
+      height: 420px;
+      background: url("../images/course/standard/svg/Path 3132.svg");
+      mix-blend-mode: initial;
+    }
+    &:nth-child(6) {
+      top: 560px;
+      left: 700px;
+      width: 271px;
+      height: 274px;
+      background: url("../images/course/standard/svg/Path 3134.svg");
+      mix-blend-mode: initial;
+    }
+    &:nth-child(7) {
+      top: 57px;
+      left: 850px;
+      width: 361px;
+      height: 159px;
+      background: transparent url("../images/course/standard/svg/Path 3133.svg") 0 0 no-repeat padding-box;
+      mix-blend-mode: initial;
+    }
+    &:nth-child(8) {
+      top: 300px;
+      left: 900px;
+      width: 415px;
+      height: 382px;
+      background: transparent url("../images/course/standard/svg/Path 3135.svg") 0 0 no-repeat padding-box;
+      mix-blend-mode: initial;
+    }
+    &:nth-child(9) {
+      top: 600px;
+      left: 1050px;
+      width: 361px;
+      height: 159px;
+      background: transparent url("../images/course/standard/svg/Path 3133.svg") 0 0 no-repeat padding-box;
+      mix-blend-mode: initial;
+    }
+    &:nth-child(10) {
+      top: -70px;
+      left: 1500px;
+      width: 415px;
+      height: 382px;
+      background: transparent url("../images/course/standard/svg/Path 3135.svg") 0 0 no-repeat padding-box;
+      mix-blend-mode: initial;
+    }
+    &:nth-child(11) {
+      top: 260px;
+      left: 1200px;
+      width: 271px;
+      height: 274px;
+      background: url("../images/course/standard/svg/Path 3134.svg");
+      mix-blend-mode: initial;
+    }
+    &:nth-child(12) {
+      top: 500px;
+      left: 1700px;
+      width: 415px;
+      height: 382px;
+      background: transparent url("../images/course/standard/svg/Path 3135.svg") 0 0 no-repeat padding-box;
+      mix-blend-mode: initial;
+    }
+    &:nth-child(13) {
+      top: 800px;
+      left: 1450px;
+      width: 361px;
+      height: 159px;
+      background: transparent url("../images/course/standard/svg/Path 3133.svg") 0 0 no-repeat padding-box;
+      mix-blend-mode: initial;
+    }
+    &:nth-child(14) {
+      top: 500px;
+      left: 1600px;
+      width: 415px;
+      height: 382px;
+      background: transparent url("../images/course/standard/svg/Path 3135.svg") 0 0 no-repeat padding-box;
+      mix-blend-mode: initial;
+    }
+    &:nth-child(15) {
+      top: 60px;
+      left: 1900px;
+      width: 271px;
+      height: 274px;
+      background: url("../images/course/standard/svg/Path 3134.svg");
+      mix-blend-mode: initial;
+    }
+  }
+}
+
+.forgotPassword{
+  cursor: pointer;
+  opacity: 0.3;
+}
+.date{
+  .showDate{
+    i{
+      margin-right: 5px;
+      &:nth-child(2){
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    margin-left: -1px;
+  }
+
+  20%, 80% {
+    margin-left: 2px;
+  }
+
+  30%, 50%, 70% {
+    margin-left: -4px;
+  }
+
+  40%, 60% {
+    margin-left: 4px;
+  }
+}
+.noPadding{
+  padding:0 !important;
+}
+.cursor{
+  cursor: pointer;
+}
+.center{
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 0 20px;
+}
+.hide{
+  display: none;
+}
+[contenteditable]:empty:before {
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+  color:#999;
+}
+[contenteditable]:focus {
+  outline: 0 solid transparent;
+}
+p:last-child{
+  margin-bottom: 0;
+}
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.caption{
+  margin-top: 10px;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.9em;
+  &.above{
+    margin-bottom: 12px;
+  }
+}
+.columns{
+
+  &.grid-2{
+    .column{
+      float: left;
+      width:48%;
+      &:nth-child(2){
+        margin-left: 2%;
+      }
+      &:nth-child(1){
+        margin-right: 2%;
+      }
+    }
+  }
+  &.grid-3{
+    .column{
+      float: left;
+      width:32%;
+      &:nth-child(3),
+      &:nth-child(2){
+        margin-left: 1%;
+      }
+      &:nth-child(1){
+        margin-right: 1%;
+      }
+    }
+  }
+  &.grid-4{
+    .column{
+      float: left;
+      width:24%;
+      &:nth-child(4),
+      &:nth-child(3),
+      &:nth-child(2){
+        margin-left: 1%;
+      }
+      &:nth-child(1){
+        margin-right: 1%;
+      }
+      /*
+      .btn{
+        padding-left: 1.25em;
+        padding-right: 1.25em;
+        margin-left: -109px !important;
+      }
+      */
+    }
+  }
+}
+.overlay{
+  background: rgba(0,0,0,0.2);
+  width:100%;
+  height:100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  cursor: pointer;
+}
+.customalert.overlay{
+  display: block;
+  &.hide{
+    display: none;
+  }
+}
+@keyframes cloud_1 {
+  20%,
+  60% {
+    margin-left: -40px;
+    transform: scale(0.87);
+  }
+
+  40%,
+  80% {
+    margin-left: 40px;
+    transform: scale(1.15);
+  }
+}

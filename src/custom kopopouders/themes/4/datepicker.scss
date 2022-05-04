@@ -1,0 +1,19 @@
+.flatpickr-weekdays,
+span.flatpickr-weekday,
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-months .flatpickr-month{
+  background: $bleu;
+}
+.flatpickr-weekday{
+  color:#fff !important;
+}
+.flatpickr-day:hover,
+.flatpickr-day.selected:hover{
+  background: none;
+  border:1px solid $in_lesson_steun_kleur;
+  color: $in_lesson_steun_kleur;
+}
+.flatpickr-day.selected{
+  background: $in_lesson_steun_kleur;
+  border-color:$in_lesson_steun_kleur;
+}

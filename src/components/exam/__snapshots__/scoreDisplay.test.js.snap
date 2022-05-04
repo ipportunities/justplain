@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exam Score Display should render correctly with 0% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(229,22,22)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 0/100 points (0%)
+</div>
+`;
+
+exports[`Exam Score Display should render correctly with 10% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(0,0,0)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 10/100 points (10%)
+</div>
+`;
+
+exports[`Exam Score Display should render correctly with 20% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(0,0,0)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 20/100 points (20%)
+</div>
+`;
+
+exports[`Exam Score Display should render correctly with 30% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(0,0,0)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 30/100 points (30%)
+</div>
+`;
+
+exports[`Exam Score Display should render correctly with 40% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(0,0,0)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 40/100 points (40%)
+</div>
+`;
+
+exports[`Exam Score Display should render correctly with 50% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(0,0,0)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 50/100 points (50%)
+</div>
+`;
+
+exports[`Exam Score Display should render correctly with 60% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(0,0,0)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 60/100 points (60%)
+</div>
+`;
+
+exports[`Exam Score Display should render correctly with 70% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(0,0,0)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 70/100 points (70%)
+</div>
+`;
+
+exports[`Exam Score Display should render correctly with 80% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(0,0,0)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 80/100 points (80%)
+</div>
+`;
+
+exports[`Exam Score Display should render correctly with 90% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(0,0,0)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 90/100 points (90%)
+</div>
+`;
+
+exports[`Exam Score Display should render correctly with 100% 1`] = `
+<div
+  style={
+    Object {
+      "color": "rgb(0,0,0)",
+      "fontWeight": "bold",
+    }
+  }
+>
+  Score: 100/100 points (100%)
+</div>
+`;

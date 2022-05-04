@@ -1,0 +1,17 @@
+.theme_2 .courses{
+  .items{
+    margin:40px 0;
+    .item{
+      border-radius: 10px;
+        position: relative;
+        margin: 0 20px 40px;
+        width: calc(33% - 40px);
+        overflow: hidden;
+        background: #fff;
+        .image{
+          background-size: cover!important;
+        height: 150px;
+        }
+    }
+  }
+}

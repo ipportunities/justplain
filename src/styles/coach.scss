@@ -1,0 +1,1230 @@
+.admin .coachInterface{
+  .listHidden{
+    margin-top: 40px;
+  }
+  .listVisible td.details .student_details{
+    margin-top: 40px;
+  }
+  .listVisible td.left{
+    padding-top: 43px;
+  }
+}
+.coachInterface{
+  background: #f5f5f5;
+  min-height: calc(100vh - 85px);
+  .contact_moments{
+    .items{
+      margin-top: -20px;
+      margin-bottom: 40px;
+      width:100%;
+      .moment{
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        /*background: #ffc107;*/
+        border-radius: 50px;
+        text-align: center;
+        /*color:#fff;*/
+        border:1px solid;
+        line-height: 32px;
+      }
+      thead tr{
+        background: none !important;
+      }
+      tr:nth-child(odd){
+        background: #f9f9f9;
+      }
+      td,
+      th{
+        height: 60px;
+        padding:0 10px;
+      }
+      th{
+        font-weight: normal;
+      }
+      .item{
+        .delete{
+          display: none;
+        }
+        td{
+          &:first-child{
+            width:50px;
+          }
+          &:nth-child(2){
+            width:200px;
+          }
+          &:last-child{
+            width:70px;
+          }
+        }
+        &:hover{
+          .delete{
+            display: block;
+          }
+        }
+        select{
+          background: none;
+          border: 1px solid;
+          padding: 5px;
+        }
+      }
+    }
+  }
+  &.admin{
+    .list{
+      margin-top: 40px;
+    }
+  }
+  .matrix{
+    th{
+      background: #fcbe59;
+      color:#000;
+      font-weight: 300;
+      font-size: 14px;
+    }
+    tr:last-child{
+      td{
+        border-bottom: 0;
+      }
+    }
+    .phone{
+      display: none !important;
+    }
+    td{
+      border-bottom: 1px solid #CCCCCC;
+      padding: 10px 0 10px 10px;
+      td{
+        padding: 0;
+        border:none;
+        input[type="checkbox"] + label, input[type="radio"] + label{
+          top: -13px;
+        }
+      }
+    }
+  }
+  &.registrations{
+    margin-top: 17px;
+    .download{
+      width: auto !important;
+    }
+    .theIntervention{
+      td{
+        &:nth-child(1){
+          width: auto !important;
+        }
+      }
+    }
+    td{
+      &:nth-child(1){
+        width: 40px !important;
+      }
+    }
+    tr.open{
+      background: #eeeeee;
+    }
+    tr.registrationDetails{
+      background: #eeeeee;
+    }
+  }
+  .registrationDetails{
+    td{
+      padding: 20px 55px !important;
+      table{
+        width: 400px !important;
+        td{
+          border:none !important;
+          padding: 10px !important;
+          &:nth-child(1){
+            width: 275px !important;
+          }
+        }
+      }
+    }
+  }
+  .empty{
+    h3{
+      margin-bottom: 20px;
+    }
+  }
+  .registration_data{
+    table{
+      width: 100%;
+      td.no_border{
+        border:none !important;
+        padding-top: 35px;
+      }
+      td.right{
+        background: #f9f9f9;
+        vertical-align: top;
+        td{
+          border-bottom: 1px solid #fff;
+        }
+        padding-top: 0;
+        width: 52%;
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      td.left{
+        vertical-align: top;
+
+        padding-top: 0;
+        width: 48%;
+      }
+      td td{
+        border-bottom:1px solid #f5f5f5;
+        padding: 10px 0;
+        &:nth-child(1){
+          font-weight: bold;
+          padding-right: 20px;
+        }
+        &:nth-child(2){
+
+        }
+      }
+    }
+  }
+  &.admin{
+    .list{
+      margin-top: 40px;
+    }
+  }
+  .studentDetailsInfoPersonal{
+    .image{
+      margin-top: -20px;
+      margin-bottom: 20px;
+      width: 150px;
+      height: 150px;
+      background-size: cover !important;
+      border-radius: 150px;
+    }
+  }
+  .alert{
+    position: fixed;
+    top: 100px;
+    right: -100%;
+    min-width: 300px;
+
+    z-index: 12;
+    transition: all 0.5s;
+    &.alert-danger,
+    &.alert-success{
+      right: 0;
+      transition: all 0.5s;
+    }
+  }
+  .theIntervention{
+    h2{
+      display: inline-block;
+      margin-right: 20px;
+    }
+    .filter{
+      position: relative;
+      top: -3px;
+    }
+  }
+  &.openSearch{
+
+    .theIntervention{
+        .search{
+          margin-top: 0;
+
+          transition: all 0.5s;
+          opacity: 1;
+          input{
+
+          }
+        }
+        .options{
+          left: 24% !important;
+          right: auto !important;
+          .fa-search,
+          .btn{
+            display: none;
+          }
+        }
+      }
+    /*
+    .listVisible{
+      td.left{
+        width:35%;
+        .users{
+          width:35%;
+          td{
+            border-bottom: 1px solid #eaeaea;
+          }
+          tr.active{
+            background: none;
+            left: 0;
+            box-shadow: none;
+          }
+        }
+      }
+      td.right{
+        width:65%;
+      }
+      .student_details{
+        opacity: 0.1 !important;
+        .filterd{
+          width:35%;
+          transition: all 0.5s;
+        }
+      }
+
+      .theIntervention{
+        .search{
+          margin-top: -80px;
+          opacity: 1;
+        }
+      }
+    }
+    */
+
+  }
+  .student_details{
+    h2{
+      margin-bottom: 40px;
+    }
+    .filterd{
+      padding-left: 20px;
+      font-size: 22px;
+      width:22%;
+      transition: all 0.5s;
+    }
+    .navbarHolder{
+      border-top:50px solid #f5f5f5;
+    }
+  }
+
+  .navbar{
+    background: #fff;
+    position: fixed;
+    height: 85px;
+    width:100%;
+    z-index: 11;
+    top: 0;
+    h2{
+      font-size: 20px;
+      padding-left: 25px;
+      color: #505050;
+    }
+    .select{
+      cursor: pointer;
+      margin-right: 0;
+    }
+    select{
+      margin-right: 10px;
+      background: none;
+      border:none;
+      font-size: 20px;
+      padding:0;
+      color: rgba(0,0,0,0);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      text-indent: 1px;
+      text-overflow: '';
+      position: absolute;
+      outline: 0 !important;
+    option{
+      color:#505050;
+    }
+      &:hover,
+      &:active,
+      &:focus{
+        border:0 !important;
+        outline: 0 !important;
+      }
+    }
+  }
+  .list{
+    padding: 40px 40px 0;
+  }
+  .theIntervention{
+    margin-bottom: 20px;
+    width:100%;
+    margin-left:0;
+    position: relative;
+    .search{
+      margin-top: -40px;
+      position: absolute;
+      top: 3px;
+      right: 0;
+      transition: all 0.5s;
+      opacity: 0;
+      background: #f5f5f5;
+      input{
+        margin-right: 10px;
+        padding: 10px;
+        width:400px;
+        max-width: 400px;
+
+      }
+      i{
+        font-size: 20px;
+      }
+
+    }
+    .options{
+      text-align: right;
+      .btn{
+        padding-left: 14px;
+        padding-right: 14px;
+        width:41px;
+        height:41px;
+        i{
+          margin-left: 0;
+        }
+      }
+      .fa-search{
+        margin-left: 20px;
+        top: 3px;
+        position: relative;
+      }
+    }
+  }
+  .holder{
+    width:100%;
+
+    td.left,
+    td.details{
+      vertical-align: top;
+    }
+    td.details{
+      .navbarHolder{
+        top: 0;
+        position: fixed;
+        transition: all 0.5s;
+      }
+      .student_details{
+        opacity: 0;
+        width:0;
+      }
+    }
+    .listContent .groups{
+      table{
+        margin-bottom: 0;
+      }
+    }
+    .groups.archived{
+      td:nth-child(2),
+      td:nth-child(3){
+        width:auto;
+      }
+    }
+    .groups{
+      td:nth-child(2){
+        width: 350px;
+      }
+
+    }
+    .groups{
+      td:nth-child(1),
+      td:nth-child(2){
+        cursor: pointer;
+      }
+    }
+    .groups-archive,
+    .groups{
+      td:nth-child(1){
+        width: 87px;
+      }
+      .none{
+        margin-top:20px;
+        margin-left: 5px;
+      }
+    }
+
+    .agenda{
+      table{
+        margin-top: 40px;
+        th:nth-child(1){
+          width: 80px;
+        }
+      }
+    }
+
+    .agenda{
+      table{
+        margin-top: 40px;
+        th:nth-child(1){
+          width: 80px;
+        }
+      }
+    }
+    .registrations{
+      table{
+        margin-bottom: 60px !important;
+      }
+    }
+    .registrations,
+    .groups,
+    .agenda,
+    .users{
+      & > div:nth-child(1) > div:nth-child(1){
+        overflow-x: hidden !important;
+      }
+      table{
+        width:100%;
+        margin-bottom: 20px;
+        thead{
+          border-bottom:1px solid #eaeaea;
+        }
+      }
+      width:100%;
+
+      tr{
+        transition: all 0.5s;
+        position: relative;
+        left: 0;
+
+      }
+      th,
+      td{
+        padding: 15px;
+        border-bottom:1px solid #eaeaea;
+        .activeChat{
+          background: #ffc107;
+          padding: 5px 10px;
+          cursor: pointer;
+          margin-left: 20px;
+        }
+        .form-control{
+          background: none;
+          border-bottom: 0;
+          padding: 0;
+          height: auto;
+        }
+        &.userActions{
+          text-align: right;
+          i{
+            font-size: 22px;
+            margin-left: 10px;
+            cursor:pointer;
+          }
+        }
+      }
+    }
+    td.left{
+      .theIntervention{
+        margin-bottom: 20px;
+        width:100%;
+
+      }
+    }
+  }
+  .listVisible{
+    .theIntervention{
+      h2{
+        font-size: 20px;
+        display: none;
+      }
+      .filter{
+        position: fixed;
+        top: 144px;
+        left: 49px;
+        z-index: 11;
+        background: #f5f5f5;
+        color:#545b62;
+        &:hover{
+          background: #545b62;
+          color:#fff;
+        }
+        i{
+          position: relative;
+          top: 1px;
+        }
+      }
+      .options{
+        position: fixed;
+        right: 64px;
+        top: 121px;
+        z-index: 11;
+
+      }
+      .search{
+        margin-top: -120px;
+        position: fixed;
+        top: 42%;
+        left: 40%;
+        right: auto;
+        transition: all 0.1s;
+        opacity: 0;
+      }
+    }
+    td.left{
+      width:22%;
+      transition: all 0.5s;
+      padding-top: 123px;
+
+      .userActions{
+        display: none;
+      }
+      .users{
+        border:none;
+        position: fixed;
+        width: calc(20% + 14px);
+        td{
+          border:none;
+        }
+        tr{
+          &.active{
+            background: #fff;
+            box-shadow: -9px 0px 8px rgba(0, 0, 0, 0.03);
+            transition: all 0.5s;
+            transition: all 0.5s;
+            font-weight: bold;
+          }
+          td:nth-child(2){
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+    td.details{
+
+      width:100%;
+      transition: all 0.5s;
+      .student_details{
+        background: #fff;
+        margin-top: 120px;
+        opacity: 1;
+        width:100%;
+        min-height: calc(100vh - 230px);
+        /*box-shadow: 6px 0px 22px rgba(0,0,0,0.1);*/
+        padding: 50px 30px 40px 50px;
+        h4{
+          margin-bottom: 40px;
+        }
+        .fields{
+          margin-top: 20px;
+          .field{
+            padding: 5px 0;
+            &.name{
+              font-size: 26px;
+            }
+            a{
+              color:#212529;
+            }
+            i{
+              border:1px solid #545b62;
+              color:#545b62;
+              padding: 10px;
+              border-radius: 40px;
+              margin-right: 10px;
+            }
+          }
+        }
+        .navbarHolder{
+          margin-bottom: 20px;
+          top: 48px;
+          width:100%;
+          left: 0;
+          padding: 0 40px;
+          background: none;
+          z-index: 10;
+          transition: all 0.5s;
+          table{
+            width:100%;
+            td:nth-child(2){
+              background: #f6f6f6;
+            }
+          }
+          .navbar{
+            position: relative;
+            padding-left: 40px;
+            background: #f6f6f6;
+            width:calc(100% - 25px);
+          }
+          .nav-item{
+            padding:10px 20px;
+            cursor: pointer;
+          }
+          .active{
+            background: #fff;
+            border-radius: 20px;
+
+          }
+        }
+      }
+    }
+  }
+  .listHidden{
+    max-width: 1000px;
+    margin: 120px auto 80px;
+    td.active{
+      background: #28a745;
+      color:#fff;
+    }
+    td.included{
+      background: #46c563;
+      color:#fff;
+    }
+    td.left{
+      width:100%;
+      transition: all 0.5s;
+      .userActions{
+        text-align: right;
+      }
+    }
+    .details{
+      width:0;
+      transition: all 0.5s;
+    }
+  }
+
+  .select-switch-holder{
+    position: fixed;
+    margin-top: -48px;
+    width: 100%;
+
+    z-index: 100;
+    .anotherHolder{
+      padding: 40px 0 15px;
+      background: #fff;
+      width: calc(73% - 88px);
+    }
+    select{
+      width: 100%;
+    }
+  }
+  .the_content_holder{
+    padding-top:10px;
+    .download_options{
+      margin-bottom: 30px;
+    }
+    .part .center{
+      margin: 0;
+    }
+    .item{
+      border-bottom:1px solid #f6f6f6;
+      margin-bottom: 10px;
+      .heading{
+        cursor: pointer;
+        i{
+          float: right;
+          margin-right: 20px;
+          margin-top: 12px;
+          font-size: 22px;
+          transform: rotate(0);
+          transition: all 0.5s;
+        }
+      }
+      &.hideContent {
+        .heading{
+          h5{
+            background: none;
+            color: #212529;
+            font-size: 16px;
+            transition: all 0.5s;
+          }
+          i{
+            transform: rotate(180deg);
+            transition: all 0.5s;
+          }
+        }
+        .the_content{
+          display: none;
+        }
+        h5{
+          margin-bottom: 10px;
+        }
+      }
+    }
+    h5{
+      background: #fcbe59;
+      color: #fff;
+      display: inline-block;
+      padding: 10px 20px;
+      margin-bottom: 0;
+      font-size: 18px;
+      font-weight: 300;
+      transition: all 0.5s;
+      margin-bottom: 20px;
+    }
+    .the_content{
+      border:none;
+      margin-bottom: 20px;
+      .part{
+        margin-bottom: 20px;
+        background: #f5f5f5;
+        padding: 20px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+        input[type="range"]{
+          background: none;
+        }
+        .min_max{
+          width: 100%;
+          td:nth-child(2){
+            text-align: right;
+          }
+        }
+
+        input[type="radio"] + label::after, input[type="checkbox"] + label::after {
+          top: 3px;
+          border-color:#fcbe59;
+          background:#fcbe59;
+        }
+      }
+      .question{
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      select:disabled{
+        color:#212529;
+        border:none;
+        background: none;
+        padding: 0;
+        margin-top: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+        margin-left: -5px;
+        option{
+          padding: 0;
+        }
+      }
+      input[type="text"]:disabled {
+        color:#212529;
+        border:none;
+        background: none;
+        padding: 0;
+      }
+
+      .list{
+        padding: 0;
+        ul{
+          padding-left: 0;
+          margin-bottom:0;
+          li{
+            div{
+              display: inline-block;
+            }
+            input.other{
+              margin-left: -16px;
+            }
+          }
+          label{
+            font-size: 16px;
+            color:#212529;
+          }
+        }
+      }
+      .center{
+        padding: 0;
+
+      }
+    }
+  }
+  #user_details_list{
+    .group,
+    .coachName{
+      display: none;
+    }
+  }
+  #user_details_list:hover{
+    .youCanScroll{
+      display: none;
+    }
+  }
+  .youCanScroll{
+    position: fixed;
+    bottom:20px;
+    left: 20%;
+    font-size: 20px;
+    padding: 6px 11px;
+    background: #eaeaea;
+    &.down{
+      transform:rotate(180deg);
+    }
+  }
+}
+
+.coachInterface_v2{
+  .select-switch-holder{
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: -20px;
+  }
+  .texts{
+    h4{
+      margin-bottom: 20px;
+    }
+    .isDragged{
+      background: #f5f5f5;
+      opacity: 0.5;
+      input{
+        background: #f5f5f5;
+      }
+    }
+    .session{
+      margin-top: 40px;
+      background: #fff;
+      padding: 40px;
+      .new{
+        margin-top: 20px;
+        padding: 20px;
+        background: #f5f5f5;
+        border-bottom: 0;
+        height: auto;
+      }
+      .droppableContainer{
+        background: #f5f5f5;
+        padding: 20px;
+
+      }
+      .items{
+        table{
+          width:100%;
+          &:last-child{
+            td{
+              border-bottom: 0;
+            }
+          }
+          td{
+            padding: 5px;
+            border-bottom:1px solid #eaeaea;
+            &:nth-child(2){
+              width: 30px;
+            }
+            &:nth-child(3){
+              width: 30px;
+            }
+          }
+          i{
+            cursor: pointer;
+            font-size: 22px;
+          }
+          input{
+            border-bottom:none;
+          }
+        }
+      }
+    }
+  }
+  .coachInterface.students .inline_view{
+    .student_details {
+      .navbarHolder,
+      h2{
+        display: none;
+      }
+      .dynamic_content{
+        padding: 20px !important;
+        background: #f5f5f5;
+      }
+      .select-switch-holder{
+        position: relative;
+        margin-top: 20px;
+        .anotherHolder{
+          background: none;
+          padding: 0;
+        }
+      }
+    }
+  }
+  .coachInterface.students .navbar{
+    display: none;
+  }
+  .coachInterface.students .student_details .navbar{
+    display: block;
+    top: 15px;
+  }
+  .navbar{
+    h2{
+      margin-bottom: 0;
+      margin-right: 60px !important;
+    }
+    .nav-item{
+      cursor: pointer;
+      margin-right: 15px;
+    }
+  }
+  .content{
+    margin: 40px auto 0;
+    max-width: 1200px;
+    padding: 40px 45px 0;
+    /*position: relative;
+    z-index: 0;*/
+  }
+  .theIntervention{
+    margin-bottom: 0;
+  }
+  .coachInterface.students{
+    .listHidden{
+      max-width: initial;
+    }
+    .listVisible{
+      .holder{
+        /*position: relative;
+        z-index: 10;*/
+        margin-top: 0px;
+      }
+    }
+    &.groups .detailsVisible .listContent{
+      display: none;
+    }
+    .holder{
+      &.detailsVisible{
+          .groupDetails{
+            margin-top:100px;
+            background: #fff;
+            padding: 40px;
+            .dynamic_content{
+              padding: 40px 0;
+            }
+            .coachInterface{
+              background: #fff;
+            }
+            .navbar{
+              display: block;
+              position: relative;
+              background: none;
+              &.group{
+                position: absolute;
+                /*left: 20px;*/
+                margin-left: -55px;
+                top:220px;
+                z-index: 1;
+                .navbar-nav{
+                  margin-top: -35px;
+                }
+              }
+            }
+            .coachInterface.students{
+              .list,
+              .listHidden{
+                margin-top: 0;
+                padding-top: 0;
+              }
+            }
+          }
+          .nav-link{
+            padding:10px 20px;
+            &.active{
+              background: #fff;
+              border-radius: 20px;
+            }
+          }
+      }
+    }
+    .list{
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .listVisible {
+      .theIntervention{
+        .options{
+            position: relative;
+            top: 0;
+            right: 0;
+            z-index: 1;
+          }
+          .search{
+            top: 0;
+          }
+      }
+      .student_details{
+        margin-top: -40px !important;
+        h2{
+          display: inline-block;
+          margin-bottom: 20px;
+        }
+        padding: 0;
+        background: none;
+        .dynamic_content{
+          padding: 40px;
+          background: #fff;
+        }
+        .navbar{
+          padding-left: 0 !important;
+        }
+      }
+      .navbarHolder{
+        position:relative;
+        top:0 !important;
+        border-top:0;
+        padding: 0 !important;
+      }
+      .filterd,
+      td.left{
+        display: none;
+      }
+    }
+    .listVisible td.details .student_details,
+    .listHidden{
+      margin-top: 0;
+    }
+  }
+  .groups-archive{
+    h4{
+      margin-bottom: 40px;
+    }
+    table{
+      width:100%;
+      th{
+        padding: 15px;
+        &:last-child{
+          text-align: right;
+        }
+        &.sortable{
+          cursor: pointer;
+        }
+      }
+      .item{
+        border-bottom: 1px solid #eaeaea;
+        td{
+          padding: 15px;
+          &:last-child{
+            text-align: right;
+          }
+          i{
+            font-size: 22px;
+            margin-right: 10px;
+            cursor: pointer;
+          }
+
+        }
+        &:first-child{
+          border-top: 1px solid #eaeaea;
+        }
+      }
+    }
+  }
+  .theIntervention{
+    td{
+      vertical-align: bottom;
+    }
+
+  }
+  .backToList{
+    cursor: pointer;
+    margin-right: 20px;
+    font-size: 22px;
+    position: relative;
+    z-index: 10;
+  }
+  select{
+    padding: 5px 10px 5px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 2.3rem;
+    background: none;
+    border: 0.1rem solid rgba(49, 53, 55, 0.2);
+  }
+  .resume_chat,
+  .start_chat{
+    h4{
+      margin-bottom: 30px;
+    }
+    select{
+      margin-right: 20px;
+    }
+    .btn{
+      margin-right: 20px;
+    }
+  }
+  .settings{
+    h4{
+      margin-bottom:40px;
+    }
+    .group_options{
+      margin-top: 40px;
+    }
+    label{
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  .log{
+    h4{
+      margin-bottom: 20px;
+    }
+    .description{
+      margin-bottom: 20px;
+    }
+    .logItem{
+      margin-bottom: 20px;
+      .session{
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .editor{
+        background: #f5f5f5;
+        padding: 20px;
+        position: relative;
+        .placeholder_editor{
+          position: absolute;
+          left: 20px;
+          top:20px;
+          color: #666;
+          opacity: 0.65;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  .sendMessage{
+    textarea{
+      background: none;
+      border:none;
+      width: 100%;
+      background: #f5f5f5;
+      padding: 20px;
+      margin:30px 0;
+      display: block;
+      resize:none;
+    }
+    .sendMesssages{
+      margin-top: 40px;
+      h5{
+        margin-bottom: 30px;
+        display: inline-block;
+        margin-right: 20px;
+      }
+      i{
+        transition: all 0.5s;
+      }
+      &.visible{
+        i{
+          transition: all 0.5s;
+          transform: rotate(180deg);
+        }
+      }
+      .message{
+        background: #FFECD5 0% 0% no-repeat padding-box;
+        border-radius: 20px 20px 20px 0;
+        opacity: 1;
+        padding: 15px;
+        color: #253761;
+        width: 100%;
+        margin-bottom: 20px;
+        .sendingTime{
+          width: 100%;
+          text-align: right;
+          padding-top: 20px;
+          color: #aaa;
+        }
+      }
+    }
+  }
+  .sendSMS{
+    .the_sms{
+      background: #f5f5f5;
+      padding: 20px;
+      margin:30px 0;
+      textarea{
+        background: none;
+        border:none;
+        width: 100%;
+      }
+    }
+  }
+  .agenda_chatcourse{
+    .calendar_holder{
+      margin-top: 20px;
+      background: #fff;
+      padding: 40px;
+    }
+  }
+}

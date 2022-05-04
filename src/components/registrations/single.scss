@@ -1,0 +1,72 @@
+.coachInterface .registration{
+  margin-top: 18px;
+  h2{
+    margin-bottom: 20px;
+    &.inline{
+      display: inline;
+    }
+  }
+  h3.between_header{
+    margin-top: 40px;
+    margin-bottom: 0;
+    margin-left: 30px;
+    font-size: 22px;
+  }
+  .box{
+    background: #fff;
+    padding:30px;
+    margin-top: 20px;
+    &.last{
+      margin-bottom: 40px;
+      textarea{
+        background: #f5f5f5;
+        padding: 20px;
+        border:none;
+        width: 750px;
+      }
+      .label{
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      label{
+        font-size: 1rem;
+        color: rgba(0, 0, 0, 0.8);
+      }
+    }
+    .registration_date{
+      font-style: italic;
+    }
+    .personalia{
+      font-size: 18px;
+      h5{
+        margin-bottom: 15px;
+      }
+    }
+    .questionnaire_content{
+      margin-top: 30px;
+      h5{
+        display: none;
+      }
+      .the_content{
+        h5{
+          display: block;
+        }
+      }
+      ul{
+        list-style: none;
+      }
+    }
+  }
+}
+input[type=checkbox]:checked + label:before, input[type=radio]:checked + label:before {
+  content: "";
+  font-size: 20px;
+  line-height: 0.85;
+  background: #212529;
+  border-color: #212529;
+  top: 3px;
+  box-sizing: border-box;
+}
+input[type=checkbox]:checked + label:before, input[type=radio]:checked + label:before {
+  background: #f9f9f9;
+}

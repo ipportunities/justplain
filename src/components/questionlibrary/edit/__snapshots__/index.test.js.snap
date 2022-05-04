@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question Library Edit should render correctly 1`] = `
+<div
+  className="container-fluid"
+>
+  <div
+    className="row border-bottom border-info"
+  >
+    <div
+      className="col-6 offset-3"
+    >
+      <div
+        className="row"
+      >
+        <h1>
+          Edit question category
+        </h1>
+      </div>
+      <div
+        className="row pb-1 pt-5"
+      >
+        <form
+          className="col-12"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="categoryName"
+            >
+              Category name
+            </label>
+            <input
+              className="form-control pl-2 pr-2"
+              id="categoryName"
+              onChange={[Function]}
+              type="text"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row justify-content-center p-3 border-bottom"
+  >
+    <button
+      className="btn btn-outline-info"
+      onClick={[Function]}
+    >
+      Add question 
+      <i
+        className="fa fa-plus"
+      />
+    </button>
+  </div>
+</div>
+`;

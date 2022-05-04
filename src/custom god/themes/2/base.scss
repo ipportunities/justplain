@@ -1,0 +1,33 @@
+body{
+  background: #fff !important;
+}
+.theme_2{
+  h1{
+    font-weight: bold;
+  }
+  #menu_left{
+    background: #fff !important;
+  }
+  #nav-icon{
+    right: 20px !important;
+  }
+  #menu_left,
+  .menu_left_inner{
+    width: 400px !important;
+  }
+}
+@media (max-width:$breakpoint) {
+  .theme_2{
+    #menu_left,
+    .menu_left_inner{
+      width: 80% !important;
+    }
+    .form-control{
+      font-size: 16px !important;
+    }
+    #loginContainer
+    {
+      box-shadow:none !important;
+    }
+  }
+}

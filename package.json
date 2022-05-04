@@ -1,0 +1,66 @@
+{
+  "name": "ippo",
+  "version": "0.1.0",
+  "homepage": "/",
+  "private": true,
+  "dependencies": {
+    "@tinymce/tinymce-react": "^3.5.1",
+    "bootstrap": "^4.6.0",
+    "chart.js": "^2.9.3",
+    "emoji-picker-react": "^3.4.8",
+    "generate-password": "^1.6.1",
+    "html-react-parser": "^0.10.0",
+    "jquery": "^3.4.1",
+    "moment": "^2 <2.25 || ^2 >2.25",
+    "popper.js": "^1.14.4",
+    "react": "^16.9.0",
+    "react-big-calendar": "^0.38.1",
+    "react-bootstrap": "^1.4.3",
+    "react-chartjs-2": "^2.8.0",
+    "react-circular-progressbar": "^2.0.3",
+    "react-confetti": "^5.0.1",
+    "react-contenteditable": "^3.3.2",
+    "react-cookie": "^4.0.3",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-dom": "^16.9.0",
+    "react-draggable": "^4.4.3",
+    "react-flatpickr": "^3.10.0",
+    "react-form-input-validation": "^2.0.5",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.3",
+    "react-slick": "^0.25.2",
+    "react-textarea-autosize": "^8.3.3",
+    "react-tooltip": "^3.11.1",
+    "redux": "^4.0.4",
+    "sass": "^1.43.2",
+    "slick-carousel": "^1.8.1",
+    "typeface-montserrat": "0.0.75",
+    "typescript": "^3.8.3",
+    "typewriter-effect": "^2.12.2",
+    "uuid": "^3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "winBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      "defaults",
+      "IE 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "IE 11"
+    ]
+  },
+  "proxy": "https://zaz.ipdemo.nl:80"
+}

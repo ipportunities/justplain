@@ -1,0 +1,141 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web);
+
+.loginScreen .navbar{
+  height: 116px !important;
+  a{
+    position: relative;
+    margin-top: 16px;
+    img{
+      margin-left: 125px;
+      margin-top: 20px;
+      height: 112px;
+    }
+    &:after{
+      content:'';
+      background: url("../themes/1/images/background-logo.png");
+      position: absolute;
+      height: 201px;
+      width: 512px;
+      left: 0;
+      z-index: -1;
+      background-size: 512px;
+      top: -10px;
+    }
+  }
+}
+.loginScreen{
+  /*font: 300 16px/24px Montserrat;*/
+  font-family: 'Calibri',sans-serif;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: #ee7851;
+  /*background: #fef1df;*/
+  color:#141a30;
+  overflow: hidden;
+  &.reset{
+    text-align: center;
+  }
+  &:after{
+    background: #fff;
+    width: 79%;
+    height: 74%;
+    content: '';
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 0;
+    right: 3%;
+    top: 40%;
+    display: none;
+  }
+  #loginContainer{
+    width: 450px;
+    max-width: 90%;
+    z-index: 2;
+    top: 50%;
+    left:50%;
+     border-radius: 20px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background: #ee7851 !important;
+    background: none !important;
+    table{
+      width:100%;
+      td:nth-child(1) .btn{
+        padding-left: 0;
+      }
+      td:nth-child(2){
+        text-align: right;
+      }
+    }
+    input{
+      background: none;
+      color:#141a30;
+      text-align: center;
+      border-bottom:1px solid #141a30;
+      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #141a30;
+        opacity: 1; /* Firefox */
+      }
+
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #141a30;
+      }
+
+      &::-ms-input-placeholder { /* Microsoft Edge */
+        color: #141a30;
+      }
+    }
+    /* Change the white to any color */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active
+    {
+     /*-webkit-box-shadow: 0 0 0 30px #ee7851 inset !important;
+     background: #ee7851;*/
+     /*border:none;*/
+    }
+    .forgotPassword{
+      color:#141a30;
+      opacity: 1;
+    }
+    .btn{
+      padding: 15px 20px;
+      border-radius: 30px;
+      height: 54px;
+      line-height: 1.3;
+      font-size: 16px;
+      font-weight: normal;
+      &.btn-primary{
+        background: none;
+        background: #141a30  !important;
+        border-color: #141a30  !important;
+      }
+    }
+    h3{
+      color:#141a30;
+      text-align: center;
+      font-weight: bold;
+      &.marge_bottom{
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+@media (max-width:995px) {
+  .loginScreen .navbar a{
+    margin-top: 0;
+  }
+}
+@media (max-width:768px) {
+  .loginScreen .navbar a{
+    transform: scale(0.6);
+    top: 0;
+    position: fixed;
+    margin-top: -20px;
+    left: -55px;
+  }
+}

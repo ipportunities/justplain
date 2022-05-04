@@ -1,0 +1,67 @@
+body{
+  background: #fff !important;
+
+}
+.loadScreen{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  background: #fff !important;
+  z-index: 100;
+  left: 0;
+}
+.menuIsVisible{
+  #nav-icon{
+    display: block;
+  }
+}
+.theme_3{ //// basetheme class nog graag naar body misschien maar via js
+  color:$title_color !important;
+  font: 300 16px/24px Montserrat;
+  h1{
+    font-weight: bold;
+  }
+  .finished .Typewriter__cursor{
+    display: none !important;
+  }
+  h1.big{
+    font: Bold 38px/47px Montserrat !important;
+  }
+  b, strong {
+      font-weight: bold !important;
+  }
+  #menu_left{
+    background: #fff !important;
+  }
+  #nav-icon{
+    right: -200px !important;
+  }
+  #menu_left,
+  .menu_left_inner{
+    width: 400px !important;
+  }
+}
+@media (max-width:$breakpoint) {
+  body.menuIsVisible{
+    .overlay{
+      z-index: 2;
+    }
+  }
+  .theme_3{
+    h1.big{
+      font: Bold 28px/32px Montserrat !important;
+    }
+    #menu_left,
+    .menu_left_inner{
+      width: 80% !important;
+    }
+    .form-control{
+      font-size: 16px !important;
+    }
+    #loginContainer
+    {
+      box-shadow:none !important;
+    }
+  }
+}

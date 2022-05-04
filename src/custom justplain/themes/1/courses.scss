@@ -1,0 +1,56 @@
+.theme_1 .courses{
+  margin-top: 289px;
+  .logoutHolder{
+    display: block;
+    padding:20px;
+    text-align: right;
+  }
+  h1{
+    text-align: left;
+    color:$in_lesson_steun_kleur;
+  }
+  .items{
+    margin:60px 0 40px -20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    transition: transform .3s ease-in-out,opacity .3s ease-in-out;
+    flex-direction: row;
+    .card{
+      border-radius: 0 !important;
+      background: $grey2 !important;
+      color:$dark_grey !important;
+      padding-bottom: 90px;
+      h2{
+        color:$dark_grey !important;
+        font-size: 20px !important;
+      }
+      .content{
+        line-height: 28px;
+      }
+      .btn{
+        position: absolute;
+        bottom: 30px;
+        background: $dark_grey !important;
+        border-color:$dark_grey !important;
+        left: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width:$breakpoint) {
+  .theme_1 .courses .items{
+    margin-left: 0;
+    .card{
+      width:100% !important;
+      height: auto !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      &:hover{
+        margin-top: 0;
+        box-shadow: none;
+      }
+    }
+  }
+}

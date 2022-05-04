@@ -1,0 +1,53 @@
+.positieve_eigenschappen{
+  .name{
+    background: #f96259;
+    padding: 15px;
+    display: inline-block;
+    font-weight: bold;
+    color:#fff;
+  }
+  .child{
+    margin-bottom: 60px;
+    table{
+      width:100%;
+      th{
+        padding-right: 20px;
+        background: #f96259;
+        padding: 15px;
+        font-weight: normal;
+        color:#fff;
+      }
+      td{
+        padding: 15px;
+        &:nth-child(1){
+          width:40%;
+        }
+        &:nth-child(3){
+          text-align: right;
+          position: relative;
+          .btn{
+            display: none;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+          }
+        }
+      }
+      tr:hover{
+        .btn{
+          display: inline-block;
+        }
+      }
+      tr:nth-child(odd){
+        background: #f9f9f9;
+      }
+    }
+  }
+  .btn{
+    &.edit{
+      float:right;
+      margin-top: 20px;
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.loginScreen{
+  /*font: 300 16px/24px Montserrat;*/
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #434446;
+  overflow: hidden;
+  #loginContainer{
+    width: 400px;
+    max-width: 90%;
+    top: 50%;
+    left:50%;
+    box-shadow: -22px 0 22px #434446;
+    border-radius: 20px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    .btn-primary{
+      background-color:#5C99B2 !important;
+    }
+  }
+}

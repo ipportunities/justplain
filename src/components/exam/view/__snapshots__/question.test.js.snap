@@ -1,0 +1,621 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`View Question Coach should render correctly multiple choice answer 1`] = `
+<div
+  className="col-8 offset-2"
+>
+  <div
+    className="row pt-2 pb-3"
+  >
+    <div
+      className="col"
+    >
+      <div
+        className="row pb-2"
+      >
+        <div
+          className="col-12"
+        >
+          Question 1 - MULTIPLE_CHOICE ?
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            className="mt-2"
+          >
+            Suggested correct answer
+          </label>
+          <div
+            className="form-check"
+            key="0"
+          >
+            <input
+              checked={1}
+              className="form-check-input"
+              id="checkbox-answer-0"
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-0"
+            >
+              A
+            </label>
+          </div>
+          <div
+            className="form-check"
+            key="1"
+          >
+            <input
+              checked={0}
+              className="form-check-input"
+              id="checkbox-answer-1"
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-1"
+            >
+              B
+            </label>
+          </div>
+          <div
+            className="form-check"
+            key="2"
+          >
+            <input
+              checked={0}
+              className="form-check-input"
+              id="checkbox-answer-2"
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-2"
+            >
+              C
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            className="mt-2"
+          >
+            Given answer
+          </label>
+          <div
+            className="form-check"
+            key="0"
+          >
+            <input
+              checked={false}
+              className="form-check-input"
+              id="checkbox-answer-0"
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-0"
+            >
+              A
+            </label>
+          </div>
+          <div
+            className="form-check"
+            key="1"
+          >
+            <input
+              checked={false}
+              className="form-check-input"
+              id="checkbox-answer-1"
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-1"
+            >
+              B
+            </label>
+          </div>
+          <div
+            className="form-check"
+            key="2"
+          >
+            <input
+              checked={false}
+              className="form-check-input"
+              id="checkbox-answer-2"
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-2"
+            >
+              C
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            className="mt-2"
+          >
+            Comments
+          </label>
+          <textarea
+            className="form-control p-2"
+            onChange={[Function]}
+            readOnly={true}
+            rows={4}
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-3"
+    >
+      <label>
+        Type
+      </label>
+      <input
+        className="form-control pl-1 pr-1"
+        type="text"
+        value="Multiple choice"
+      />
+      <label>
+        Difficulty
+      </label>
+      <input
+        className="form-control pl-1 pr-1"
+        type="text"
+        value="Medium"
+      />
+      <label>
+        Subject
+      </label>
+      <input
+        className="form-control pl-1 pr-1"
+        type="text"
+        value="B"
+      />
+      <label>
+        Achievable points
+      </label>
+      <input
+        className="form-control pl-1 pr-1"
+        type="text"
+        value={5}
+      />
+      <label>
+        Points achieved
+      </label>
+      <input
+        className="form-control pl-1 pr-1"
+        max={5}
+        min="0"
+        onChange={[Function]}
+        readOnly={true}
+        type="number"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`View Question Coach should render correctly open answer 1`] = `
+<div
+  className="col-8 offset-2"
+>
+  <div
+    className="row pt-2 pb-3"
+  >
+    <div
+      className="col"
+    >
+      <div
+        className="row pb-2"
+      >
+        <div
+          className="col-12"
+        >
+          Question 0 - OPEN ?
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            className="mt-2"
+          >
+            Suggested correct answer
+          </label>
+          <div>
+            <textarea
+              className="form-control p-2"
+              onChange={[Function]}
+              rows={4}
+              value="A"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            className="mt-2"
+          >
+            Given answer
+          </label>
+          <div>
+            <textarea
+              className="form-control p-2"
+              rows={4}
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            className="mt-2"
+          >
+            Comments
+          </label>
+          <textarea
+            className="form-control p-2"
+            onChange={[Function]}
+            readOnly={true}
+            rows={4}
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-3"
+    >
+      <label>
+        Type
+      </label>
+      <input
+        className="form-control pl-1 pr-1"
+        type="text"
+        value="Open"
+      />
+      <label>
+        Difficulty
+      </label>
+      <input
+        className="form-control pl-1 pr-1"
+        type="text"
+        value="Easy"
+      />
+      <label>
+        Subject
+      </label>
+      <input
+        className="form-control pl-1 pr-1"
+        type="text"
+        value="A"
+      />
+      <label>
+        Maximum achievable points
+      </label>
+      <input
+        className="form-control pl-1 pr-1"
+        type="text"
+        value={10}
+      />
+      <label>
+        Points achieved
+      </label>
+      <input
+        className="form-control pl-1 pr-1"
+        max={10}
+        min="0"
+        onChange={[Function]}
+        readOnly={true}
+        type="number"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`View Question Student should render correctly multiple choice answer 1`] = `
+<div
+  className="col"
+>
+  <div
+    className="row pt-2 pb-3"
+  >
+    <div
+      className="col"
+    >
+      <div
+        className="row pb-2"
+      >
+        <div
+          className="col-12"
+        >
+          Question 1 - MULTIPLE_CHOICE ?
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            className="mt-2"
+          >
+            Answer
+          </label>
+          <div
+            className="form-check"
+            key="0"
+          >
+            <input
+              checked={false}
+              className="form-check-input"
+              id="checkbox-answer-0"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-0"
+            >
+              A
+            </label>
+          </div>
+          <div
+            className="form-check"
+            key="1"
+          >
+            <input
+              checked={false}
+              className="form-check-input"
+              id="checkbox-answer-1"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-1"
+            >
+              B
+            </label>
+          </div>
+          <div
+            className="form-check"
+            key="2"
+          >
+            <input
+              checked={false}
+              className="form-check-input"
+              id="checkbox-answer-2"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-2"
+            >
+              C
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`View Question Student should render correctly multiple choice answer with given answer 1`] = `
+<div
+  className="col"
+>
+  <div
+    className="row pt-2 pb-3"
+  >
+    <div
+      className="col"
+    >
+      <div
+        className="row pb-2"
+      >
+        <div
+          className="col-12"
+        >
+          Question 1 - MULTIPLE_CHOICE ?
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            className="mt-2"
+          >
+            Answer
+          </label>
+          <div
+            className="form-check"
+            key="0"
+          >
+            <input
+              checked={false}
+              className="form-check-input"
+              id="checkbox-answer-0"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-0"
+            >
+              A
+            </label>
+          </div>
+          <div
+            className="form-check"
+            key="1"
+          >
+            <input
+              checked={false}
+              className="form-check-input"
+              id="checkbox-answer-1"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-1"
+            >
+              B
+            </label>
+          </div>
+          <div
+            className="form-check"
+            key="2"
+          >
+            <input
+              checked={false}
+              className="form-check-input"
+              id="checkbox-answer-2"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="checkbox-answer-2"
+            >
+              C
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`View Question Student should render correctly open answer 1`] = `
+<div
+  className="col"
+>
+  <div
+    className="row pt-2 pb-3"
+  >
+    <div
+      className="col"
+    >
+      <div
+        className="row pb-2"
+      >
+        <div
+          className="col-12"
+        >
+          Question 0 - OPEN ?
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            className="mt-2"
+          >
+            Answer
+          </label>
+          <div>
+            <textarea
+              className="form-control p-2"
+              onChange={[Function]}
+              rows={4}
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`View Question Student should render correctly open answer with given answer 1`] = `
+<div
+  className="col"
+>
+  <div
+    className="row pt-2 pb-3"
+  >
+    <div
+      className="col"
+    >
+      <div
+        className="row pb-2"
+      >
+        <div
+          className="col-12"
+        >
+          Question 0 - OPEN ?
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12"
+        >
+          <label
+            className="mt-2"
+          >
+            Answer
+          </label>
+          <div>
+            <textarea
+              className="form-control p-2"
+              onChange={[Function]}
+              rows={4}
+              value="A"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

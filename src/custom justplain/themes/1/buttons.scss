@@ -1,0 +1,78 @@
+.theme_1 {
+  .btn{
+    line-height: 1.6;
+  }
+  .btn-primary{
+    height: 48px;
+    font-size: 15px;
+    padding: 12px 35px 12px 20px;
+    border-radius: 4px;
+    color: #fff !important;
+    line-height: 1.3;
+    position: relative;
+    &:after{
+      content: '';
+      background-image: url('../../../custom/themes/1/images/pijl_wit.svg');
+      background-size: 10px 10px;
+      position: absolute;
+      right: 12px;
+      width: 10px;
+      height: 10px;
+      transition: all 0.2s;
+      top: 18px;
+      z-index: 10;
+    }
+    &.back{
+      background: none !important;
+      color:$button_background !important;
+      padding: 12px 20px 12px 30px;
+      &:after{
+        content: '';
+        background-image: url('../../../custom/themes/1/images/pijl_rood.svg');
+        background-size: 10px 10px;
+        position: absolute;
+        left: 12px;
+        width: 10px;
+        height: 10px;
+        transition: all 0.2s;
+        top: 18px;
+        z-index: 10;
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .btn-primary,
+  .btn-primary.next{
+    background: $button_background !important;
+    border-color:$button_background !important;;
+    color:$button_color !important;
+    /*font-weight: bold;*/
+    height: 48px;
+  }
+  .btn-primary.prev{
+    background: #fff !important;
+    border-color:#A1BDCA !important;;
+    color:#A1BDCA !important;
+    /*font-weight: bold;*/
+    height: 48px;
+  }
+  .btn.red{
+    background: $red !important;
+    border-color:$red !important;;
+    color:#fff !important;
+    font-weight: bold;
+    line-height: 1.6;
+    &:hover{
+      background: #fff !important;
+      color:$red !important;
+    }
+  }
+}
+@media (max-width:$breakpoint) {
+  .theme_1{
+    .btn-primary.prev,
+    .btn-primary.next{
+
+    }
+  }
+}

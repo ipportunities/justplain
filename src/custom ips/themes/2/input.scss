@@ -1,0 +1,33 @@
+.theme_2 .front{
+	input[type="radio"] + label::after,
+	input[type="checkbox"] + label::after {
+		top: 1px;
+	}
+	input[type="checkbox"] + label:before,
+	input[type="radio"] + label:before
+	{
+			top:0px;
+	}
+	textarea, input{
+		color:$title_color;
+	}
+	input[type="checkbox"]:checked + label:before,
+	input[type="radio"]:checked + label:before
+	{
+		content: '';
+		font-size:20px;
+		line-height:0.85;
+		background: $title_color;
+		border-color: $title_color;
+	}
+	input[type="radio"] + label::after{
+		border:none;
+	}
+	input[type="checkbox"] + label::after {
+		border-bottom: 20px solid $title_color;
+	}
+	input[type="radio"] + label::after {
+		background: $title_color;
+	}
+
+}

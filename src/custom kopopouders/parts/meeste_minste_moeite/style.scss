@@ -1,0 +1,67 @@
+.meeste_moeite_met,
+.meeste_minste_moeite{
+  ul{
+    list-style: none;
+    padding:10px 0 10px 0;
+    li{
+      .red,
+      .green{
+        border-radius: 50px;
+        width: 25px;
+        height:25px;
+        margin-right: 5px;
+        display: inline-block;
+        position: relative;
+        i{
+          color:#fff;
+          position: absolute;
+          font-size: 14px;
+          top: 5px;
+          left: 5px;
+        }
+      }
+      .green{
+        background:#62d575;
+      }
+      .red{
+        background:#f96259;
+      }
+    }
+    td:nth-child(2){
+      padding-left: 20px;
+    }
+  }
+  .cluster{
+    margin-bottom: 1.5em;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+.meeste_moeite_met{
+  margin-top: -30px;
+  .red{
+    top: 2px;
+  }
+  .extraTextShown{
+    .text{
+      font-weight: bold;
+    }
+    padding-bottom: 20px;
+  }
+  li{
+    &:last-child{
+      padding-bottom: 0;
+    }
+  }
+  ul td{
+    vertical-align: top;
+
+    .text{
+      cursor: pointer;
+    }
+    &:nth-child(2){
+      padding-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,921 @@
+  .theme_1 .lessoncontent{
+    &.front{
+      display: flex;
+      margin-top: 0;
+      margin-bottom: 0;
+      color:$title_color;
+      overflow: hidden;
+      .special_table{
+        color:$dark_grey !important;
+      }
+      &.dashboard .holder .left .content .menu .items tr:not(.spacer) td{
+        height: 50px !important;
+        &:nth-child(1){
+          width: 41px;
+        }
+        img{
+          margin-top: -4px;
+        }
+      }
+      .carousel{
+        .slick-slider {
+          .slick-track,
+          .slick-list{
+            height: auto;
+          }
+        }
+      }
+      .matrix{
+        input[type="checkbox"] + label, input[type="radio"] + label{
+          left: 9px;
+          margin: 0 auto !important;
+          display: inline;
+        }
+      }
+      .video .text{
+        margin-bottom: 0;
+      }
+      .special_table{
+        table tr td:nth-child(1){
+          padding: 10px !important;
+        }
+        th{
+          background: $table_head_bg;
+          color:$table_head_color;
+        }
+        tr:nth-child(odd){
+          background: $grey2;
+        }
+        tr:nth-child(even){
+          tr:nth-child(odd){
+            background: none !important;;
+          }
+        }
+      }
+      .rs-label{
+        color:$in_lesson_steun_kleur;
+        border-color:$in_lesson_steun_kleur;
+      }
+      .feedback{
+        .question{
+          color:$dark_grey;
+          font-size: 16px !important;
+        }
+        .repeat_holder,
+        .feedbackOptions{
+          margin-top: 20px;
+          background: $grey2;
+          padding: 30px;
+          font-style: italic;
+        }
+      }
+      .tekst.op.afbeelding{
+        position: relative;
+        h1,h2,h3,h4,h5,h6{
+          color:#fff !important;
+          margin-bottom: 30px;
+        }
+        font-size: 20px !important;
+        line-height: 28px !important;
+        strong{
+          color:#fff;
+        }
+        &:after{
+          content:'';
+          background: $dark_grey;
+          opacity: 0.6;
+          height:100%;
+          width:100%;
+          left: 0;
+          top: 0;
+          position: absolute;
+        }
+      }
+      .gecentreerd, .volle.breedte{
+        .caption{
+          text-align: left;
+        }
+      }
+      .caption{
+        font-size: 1em !important;
+        margin-top: 24px;
+      }
+      .audio{
+        .question{
+          color:$title_color;
+          text-align: left;
+        }
+        .CircularProgressbar .CircularProgressbar-path{
+          stroke:$in_lesson_steun_kleur !important;
+        }
+        .customControls{
+          color:$in_lesson_steun_kleur !important;
+        }
+      }
+      .image .volle.breedte .imageAsBg{
+        height: 400px;
+      }
+      .chart{
+        &.staafdiagram,&.grafiek{
+          .canvas{
+            position: relative;
+            &:after{
+              content:'';
+              position: absolute;
+              top: 0;
+              left: 0;
+              background: rgb(97,117,140);
+              background: linear-gradient(0deg, rgba(97,117,140,1) 0%, rgba(97,117,140,0) 60%);
+              opacity: 0.2;
+              width:calc(100% - 71px);
+              left: 27px;
+              height:calc(100% - 53px);
+              z-index: -1;
+            }
+          }
+          &.staafdiagram{
+            .canvas{
+              position: relative;
+              &:after{
+                width:calc(100% - 53px);
+              }
+            }
+          }
+        }
+        .koptekst{
+          font:Bold 20px/28px "Open Sans";
+          color:$in_lesson_steun_kleur;
+          text-align: left;
+        }
+        .holder{
+          display: block !important;
+          canvas{
+            margin-left: -25px;
+          }
+        }
+      }
+      .chart.cirkeldiagram .holder canvas{
+        margin-left: 0;
+      }
+      label{
+        font: 16px/28px $font_family_2;
+        color: $dark_grey;
+      }
+      .speech_balloon .text{
+        background: $speechBalloon;
+        border:1px solid $speechBalloon;
+        &:after{
+              border-top-color: $speechBalloon;
+        }
+      }
+      .text{
+        b,strong{
+          font-weight: bold;
+          color:$in_lesson_steun_kleur;
+        }
+        ul{
+          font-size: 18px;
+        }
+      }
+      .speech_balloon,
+      .textItem{
+        font-weight: bold;
+        font-size: 1.2em;
+        font-style: italic;
+      }
+
+      .lessonMenu{
+        display: none;
+      }
+      .progressBar{
+        .progress{
+          background: $progress_color;
+        }
+      }
+      .leftBottom{
+        padding: 0 0 20px 40px;
+        max-width: 300px;
+        margin-top: 200px;
+        z-index: 1;
+        font: 16px/28px $font_family_2;
+        bottom: 0;
+        .logo{
+          margin-bottom: 0;
+        }
+      }
+      .backToGoal{
+        margin-bottom: 40px;
+      }
+      &.included{
+        overflow: visible;
+        .holder{
+          background: none;
+          overflow: visible;
+          .right{
+            margin-left: 0;
+            padding-top: 0;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            overflow: visible;
+          }
+        }
+      }
+      h2:not(.question),
+      h3:not(.question),
+      h4:not(.question){
+        color:$red;
+        font: Bold 20px/28px $font_family_2;
+      }
+      h5:not(.question),
+      h6:not(.question){
+        color:$red;
+        font: Bold 24px/30px $font_family_2;
+      }
+      .question{
+        font: Bold 20px/28px $font_family_2 !important;
+        color:$in_lesson_steun_kleur;
+        margin-bottom: 23px;
+
+        span{
+          font: 16px/28px $font_family_2 !important;
+          color:$text_color;
+          display: block;
+          margin-top: 20px;
+        }
+      }
+      .holder{
+        overflow: hidden;
+      }
+      .shapes{
+        position: absolute;
+      }
+      .left{
+        background: $left_bar_background; //#FFECD6;
+        height: initial;
+        position: fixed;
+        .shapes{
+          position: fixed;
+        }
+        .btn.back{
+          margin-top: 16px;
+          margin-left: -5px;
+          font-size: 14px;
+          color:$left_bar_color;
+          padding-right:0;
+          padding-left:0;
+          width:100%;
+          line-height: 2.5;
+          &:hover{
+            color:$left_bar_color;
+          }
+        }
+        .content{
+          max-width: 337px;
+          height: auto;
+
+          right: 0;
+        }
+        a{
+          color:$title_color;
+        }
+        .menu{
+          position: relative;
+          z-index: 2;
+          float: right;
+          margin-top: 21px !important;
+          color: #253761;
+          -webkit-border-top-left-radius: 10px;
+          -webkit-border-bottom-left-radius: 10px;
+          -moz-border-radius-topleft: 10px;
+          -moz-border-radius-bottomleft: 10px;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+          padding: 30px 20px 0 20px !important;
+          max-height: calc(100vh - 70px);
+
+  overflow: auto;
+          div.part:last-child{
+            margin-bottom: 30px;
+          }
+          span{
+            padding: 5px 20px;
+            display: block;
+            &.not_done{
+              opacity: 0.41;
+              cursor: auto;
+            }
+            table{
+              width:100%;
+              td:nth-child(2){
+                width:40px;
+                text-align: right;
+                img{
+                  width:20px;
+                }
+              }
+            }
+          }
+          .parent{
+            font: Bold 20px/24px $font_family_2;
+            margin-bottom: 20px;
+            cursor: pointer;
+          }
+          .part{
+            color: #253761;
+            font: 300 16px/20px $font_family_2;
+
+            cursor: pointer;
+            table{
+              width:100%;
+            }
+            td{
+              width:calc(100% - 10px);
+              padding: 0;
+              border:none;
+              padding: 5px 0;
+              word-break: break-word;
+              -webkit-hyphens: auto;
+              -ms-hyphens: auto;
+              hyphens: auto;
+              .title{
+                margin-left: 20px !important;
+                padding: 5px 20px;
+                border-radius: 20px;
+                width:100%;
+                  opacity:0.5;
+              }
+            }
+            &.closed{
+              cursor: auto;
+            }
+            .progress{
+              width:10px !important;
+              height: 100%;
+              display: table-cell;
+              background: rgba(230, 109, 113, 0.2);
+              border-radius: 0;
+
+            }
+            &.done{
+              cursor: pointer;
+              .progress{
+                background: $in_lesson_steun_kleur;
+              }
+              .title{
+                opacity: 1;
+              }
+            }
+
+            &.active{
+
+              background:$progress_color; //#e66d71;
+              color:#fff;
+              border-radius: 60px;
+
+              .progress{
+                position: relative;
+                background: $in_lesson_steun_kleur;
+                overflow: visible;
+                .circle{
+                  width:30px;
+                  height:30px;
+                  border-radius: 40px;
+                  background: $in_lesson_steun_kleur;
+                   transform: translate(-35%, -15px);
+                  position: absolute;
+                }
+              }
+              .title{
+                background: $in_lesson_steun_kleur;
+                color:#fff;
+                font-weight: bold;
+              }
+            }
+
+          }
+          [data-nested="2"]{
+            padding-left: 20px;
+          }
+          [data-nested="3"]{
+            padding-left: 40px;
+          }
+        }
+      }
+      .right{
+        width:100%;
+        background: #fff;
+        padding-top: 54px;
+        padding-left: 0 !important;
+
+        z-index: 1;
+        min-height: 100vh;
+        .titleHolder{
+          margin-bottom: -22px;
+
+        }
+        .download_file{
+          .btn{
+            height: auto;
+          }
+        }
+        .tabs{
+          .item{
+            background: #fff;
+            -webkit-border-top-left-radius: 4px;
+            -moz-border-radius-topleft: 4px;
+            border-top-left-radius: 4px;
+            -webkit-border-top-right-radius: 4px;
+            -moz-border-radius-topright: 4px;
+            border-top-right-radius: 4px;
+            border-bottom:none;
+            color:$in_lesson_steun_kleur;
+            border-color:#c0c8d1;
+            .title{
+              font-size: 16px;
+            }
+            &.content_visible{
+              background: $tab_accordion_background;
+              .title{
+                color:$tab_accordion_color;
+              }
+            }
+          }
+        }
+        .tabContent{
+          .item{
+            background: $tab_accordion_background;
+            border-radius: 4px;
+            -webkit-border-top-left-radius: 0;
+            -moz-border-radius-topleft: 0;
+            border-top-left-radius: 0;
+            /*-webkit-border-top-right-radius: 0;
+            -moz-border-radius-topright: 0;
+            border-top-right-radius: 0;*/
+            border-color:#c0c8d1;
+            .content{
+              color:$tab_accordion_color !important;
+
+            }
+          }
+        }
+        .accordion{
+          .items{
+            border-radius: 4px;
+            overflow: hidden;
+            border:1px solid $tab_accordion_background;
+            .item{
+              background: $tab_accordion_background;
+              color:$tab_accordion_color;
+              border:none;
+              border-bottom:1px solid;
+              border-color:$tab_accordion_background !important;
+              .toggle_content{
+                background: #fff;
+                padding: 11px 12px;
+                color:$in_lesson_steun_kleur;
+                border-radius: 40px;
+              }
+              .slideDown{
+                padding-top: 0;
+              }
+              .title{
+                font-weight: 600;
+                font-size: 16px;
+              }
+              .content{
+                padding-left: 0 !important;
+              }
+              &:last-child{
+                border:none;
+              }
+              &.content_visible{
+                ul{
+                  margin-bottom: 1.5em;
+                }
+                .content,
+                .title{
+                  color:$tab_accordion_color !important;
+                }
+              }
+            }
+          }
+          .content_visible{
+            .content{
+              padding-bottom: 20px !important;
+              margin-left: 20px;
+              padding-top: 30px !important;
+            }
+          }
+        }
+        .content{
+          margin-top: 0 !important;
+          padding-left: 0 !important;
+          max-width: $max-width;
+        }
+        .center:not(.audio):not(.carousel){
+          max-width: $max-width;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          margin: 0 !important;
+          &.pageControls{
+            margin-top: 80px !important;
+            padding-bottom: 80px;
+            padding-right: 0;
+            .next{
+              float: right;
+            }
+          }
+        }
+        .must.empty .center{
+          padding-left: 20px !important;
+        }
+        #title{
+          margin-bottom: 0;
+          font: 32px/40px $font_family_2;
+          font-weight: 600 !important;
+        }
+        .component .list{
+          table td:nth-child(1){
+            width:30px;
+          }
+          li label{
+            margin-left: 10px;
+          }
+        }
+        .component .list ul li .before{
+          margin-right: 17px;
+          &:after{
+            display: none !important;
+          }
+        }
+        .component .list ul li .before,
+        .component .special_table table thead{
+          background: $grey3;
+          color:$text_color !important;
+        }
+
+        .component{
+          border:none;
+          font: 16px/28px $font_family_2 ;
+          color:$text_color !important;
+          padding-top: 60px;
+          h1,h2,h3,h4,h5,h6{
+            font: Bold 20px/28px $font_family_2;
+            margin-bottom: 18px;
+          }
+          select{
+            border-radius: 4px;
+          }
+          .header{
+            color: $in_lesson_steun_kleur; //#e66d71;
+            font: Bold 20px/28px $font_family_2;
+            margin-bottom: 23px;
+          }
+          .cards{
+            ul{
+              margin-bottom: -40px;
+            }
+            li{
+              min-width: 175px;
+              margin: 0 20px 40px;
+              padding-top: 0;
+
+              .btn{
+                &:after{
+                  content: '';
+                  background-image: url('../../../custom/themes/1/images/pijl_rood.svg');
+                  background-size: 10px 10px;
+                  position: absolute;
+                  right: 12px;
+                  width: 10px;
+                  height: 10px;
+                  transition: all 0.2s;
+                  top: 17px;
+                  z-index: 10;
+                }
+              }
+              font-style: italic;
+              line-height: 28px;
+              .btn{
+                font-style: normal;
+              }
+              .front .front{
+                background: $flip_card_front !important; //#FFECD6 !important;
+                color:$flip_card_front_color;
+                .btn-primary{
+                  background: #fff !important;
+                  color:$in_lesson_steun_kleur !important;
+                  border:1px solid #fff !important;
+
+                }
+              }
+              .back{
+                background: $flip_card_back !important;
+                color:$flip_card_back_color !important;
+                .btn{
+                  color:$in_lesson_steun_kleur !important;
+
+                }
+              }
+            }
+
+          }
+          .quote{
+            border:none;
+            border-left: 1px solid $grey2;
+            font-size: 20px;
+            line-height: 28px;
+            color:$dark_grey;
+            font-style: italic !important;
+            padding: 34px 30px;
+            text-align: left;
+            font-style: normal;
+            margin-left: 30px;
+            .quoter{
+              font-size: 16px;
+              text-align: left;
+              font-weight: normal;
+              font-style: normal;
+              margin-top: 30px;
+            }
+            &.omkaderd{
+              margin-left: 0;
+              text-align: left;
+              background: $quote_omkaderd;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width:850px) {
+    .theme_1 .lessoncontent.front .left .btn.back{
+      margin-left: 0;
+    }
+  }
+  @media (max-width:$breakpoint) {
+    .theme_1 .lessoncontent{
+      &.front{
+        /*margin-top: 20px;*/
+        .component{
+          /*padding-top: 30px !important;*/
+          .carousel{
+            margin-bottom: -20px !important;
+          }
+          .special_table {
+            color:$dark_grey !important;
+            .td{
+              color:$dark_grey !important;
+            }
+            table{
+              margin-bottom: 0;
+            }
+            &:not(.matrix){
+              tr{
+                td:nth-child(1){
+                  background: $dark_grey;
+                  color:#fff;
+                }
+              }
+            }
+             table tr {
+               td{
+
+                 &:nth-child(1){
+                   padding: 20px 20px 20px 20px !important;
+                 }
+                table{
+                  td:nth-child(1){
+                    padding: 0 0 20px !important;
+                    label{
+                      left: 53px;
+                    }
+                  }
+                }
+               }
+
+             }
+          }
+          .quote{
+            font-size: 18px !important;
+            padding:20px !important;
+          }
+          .tekst.op.afbeelding .holder{
+            min-height: 450px;
+            height: initial;
+          }
+          .accordion {
+            .tabContent{
+              .item{
+                border:none !important;
+                display: block !important;
+                margin-bottom: 30px;
+
+                &:last-child{
+                  margin-bottom: 0;
+                }
+                .content{
+                  padding:20px !important;
+                }
+              }
+
+            }
+            .title{
+              color:$dark_grey !important;
+            }
+          }
+        }
+        .columns{
+          &.grid-4{
+            .column{
+              width:48%;
+              &:nth-child(1),
+              &:nth-child(2){
+                margin-bottom: 40px;
+              }
+              &:nth-child(odd){
+                margin-right: 2%;
+              }
+            }
+          }
+        }
+        .text{
+
+          &.afbeelding{
+            .text,
+            .image{
+              float: none;
+              width: 100%;
+              margin: 0;
+            }
+            &.links{
+              .image{
+                margin-bottom: 25px;
+              }
+            }
+            &.rechts{
+              .image{
+                margin-bottom: 25px;
+              }
+            }
+          }
+        }
+        .btn.back{
+          display: none;
+        }
+        .lessonMenu{
+          display: block;
+          position: fixed;
+          overflow: auto;
+          overflow-x: hidden;
+          height: calc(100vh - 64px);
+          width: 100%;
+          top: 64px;
+          left: 0;
+          transition: all 0.5s;
+          background: #fff;
+          z-index: 10;
+          padding: 30px;
+          &.hide{
+            left:-100%;
+            transition: all 0.5s;
+          }
+          i{
+            padding: 20px;
+            cursor: pointer;
+            font-size: 40px;
+            margin-right: -20px;
+            margin-top: -20px;
+            float: right;
+          }
+          .lesson{
+            cursor: pointer;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            font-size: 25px;
+            font-weight: 500;
+            line-height: 1.3;
+          }
+          .items{
+            .item{
+              display: flex;
+              margin-left: -10px;
+              &.active{
+                font-size: 22px;
+                font-weight: 600;
+              }
+              .progress{
+                width: 70px;
+                height: 100%;
+                display: block;
+                background: none;
+                margin-right: 20px;
+              }
+              .title{
+                padding: 20px 0px 20px 0px;
+                font-size: 18px;
+                width: 80%;
+              }
+            }
+          }
+        }
+        header.phone{
+          &.animate{
+            transition: all 0.5s;
+            top:-64px;
+          }
+          .fas{
+            color:$in_lesson_steun_kleur !important;
+          }
+          display: block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 4;
+          background: #fff;
+          transition: all 0.5s;
+          background: $menu_phone_background;
+          padding: 10px 0;
+          .dash{
+            display: none;
+          }
+          .fa-chevron-down{
+            display: none;
+          }
+          table{
+            width: 100%;
+            td{
+
+              &:nth-child(1){
+                width: 83px;
+                text-align: center;
+                padding-right: 7px;
+
+                i{
+                  cursor: pointer;
+                  padding: 10px 5px;
+                }
+              }
+              &:nth-child(2){
+                border-left: 2px solid $in_lesson_steun_kleur;
+                padding: 10px;
+                cursor: pointer;
+                position: relative;
+                .title{
+                  position: relative;
+                  z-index: 10;
+                  display: block;
+                  text-align: left;
+                  padding-left: 40px;
+                  font-weight: normal;
+                }
+              }
+            }
+          }
+        }
+        .titleHolder {
+          #title{
+            color:$left_bar_background;
+          }
+          td:nth-child(2){
+            width:175px;
+            img{
+              top: -73px;
+              margin-left: -20px;
+            }
+          }
+        }
+        .right{
+          width:100%;
+          margin-left:0;
+          padding-bottom: 60px;
+          padding-left: 20px !important;
+          padding-top: 120px;
+          #title{
+            font:26px/32px "Open Sans" !important
+          }
+          h2,h3,h4,h5,h6 {
+            font: Bold 22px/26px $font_family_2;
+          }
+          .center{
+            padding:0 !important;
+          }
+          .cards{
+            .list ul{
+              display: block !important;
+              li{
+                &:not(:last-child){
+                  margin-bottom: 60px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .theme_1 .lessoncontent.front .right .center:not(.audio):not(.carousel).pageControls {
+      margin-top: 60px !important;
+    }
+  }

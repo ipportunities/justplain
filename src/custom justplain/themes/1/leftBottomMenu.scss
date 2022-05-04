@@ -1,0 +1,95 @@
+.theme_1 .leftBottom{
+  padding: 0 40px 20px 40px;
+  max-width: 300px;
+  position: relative;
+  margin-top: 40px;
+  z-index: 1;
+  font: 16px/24px $font_family_2;
+  float:right;
+  bottom: 0;
+  &.profile_coach_name{
+    max-width: 275px;
+    min-width: 250px;
+    margin-left: auto;
+    margin-right: 0;
+    float: right;
+    padding: 30px 30px 50px;
+    .content{
+      float: right;
+      margin-right: 0;
+      padding-right: 0;
+      line-height: 2;
+      .image_holder{
+        margin-right: 0;
+        display: block;
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .logo{
+    width: 180px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    display: block;
+  }
+  .image_holder{
+    width: 150px;
+    height: 150px;
+    border-radius: 300px;
+    background-size: cover !important;
+  }
+  .linkbox{
+    color:$left_bar_color;
+    .btn{
+      color:$left_bar_color !important;
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+  div{
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .submenu{
+    margin-top: 20px;
+    a{
+      display: block;
+      color: $title_color;
+    }
+  }
+  .profile{
+    margin-bottom: 40px;
+    margin-top: 40px;
+    height: 80px;
+    border-radius: 40px;
+    box-shadow: -22px 0 33px 0 rgba(161, 189, 202, 0.36);
+    background-color: #ffffff;
+    padding: 5px 10px;
+
+    img{
+      width:75px;
+      border-radius: 40px;
+    }
+    .name{
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+@media (max-width:850px) {
+  .theme_1 .lessoncontent.front .leftBottom{
+    max-width: 200px !important;
+    padding-left: 30px !important;
+    img{
+      max-width: 100%;
+    }
+  }
+}
+@media (max-width:$breakpoint) {
+  .theme_1 .leftBottom{
+    display: none;
+  }
+}

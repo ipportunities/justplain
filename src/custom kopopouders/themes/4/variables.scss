@@ -1,0 +1,76 @@
+$black:#212121;
+$red: #e3032c;
+$dark_grey: #61758c;
+$grey:#b0bac6;
+$grey2:#fafafa;
+$grey3:#dfe3e8;
+$bleu:$black;
+$bleu2:#9fc7e0;
+$purple:#52328f;
+$orange:  #f96259;;
+//$orange_2:  #fef1df;
+$orange_2: $orange;
+$yellow:#fac31f;
+
+$font_family:'PT Sans', sans-serif;
+$font_family_2:$font_family;
+//$font_family:'Calibri',sans-serif;
+//$font_family_2:'Calibri',sans-serif;
+
+$text_color: $black;
+
+$title_color: $black;
+$max-width:688px;
+
+$bg_gradient:linear-gradient(45deg,rgba(209,37,57,1) 0%,rgba(237,117,76,1) 100%);
+
+$left_bar_background:$orange;
+$left_bar_background_stress:$orange;
+$left_bar_background_chat:$orange;
+$left_bar_color:#fff;
+
+$button_background_color:$bleu;
+$button_border_radius:50px;
+$progress_color:$orange;
+
+$background_mobile:$orange;
+$background_mobile_goals:$orange;
+$color_mobile:$bleu;
+$mobile_h1_dashboard_color:$color_mobile;
+
+$in_lesson_steun_kleur:$orange;
+$in_lesson_steun_kleur_tegenhanger:#fff;
+$button_background:$purple;
+$button_color:#fff;
+
+//$menu_active:#fdcdc9;
+$menu_active:$orange;
+$tab_accordion_background:#fff;
+$tab_accordion_color:$bleu;
+
+$message_sent_background:$orange;
+$message_recieved_background:#fdcdc9;
+$message_color:#fff;
+
+$goal_btn_class:"";
+
+$profile_button_background:#fef1df;
+$profile_button_color:$black;
+
+$confettiOverlay:'none';
+$speechBalloon:$bleu;
+
+$quote_omkaderd:#fff;
+
+$table_head_bg:$orange;
+$table_head_color:#fff;
+
+$flip_card_front:$orange;
+$flip_card_front_color:#fff;
+$flip_card_back:$grey2;
+$flip_card_back_color:$dark_grey;
+
+$menu_phone_background:#fff;
+
+$courses_color:$bleu;
+$courses_card_bg:none;

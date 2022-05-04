@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+/*tinymce editor*/
+.tox{
+  z-index: 5;
+}
+/* general */
+.hidden {
+  display: none;
+}
+.inline-block {
+  display: inline-block;
+}
+.alignRight {
+  text-align: right;
+}
+.pointer {
+  cursor: pointer;
+}
+.rowHover:hover,
+.table-striped tbody tr:nth-of-type(odd):hover {
+  /*border-top: 1px solid #ccc;*/
+  /*border-bottom: 2px solid #ccc;*/
+  background-color: #d9effb;
+}
+.whiteWrapper {
+  background-color: #fff;
+}
+.transWrapper {
+  min-height: calc(100vh - 80px);
+  padding-top: 80px;
+}
+/* color */
+.color_orange {
+  color: #fb9708;
+}
+.color_purple {
+  color: #e311f6;
+}
+.color_green {
+  color: #20d242;
+}
+.color_red {
+  color: #f80952;
+}
+/* navBar component */
+#profile-badge {
+  margin-right: 50px;
+}
+
+
+
+/* Linker menu */
+body{
+  margin-left: 0;
+  transition: all 0.5s;
+}
+body.menu_left_open{
+  margin-left: 450px;
+    transition: all 0.5s;
+}
+#menu_left {
+  position: fixed;
+  top: 0;
+  width: 450px;
+  height: 40px;
+  margin-right: -100%;
+  z-index: 1029;
+  right: -50px;
+  background-color: #f5f5f5;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+#menu_left.open #nav-icon {
+  float:right;
+
+}
+#nav-icon {
+  width: 28px;
+  height: 31px;
+  display: inline-block;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  right:20px;
+  position: fixed;
+  z-index: 1039;
+  top: 20px;
+  margin-left: 10px;
+  display: none;
+}
+.superuser #nav-icon,
+.coach #nav-icon,
+.admin #nav-icon {
+  display: block;
+}
+#nav-icon span {
+  display: block;
+  height: 3px;
+  position: absolute;
+  /*margin-bottom: 4px;*/
+  width: 100%;
+  background: #24335d;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.open #nav-icon span {
+  background: #f31942;
+}
+#nav-icon span:nth-child(1) {
+  top: 0px;
+}
+#nav-icon span:nth-child(2),
+#nav-icon span:nth-child(3) {
+  top: 8px;
+}
+#nav-icon span:nth-child(4) {
+  top: 16px;
+}
+.open #nav-icon span:nth-child(1) {
+  top: 15px;
+  width: 0%;
+  left: 50%;
+}
+.open #nav-icon span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.open #nav-icon span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.open #nav-icon span:nth-child(4) {
+  top: 15px;
+  width: 0%;
+  left: 50%;
+}
+#menu_left .menu_left_inner {
+  padding-left: 70px !important;
+  padding-top: 70px !important;
+  width: 400px !important;
+  font-size: 1.5rem !important;
+}
+.menu-left-link {
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+/* Settingspage o.a.*/
+.settings_container {
+  max-width: 800px;
+  margin: auto;
+}
+.overall-title {
+  border-bottom: 1px solid #eaeaeb;
+  color: rgba(49, 53, 55, 0.3);
+  height: 50px;
+  line-height: 50px;
+  padding-left: 60px;
+}
+.intervention-label {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: rgba(49, 53, 55, 0.4);
+}
+
+.light-text {
+  color: #6a6a6a;
+  font-size: 16px;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  line-height: 22px;
+}
+
+/* Module lessons */
+.lesson-controls {
+  color: #008dc9; /*#4fbdf4*/
+  font-size: 0.8rem;
+  float: right;
+}
+.questionnaire-controls {
+  color: #008dc9; /*#4fbdf4*/
+  font-size: 0.8rem;
+  float: right;
+}
+.control-heightener {
+  display: inline-block;
+  height: 19px;
+}
+.navbar{
+  border-bottom:none !important;
+}
+.json-textarea {
+  width: 100%;
+  height: 2000px;
+}
+.marginLeft30 {
+  margin-left: 30px;
+}
+.paddingLeft30 {
+  padding-left: 30px;
+}
+.valignTop {
+  vertical-align: top;
+}

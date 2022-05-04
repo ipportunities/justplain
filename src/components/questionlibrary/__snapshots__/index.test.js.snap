@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question Library should render correctly 1`] = `
+<div>
+  <Menu />
+  <Switch>
+    <Route
+      exact={true}
+      path="/question-library"
+    >
+      <QuestionLibraryOverview />
+    </Route>
+    <Route
+      path="/question-library/edit/:id"
+    >
+      <QuestionLibraryEdit />
+    </Route>
+  </Switch>
+</div>
+`;

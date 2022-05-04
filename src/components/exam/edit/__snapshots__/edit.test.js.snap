@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exam Type Edit should render correctly 1`] = `
+<div
+  className="lessoncontent edit"
+>
+  <nav
+    className="navbar navbar-expand-lg navbar-light overRule"
+  >
+    <h2>
+      <span
+        className="pointer"
+        onClick={[Function]}
+      >
+        undefined &gt; 
+      </span>
+      <span
+        className="pointer"
+        onClick={[Function]}
+      >
+        Exam Type
+      </span>
+    </h2>
+  </nav>
+  <div
+    className="row border-bottom border-info"
+  >
+    <div
+      className="col-6 offset-3"
+    >
+      <div
+        className="row"
+      >
+        <h1>
+          Edit exam type
+        </h1>
+      </div>
+      <div
+        className="row pb-1 pt-5"
+      >
+        <form
+          className="col-8"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="categoryName"
+            >
+              Exam title
+            </label>
+            <input
+              className="form-control pl-2 pr-2"
+              id="examTitle"
+              name="title"
+              onChange={[Function]}
+              type="text"
+            />
+          </div>
+        </form>
+        <div
+          className="col-4 align-self-center"
+        >
+          Total amount of questions: 0
+          <br />
+          Maximum achievable points: 0 - 0 pnts
+        </div>
+      </div>
+      <div
+        className="row pb-2"
+      >
+        <div
+          className="col"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="introText"
+            >
+              intro text
+            </label>
+            <input
+              className="form-control"
+              id="introText"
+              name="introText"
+              onChange={[Function]}
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="row pb-2"
+      >
+        <div
+          className="col"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="finishText"
+            >
+              finish text
+            </label>
+            <input
+              className="form-control"
+              id="finishText"
+              name="finishText"
+              onChange={[Function]}
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

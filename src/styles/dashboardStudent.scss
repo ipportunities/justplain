@@ -1,0 +1,17 @@
+///Om bij het inladen van de stylesheet geen onopgemaakt menu links te krijgen
+.dashboard.student .holder {
+  display: none;
+  .lessons{
+    .intervention{
+    display: none;
+    }
+  }
+}
+
+.courses_not_allowed{
+    text-align: center;
+    margin-top: 100px;
+    h1{
+      margin-bottom: 40px;
+    }
+}

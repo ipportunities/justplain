@@ -1,0 +1,95 @@
+.student_details {
+  .chat{
+    font-size: 0.7em;
+      max-width: 800px;
+      z-index: 0;
+      position: relative;
+      header{
+        .coach{
+          font-size: 19px;
+          font-weight:bold;
+        }
+        border-bottom: 2px solid #A1BDCA;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+      }
+      .illustration{
+        position: absolute;
+        right: -200px;
+        z-index: -1;
+        margin-top: -125px;
+        opacity: 0.5;
+      }
+      .chatContent{
+        width: 600px;
+        z-index: 1;
+        background: #fff;
+        padding: 20px 30px;
+        td:nth-child(2){
+          vertical-align: top;
+        }
+        td:nth-child(1){
+          padding-right: 20px;
+          img{
+            width: 64px;
+          }
+        }
+      }
+      .newMessage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .messages{
+
+        .message{
+          border-radius: 10px;
+          padding: 15px;
+          color: $dark_bleu;
+          width: 85%;
+          margin-bottom: 20px;
+          .name {
+            font-weight: bold;
+          }
+          .content{
+            padding-left: 0px;
+            margin-top: 0px;
+          }
+          .sendingTime{
+            width: 100%;
+            text-align: right;
+            padding-top: 20px;
+            color: #aaa;
+          }
+          &.received{
+            background: #FFECD5 0% 0% no-repeat padding-box;
+            border-radius: 20px 20px 20px 0;
+            opacity: 1;
+            .sendingTime{
+              /*text-align: left;*/
+            }
+          }
+          &.sent{
+            background: #E6EEF2 0% 0% no-repeat padding-box;
+            border: 1px solid #00000000;
+            border-radius: 20px 20px 0px 20px;
+            opacity: 1;
+            margin-left: 15%;
+          }
+        }
+
+      }
+      .newMessage{
+        margin-top:0;
+        border-radius: 60px;
+        border: 2px solid #A1BDCA;
+        padding: 10px 20px;
+      }
+
+      .input_no_bg{
+        border:none;
+        background: none;
+        padding: 0 0;
+        max-width: 100%;
+      }
+    }
+}

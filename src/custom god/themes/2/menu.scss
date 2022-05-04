@@ -1,0 +1,23 @@
+.theme_2 {
+  #menu_left{
+    color:$dark_bleu;
+    overflow: scroll;
+    .menu_left_inner{
+      padding-bottom: 70px;
+    }
+    .menu-left-link,
+    span{
+      display: inline-block;
+      color:$dark_bleu;
+      padding: 5px 0;
+    }
+    i{
+      display: none;
+    }
+  }
+}
+@media (max-width:$breakpoint) {
+  .theme_2 #nav-icon{
+    right: 20px !important;
+  }
+}

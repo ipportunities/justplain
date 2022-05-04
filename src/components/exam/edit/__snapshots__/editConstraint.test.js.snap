@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exam Type Constraint Edit should render correctly 1`] = `
+<div
+  className="row m-0"
+>
+  <input
+    className="form-control col-4 pl-2 pr-2"
+    disabled={true}
+    id="AmountOfQuestionsRange"
+    max={0}
+    min={0}
+    name="amountOfQuestions"
+    onChange={[Function]}
+    type="number"
+  />
+  <div
+    className="col"
+  >
+    / 0 (0-0 pnts)
+  </div>
+</div>
+`;

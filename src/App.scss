@@ -1,0 +1,502 @@
+@import "./styles/variabeles.scss";
+@import "./styles/alert.scss";
+@import "./styles/base.scss";
+@import "./styles/loginScreen.scss";
+@import "./styles/leftMenu.scss";
+@import "./styles/inputs.scss";
+@import "./styles/mediaLibrary.scss";
+@import "./styles/lessoncontent.scss";
+@import "./styles/lessonContentEdit.scss";
+@import "./styles/transitions.scss";
+@import "./styles/buttons.scss";
+@import "./styles/dashboardStudent.scss";
+@import "./styles/dashboardAdmin.scss";
+@import "./styles/dashboard.scss";
+@import "./styles/coach/chat.scss";
+@import "./styles/coach/journal.scss";
+@import "./styles/coach/lessons.scss";
+@import "./styles/coach/stress.scss";
+@import "./styles/coach.scss";
+@import "./styles/navBar.scss";
+@import "./styles/interventionSettings.scss";
+@import "./styles/errorPage.scss";
+@import "./styles/loadScreen.scss";
+@import "./styles/crumb.scss";
+@import "./styles/modal.scss";
+@import "./styles/registration.scss";
+@import "./styles/questionnaire.scss";
+@import "./styles/uitranslations.scss";
+@import "./styles/data.scss";
+@import "./styles/groupChat.scss";
+@import "./styles/emailsettings.scss";
+@import "./components/registrations/single.scss";
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+/* .modal-backdrop {
+  display: none;
+} */
+body{
+  font-family: 'Montserrat';
+}
+/* general */
+.hidden {
+  display: none;
+}
+.alignRight {
+  text-align: right;
+}
+.center{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.pointer {
+  cursor: pointer;
+}
+.rowHover:hover,
+.table-striped tbody tr:nth-of-type(odd):hover {
+  /*border-top: 1px solid #ccc;*/
+  /*border-bottom: 2px solid #ccc;*/
+  background-color: #d9effb;
+}
+.whiteWrapper {
+  background-color: #fff;
+  min-height: calc(100vh - 80px);
+  /* padding-top: 80px; */
+}
+.transWrapper {
+  min-height: calc(100vh - 80px);
+  padding-top: 80px;
+}
+/* color */
+.color_orange {
+  color: #fb9708;
+}
+.color_purple {
+  color: #e311f6;
+}
+.color_green {
+  color: #20d242;
+}
+.color_red {
+  color: #f80952;
+}
+.color_logo_orange {
+  color: #f8a161;
+}
+.color_logo_yellow {
+  color: #f7ecd3;
+}
+.color_logo_blue {
+  color: #2bbcd9;
+}
+/* navBar component */
+#profile-badge {
+  margin-right: 10px;
+}
+/* Dashboard */
+.dashboard_container {
+  width: 100%;
+  max-width: 960px;
+  padding: 20px;
+}
+.dashboard_container h1 {
+  color: #757575;
+  margin-bottom: 20px;
+}
+/* Dashboard small*/
+.dashboard_container_small {
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+}
+.dashboard_container_small h1 {
+  color: #757575;
+  margin-bottom: 20px;
+}
+.dashboard_card {
+  width: 230px;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 19px rgba(0, 0, 0, 0.19);
+}
+.dashboard_card:hover {
+  -webkit-animation-name: dashboard_card_animation; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  animation-name: dashboard_card_animation;
+  animation-duration: 0.7s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes dashboard_card_animation {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: -6px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+
+/* Standard syntax */
+@keyframes dashboard_card_animation {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: -6px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+.dashboard_card_header {
+  height: 130px;
+}
+.dashboard_card_header i {
+  font-size: 4em;
+  display: block;
+  margin-bottom: 20px;
+}
+.dashboard_card_body {
+  background-color: #fafafa;
+  height: 200px;
+}
+.dashboard_card_body h5 {
+  font-size: 1.03rem;
+}
+
+/* Linker menu */
+#menu_left {
+  position: fixed;
+  top: 80px;
+  width: 450px;
+  height: calc(100vh - 80px);
+  margin-left: -406px;
+}
+#nav-icon {
+  width: 24px;
+  height: 31px;
+  display: inline-block;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+#nav-icon span {
+  display: block;
+  height: 2px;
+  position: absolute;
+  /*margin-bottom: 4px;*/
+  width: 100%;
+  background: #333;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.open #nav-icon span {
+  background: #f31942;
+}
+#nav-icon span:nth-child(1) {
+  top: 0px;
+}
+#nav-icon span:nth-child(2),
+#nav-icon span:nth-child(3) {
+  top: 8px;
+}
+#nav-icon span:nth-child(4) {
+  top: 16px;
+}
+.open #nav-icon span:nth-child(1) {
+  top: 15px;
+  width: 0%;
+  left: 50%;
+}
+.open #nav-icon span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.open #nav-icon span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.open #nav-icon span:nth-child(4) {
+  top: 15px;
+  width: 0%;
+  left: 50%;
+}
+.menu_left_inner {
+  padding-left: 70px;
+  padding-top: 70px;
+  width: 400px;
+  font-size: 1.5rem;
+}
+.menu-left-link {
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+@media (max-width:990px) {
+  .superuser #nav-icon, .coach #nav-icon, .admin #nav-icon{
+    right: 10px !important;
+  }
+}
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+/*tinymce editor*/
+.tox{
+  z-index: 5;
+}
+/* general */
+.hidden {
+  display: none;
+}
+.inline-block {
+  display: inline-block;
+}
+.alignRight {
+  text-align: right;
+}
+.pointer {
+  cursor: pointer;
+}
+.rowHover:hover,
+.table-striped tbody tr:nth-of-type(odd):hover {
+  /*border-top: 1px solid #ccc;*/
+  /*border-bottom: 2px solid #ccc;*/
+  background-color: #d9effb;
+}
+.whiteWrapper {
+  background-color: #fff;
+}
+.transWrapper {
+  min-height: calc(100vh - 80px);
+  padding-top: 80px;
+}
+/* color */
+.color_orange {
+  color: #fb9708;
+}
+.color_purple {
+  color: #e311f6;
+}
+.color_green {
+  color: #20d242;
+}
+.color_red {
+  color: #f80952;
+}
+/* navBar component */
+#profile-badge {
+  margin-right: 50px;
+}
+
+
+
+/* Linker menu */
+body{
+  margin-left: 0;
+  transition: all 0.5s;
+}
+body.menu_left_open{
+  margin-left: 450px;
+    transition: all 0.5s;
+}
+#menu_left {
+  position: fixed;
+  top: 0;
+  width: 450px;
+  height: 40px;
+  margin-right: -100%;
+  z-index: 1029;
+  right: -50px;
+  background-color: #f5f5f5;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+#menu_left.open #nav-icon {
+  float:right;
+
+}
+#nav-icon {
+  width: 28px;
+  height: 31px;
+  display: inline-block;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  position: fixed;
+  z-index: 1039;
+  top: 20px;
+  margin-left: 10px;
+  display: none;
+}
+.superuser #nav-icon,
+.coach #nav-icon,
+.admin #nav-icon {
+  display: block;
+  right:20px;
+}
+#nav-icon span {
+  display: block;
+  height: 3px;
+  position: absolute;
+  /*margin-bottom: 4px;*/
+  width: 100%;
+  background: #24335d;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.open #nav-icon span {
+  background: #f31942;
+}
+#nav-icon span:nth-child(1) {
+  top: 0px;
+}
+#nav-icon span:nth-child(2),
+#nav-icon span:nth-child(3) {
+  top: 8px;
+}
+#nav-icon span:nth-child(4) {
+  top: 16px;
+}
+.open #nav-icon span:nth-child(1) {
+  top: 15px;
+  width: 0%;
+  left: 50%;
+}
+.open #nav-icon span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.open #nav-icon span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.open #nav-icon span:nth-child(4) {
+  top: 15px;
+  width: 0%;
+  left: 50%;
+}
+#menu_left .menu_left_inner {
+  padding-left: 70px !important;
+  padding-top: 70px !important;
+  width: 400px !important;
+  font-size: 1.5rem !important;
+}
+.menu-left-link {
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+/* Settingspage o.a.*/
+.settings_container {
+  max-width: 800px;
+  margin: auto;
+}
+.overall-title {
+  border-bottom: 1px solid #eaeaeb;
+  color: rgba(49, 53, 55, 0.3);
+  height: 50px;
+  line-height: 50px;
+  padding-left: 60px;
+}
+.intervention-label {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: rgba(49, 53, 55, 0.4);
+}
+
+.light-text {
+  color: #6a6a6a;
+  font-size: 16px;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  line-height: 22px;
+}
+
+/* Module lessons */
+.lesson-controls {
+  color: #008dc9; /*#4fbdf4*/
+  font-size: 0.8rem;
+  float: right;
+}
+.questionnaire-controls {
+  color: #008dc9; /*#4fbdf4*/
+  font-size: 0.8rem;
+  float: right;
+}
+.control-heightener {
+  display: inline-block;
+  height: 19px;
+}
+.navbar{
+  border-bottom:none !important;
+}
+.json-textarea {
+  width: 100%;
+  height: 2000px;
+}
+.marginLeft30 {
+  margin-left: 30px;
+}
+.paddingLeft30 {
+  padding-left: 30px;
+}
+.valignTop {
+  vertical-align: top;
+}

@@ -1,0 +1,98 @@
+import React, {useState, useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import t from "../../translate";
+import LogOut from "./logout";
+import LinkBox from "../../profile/linkBox.js";
+import $ from "jquery";
+import { setActivePart } from "../../../actions";
+import { setShowLeftMenu, setActivePage } from "../../../actions";
+import {appSettings} from "../../../custom/settings";
+
+const MenuStudent = props => {
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const [logoToUse, setLogoToUse] = useState('');
+
+  const activeIntervention = useSelector(state => state.activeIntervention);
+  const intervention = useSelector(state => state.intervention);
+
+  const auth = useSelector(state => state.auth);
+  const [accesToMultipleInterventions, setAccesToMultipleInterventions] = useState(false);
+
+  useEffect(() => {
+    if(auth.rights.interventions.length > 1){
+      setAccesToMultipleInterventions(true)
+    }
+  }, [auth]);
+
+  /// dit zou een aparte functie component kunnen worden <= wordt bij leftbottom gebruikt
+  useEffect(() => {
+    if(intervention.id > 0){
+      if(typeof intervention.settings.logo != 'undefined' && intervention.settings.logo != '')
+      {
+        setLogoToUse(intervention.settings.logo)
+      } else {
+        setLogoToUse(appSettings.logo)
+      }
+    }
+    window.addEventListener('resize', closeAuto)
+  }, [intervention]);
+
+  /// close on resize if is open and in desktop view
+  function closeAuto(){
+    if($("#menu_left").hasClass("open") && !$(".menu .phone").is(":visible")){
+      dispatch(setShowLeftMenu(false))
+    }
+  }
+
+  const changeActivePage = (page_id) => {
+    dispatch(setShowLeftMenu(false))
+    dispatch(setActivePart('page'));
+    dispatch(setActivePage(page_id));
+    history.push("/course/" + intervention.id + "/page/" + page_id);
+  }
+
+  function goToOverview(){
+    dispatch(setShowLeftMenu(false))
+    setTimeout(function(){history.push("/courses/")}, 250);
+  }
+
+
+  const changeActivePart = (activePart) => {
+    dispatch(setActivePart(activePart));
+    dispatch(setShowLeftMenu(false))
+    history.push("/course/"+activeIntervention+"/"+activePart);
+  }
+
+  return (
+    <div>
+      <img src={logoToUse} className="logo"/>
+      <div className="items">
+        {accesToMultipleInterventions ?
+          <div className="item" onClick={()=>goToOverview()}>
+            <div className="menu-left-link">{t("Mijn")} {t(appSettings.interventieNameMeervoud.toLowerCase())}</div>
+          </div>
+          :<></>}
+        {appSettings.myProfileInMenu ?
+          <div className="item" onClick={()=>changeActivePart('settings')}>
+            <div className="menu-left-link">{t('Mijn profiel')}</div>
+          </div>
+          :''}
+        {intervention.settings.pages.map((page, key) => (
+          <div key={key} className="item" onClick={()=>changeActivePage(page.id)}>
+            <div className="menu-left-link">{page.title}</div>
+          </div>
+        ))}
+        <LogOut/>
+
+      </div>
+
+      {appSettings.profile != false && appSettings.myProfileInMenu != true ? <LinkBox/>:false}
+    </div>
+  );
+};
+
+export default MenuStudent;

@@ -1,0 +1,117 @@
+  .theme_3{
+  .dashboard{
+    .confettiHolder {
+      .confettiOverlay{
+        background: #fff;
+      }
+    }
+    .holder{
+      display: flex !important;
+      .left{
+        background: #f8e3b6 !important;
+        .content{
+          .menu{
+            box-shadow: none !important;
+            color:$color;
+            -webkit-border-top-left-radius: 30px;
+            -webkit-border-bottom-left-radius: 30px;
+            -moz-border-radius-topleft: 30px;
+            -moz-border-radius-bottomleft: 30px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            .part.active{
+              background: $btn-primary-background;
+            }
+            .parent{
+              margin-bottom: 28px;
+            }
+            .title{
+              font:Bold 28px/34px $font;
+            }
+            .items {
+              tr:not(.spacer){
+                font:300 20px/24px $font;
+                &.active td{
+                  background: #e66055 !important;
+                  font-weight: normal;
+                }
+              }
+              .newMessage{
+                background: $color;
+              }
+            }
+          }
+
+        }
+        .shapes{
+          display: none;
+        }
+
+      }
+      .right{
+        .content{
+          color:$color;
+          .chat {
+            &.extraInfo header table td:nth-child(3) .aboutCoach h2 {
+              font: Bold 24px/28px $font;
+            }
+            .messages .message{
+              box-shadow: none;
+              .sendingTime{
+                color:#666;
+              }
+              &.sent{
+                background: #a6cdd7;
+                border-radius: 30px 30px 0 30px;
+                .name{
+                  color:$color;
+                }
+                .content{
+                  color:$color;
+                }
+              }
+              &.received{
+                background: #f5e1ad;
+                border-radius: 30px 30px 30px 0 ;
+                .name{
+                  color:$color;
+                }
+                .content{
+                  color:$color;
+                }
+              }
+            }
+            .newMessageHolder .btn{
+              padding: 7px 20px 5px;
+              height: 42px;
+            }
+          }
+          .lessons{
+            .items{
+              .item{
+                font:300 20px/24px $font;
+                &.active{
+                  background: #e66055;
+                  font:300 20px/24px $font;
+                }
+              }
+            }
+          }
+          h1{
+            font-family: $font;
+          }
+          .lessons h2{
+            font: Bold 24px/28px $font !important;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+@media (max-width:$breakpoint) {
+  .theme_3 .dashboard .holder .left .content .menu .items tr:not(.spacer).active td{
+    background: none !important;
+  }
+}
